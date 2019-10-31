@@ -6,8 +6,8 @@ user = input()
 if user.lower() == "joachim":
     print("Good morning my creator!")
     print('')
-elif user.lower() == 'mieke':
-    print("Oh, what a pleasure! It feels great to have the Hello World Academy in the house.")
+elif user.lower() == 'robert':
+    print("Oh, what a pleasure! It feels great to have the Charite guys in the house.")
     time.sleep(1)
     print("Is Joachim somewhere around too?")
     answer = input()
