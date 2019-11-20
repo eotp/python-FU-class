@@ -7,3 +7,4 @@ dependencies:
 - jupyterlab
 - pandas
 - matplotlib
+- seaborn
