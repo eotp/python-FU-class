@@ -9,11 +9,18 @@ Dates, location and outline of the class are presented [here](https://www.fu-ber
   * Programming languages and IDEs 
   * Why Python?
 
-* 02 - 2019/11/08
+* 2019/11/08
 > cancelled! 
 
-* 03 - 2019/11/15
-  * tba.
-
+* 02 - 2019/11/15
+  * Python 101
+  
+* 03 - 2019/11/22
+  * Python 101
+  * Plotting with Python
+  * Introduction to pandas
+ 
+* 04 - 2019/11/29
+  * tba
 ...
 
