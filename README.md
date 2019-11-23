@@ -21,6 +21,14 @@ Dates, location and outline of the class are presented [here](https://www.fu-ber
   * Introduction to pandas
  
 * 04 - 2019/11/29
+  * Pandas recap
+  * Simple data analysis using pandas
+  * Reporting using nbsphinx 
+
+* 05 - 2019/12/06
+  * Exploratory data analysis (EDA) 
+  
+* 06 - 2019/12/13
   * tba
 ...
 
