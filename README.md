@@ -16,7 +16,7 @@ Dates, location and outline of the class are presented [here](https://www.fu-ber
   * Python 101
   
 * 03 - 2019/11/22
-  * Python 101
+  * Python 101 continued
   * Plotting with Python
   * Introduction to pandas
  
