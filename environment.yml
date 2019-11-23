@@ -9,6 +9,7 @@ dependencies:
 - matplotlib
 - seaborn
 - nbsphinx
+- pip
 
 - pip:
-  - install jupyter_sphinx_theme
+  - jupyter_sphinx_theme
