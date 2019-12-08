@@ -10,6 +10,7 @@ dependencies:
 - seaborn
 - nbsphinx
 - pip
+- scikit-learn
 
 - pip:
   - jupyter_sphinx_theme
