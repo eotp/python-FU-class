@@ -1,0 +1,19 @@
+name: class05
+channels:
+- conda-forge
+- defaults
+dependencies:
+- python=3.7
+- jupyterlab
+- pandas
+- geopandas
+- descartes
+- cartopy
+- folium
+- matplotlib
+- seaborn
+- nbsphinx
+- pip
+
+- pip:
+  - jupyter_sphinx_theme
