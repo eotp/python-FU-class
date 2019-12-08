@@ -29,6 +29,30 @@ Dates, location and outline of the class are presented [here](https://www.fu-ber
   * Exploratory data analysis (EDA) 
   
 * 06 - 2019/12/13
+  * Interpolation and curve fitting
+  * Inferential statistics
+  * Population vs. sample statistics
+  * Central Limit Theorem
+  * Point and interval estimates (confidence intervals)
+  * bootstrapping
+  * Hyothesis testing
+  * Introduction to Machine Learning
+  * Regression analysis
+  
+* 07 - 2020/01/10
   * tba
-...
 
+* 08 - 2020/01/17
+  * tba
+ 
+* 09 - 2020/01/24
+  * tba
+ 
+* 10 - 2020/01/31
+  * tba
+ 
+* 11 - 2020/02/07
+  * tba
+ 
+* 12 - 2020/02/14
+  * tba
