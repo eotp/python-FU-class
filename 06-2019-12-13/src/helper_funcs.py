@@ -145,22 +145,3 @@ def plot_confusion_matrix(cm, classes,
     plt.tight_layout()
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
-
-
-#def data_generator(n, rs=42):
-#    import numpy as np
-#    import pandas as pd
-#    np.random.seed(rs)
-#    x = np.random.uniform(low=0.0, high=1.0, size=n)
-#    y =  np.sin(2*np.pi*x) + np.random.normal(loc=0, scale=0.35, size=n)
-#    return pd.DataFrame({"x":x, "y":y})
-
-#def train_test_split(df, ratio=0.3, rs=42):
-#    np.random.seed(rs)
-#    idx = np.random.choice([True, False], size=df.shape[0],
-#                           replace=True, p=[1-ratio, ratio])
-#    train = df.loc[idx,:]
-#    test = df.loc[~idx,:]
-#    print("Train set: {}".format(train.shape))
-#    print("Test set: {}".format(test.shape))
-#    return train, test
