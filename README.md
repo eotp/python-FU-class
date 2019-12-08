@@ -9,8 +9,7 @@ Dates, location and outline of the class are presented [here](https://www.fu-ber
   * Programming languages and IDEs 
   * Why Python?
 
-* 2019/11/08
-> cancelled! 
+* 2019/11/08 (cancelled!)
 
 * 02 - 2019/11/15
   * Python 101
@@ -27,6 +26,7 @@ Dates, location and outline of the class are presented [here](https://www.fu-ber
 
 * 05 - 2019/12/06
   * Exploratory data analysis (EDA) 
+  * Study project - WW2
   
 * 06 - 2019/12/13
   * Interpolation and curve fitting
@@ -40,6 +40,7 @@ Dates, location and outline of the class are presented [here](https://www.fu-ber
   * Regression analysis
   
 * 07 - 2020/01/10
+  * Presentations study project
   * tba
 
 * 08 - 2020/01/17
