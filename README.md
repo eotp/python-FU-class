@@ -32,25 +32,31 @@ Dates, location and outline of the class are presented [here](https://www.fu-ber
   * Interpolation and curve fitting
   * Inferential statistics
   * Population vs. sample statistics
+
+  
+* 07 - 2020/01/10
+  * Presentations study project
+  * Basics of git
   * Central Limit Theorem
   * Point and interval estimates (confidence intervals)
   * bootstrapping
   * Hyothesis testing
-  * Introduction to Machine Learning
-  * Regression analysis
-  
-* 07 - 2020/01/10
-  * Presentations study project
-  * tba
+
 
 * 08 - 2020/01/17
-  * tba
+  * Introduction to Machine Learning
+  * Regression analysis
+  * Scikit Learn
+  * Logisitic regression
+  * Hyperparamter tuning
+  * Polynomial Regression
  
 * 09 - 2020/01/24
-  * tba
+  * Spyder IDE
+  * Object oriented programming - Python classes
  
 * 10 - 2020/01/31
-  * tba
+  * Web scraping
  
 * 11 - 2020/02/07
   * tba
