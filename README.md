@@ -63,3 +63,22 @@ Dates, location and outline of the class are presented [here](https://www.fu-ber
  
 * 12 - 2020/02/14
   * tba
+
+
+*** 
+In order to re-run the class materials I encourage you to use the [conda](https://conda.io/docs/) package manager. Once installed, create an environment and install all required dependencies on your machine by typing 
+
+`conda env create -f environment.yml`
+
+into your console. You activate your new environment by typing 
+
+`source activate fupy` (on LINUX and Mac) or
+
+`activate fupy` (on WINDOWS). 
+
+Then you are ready to go (if you are stuck check out the [conda documentation site](https://conda.io/docs/user-guide/tasks/manage-environments.html#)). Alternatively, you may launch [binder](https://mybinder.org/) to get a reproducible executable environment immediately in your browser. Simply click the _launch binder_ icon below, or go [here](https://mybinder.org/v2/gh/eotp/python-FU-WiSe1920/master?urlpath=lab).
+
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/eotp/python-FU-WiSe1920/master?urlpath=lab)
+
+***
