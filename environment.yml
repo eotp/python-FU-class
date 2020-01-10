@@ -15,6 +15,9 @@ dependencies:
 - pip
 - scikit-learn
 - statsmodels
+- descartes
+- cartopy
+- folium
 
 - pip:
   - jupyter_sphinx_theme
