@@ -32,7 +32,6 @@ Dates, location and outline of the class are presented [here](https://www.fu-ber
   * Interpolation and curve fitting
   * Inferential statistics
   * Population vs. sample statistics
-
   
 * 07 - 2020/01/10
   * Presentations study project
@@ -42,8 +41,14 @@ Dates, location and outline of the class are presented [here](https://www.fu-ber
   * bootstrapping
   * Hyothesis testing
 
-
 * 08 - 2020/01/17
+  * Basics of git
+  * Central Limit Theorem
+  * Point and interval estimates (confidence intervals)
+  * bootstrapping
+  * Hyothesis testing
+
+* 09 - 2020/01/24  
   * Introduction to Machine Learning
   * Regression analysis
   * Scikit Learn
@@ -51,21 +56,19 @@ Dates, location and outline of the class are presented [here](https://www.fu-ber
   * Hyperparamter tuning
   * Polynomial Regression
  
-* 09 - 2020/01/24
+* 10 - 2020/01/31
   * Spyder IDE
   * Object oriented programming - Python classes
  
-* 10 - 2020/01/31
-  * Web scraping
- 
 * 11 - 2020/02/07
-  * tba
+  * Web scraping
  
 * 12 - 2020/02/14
   * tba
 
 
 *** 
+
 In order to re-run the class materials I encourage you to use the [conda](https://conda.io/docs/) package manager. Once installed, create an environment and install all required dependencies on your machine by typing 
 
 `conda env create -f environment.yml`
