@@ -1,0 +1,13 @@
+name: class06
+channels:
+- conda-forge
+- defaults
+dependencies:
+- python=3.7
+- jupyterlab
+- numpy
+- pandas
+- matplotlib
+- seaborn
+- scipy
+- statsmodels
