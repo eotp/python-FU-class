@@ -34,12 +34,7 @@ Dates, location and outline of the class are presented [here](https://www.fu-ber
   * Population vs. sample statistics
   
 * 07 - 2020/01/10
-  * Presentations study project
-  * Basics of git
-  * Central Limit Theorem
-  * Point and interval estimates (confidence intervals)
-  * bootstrapping
-  * Hyothesis testing
+  * Presentations study projects
 
 * 08 - 2020/01/17
   * Basics of git
