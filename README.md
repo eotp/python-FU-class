@@ -74,7 +74,7 @@ into your console. You activate your new environment by typing
 
 `activate fupy` (on WINDOWS). 
 
-Then you are ready to go (if you are stuck check out the [conda documentation site](https://conda.io/docs/user-guide/tasks/manage-environments.html#)). Alternatively, you may launch [binder](https://mybinder.org/) to get a reproducible executable environment immediately in your browser. Simply click the _launch binder_ icon below, or go [here](https://mybinder.org/v2/gh/eotp/python-FU-WiSe1920/master?urlpath=lab).
+Then you are ready to go (if you are stuck check out the [conda documentation site](https://conda.io/docs/user-guide/tasks/manage-environments.html#)). Alternatively, you may launch [binder](https://mybinder.org/) to get a reproducible executable environment immediately in your browser. Simply click the _launch binder_ icon below.
 
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/eotp/python-FU-WiSe1920/master?urlpath=lab)
