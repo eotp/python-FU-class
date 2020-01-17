@@ -1,0 +1,1198 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Exploratory Data Analysis in Action - EDA: Targets &mdash; End Year Project 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="2. Exploratory Data Analysis in Action - EDA: Airplanes" href="05-04b-EDA_Airplanes-template.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> End Year Project
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="05-04a-EDA_Number_of_attacks-template.html">1. Exploratory Data Analysis in Action - EDA: Number of attacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-04b-EDA_Airplanes-template.html">2. Exploratory Data Analysis in Action - EDA: Airplanes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Exploratory Data Analysis in Action - EDA: Targets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Research-questions">3.1. Research questions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">End Year Project</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>3. Exploratory Data Analysis in Action - EDA: Targets</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/05-04c-EDA_Targets-template.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Exploratory-Data-Analysis-in-Action---EDA:-Targets">
+<h1>3. Exploratory Data Analysis in Action - EDA: Targets<a class="headerlink" href="#Exploratory-Data-Analysis-in-Action---EDA:-Targets" title="Permalink to this headline">¶</a></h1>
+<p>In this section we explore the <a class="reference external" href="https://www.kaggle.com/usaf/world-war-ii">Arial Bombing Data Set</a> and apply techniques referred to as <strong>Exploratory Data Analysis</strong>.</p>
+<p><strong>Import statements</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+<p><strong>Global settings</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">999</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_columns</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Load data set</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="n">gdf_europe</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span> <span class="nb">open</span><span class="p">(</span> <span class="s2">&quot;../data/gdf_europe&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span> <span class="p">)</span> <span class="p">)</span>
+<span class="n">europe</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span> <span class="nb">open</span><span class="p">(</span> <span class="s2">&quot;../data/europe.p&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Research-questions">
+<h2>3.1. Research questions<a class="headerlink" href="#Research-questions" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="mailto:__&#37;&#52;&#48;Targets__">__<span>&#64;</span>Targets__</a> - Q1: Which cities were the 15 most frequent targets? - Q2: How much high explosives (in tons) went down on the 25 most frequent targets? - Q3: How did the aerial attacks change over time for the 15 most frequent targeted cities?</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df_tar</span> <span class="o">=</span> <span class="n">gdf_europe</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df_tar</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Mission ID</th>
+      <th>Mission Date</th>
+      <th>Country</th>
+      <th>Aircraft Series</th>
+      <th>Target Country</th>
+      <th>Target City</th>
+      <th>Target Type</th>
+      <th>Target Industry</th>
+      <th>Target Latitude</th>
+      <th>Target Longitude</th>
+      <th>Attacking Aircraft</th>
+      <th>High Explosives Weight (Tons)</th>
+      <th>Total Weight (Tons)</th>
+      <th>year</th>
+      <th>month</th>
+      <th>day</th>
+      <th>Altitude (meters)</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1943-08-15</td>
+      <td>USA</td>
+      <td>A36</td>
+      <td>ITALY</td>
+      <td>SPADAFORA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>38.22</td>
+      <td>15.37</td>
+      <td>NaN</td>
+      <td>10.0</td>
+      <td>10.0</td>
+      <td>1943</td>
+      <td>8</td>
+      <td>15</td>
+      <td>NaN</td>
+      <td>POINT (15.37000 38.22000)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1943-08-15</td>
+      <td>USA</td>
+      <td>A36</td>
+      <td>ITALY</td>
+      <td>COSENZA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>39.27</td>
+      <td>16.25</td>
+      <td>NaN</td>
+      <td>9.0</td>
+      <td>9.0</td>
+      <td>1943</td>
+      <td>8</td>
+      <td>15</td>
+      <td>NaN</td>
+      <td>POINT (16.25000 39.27000)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1943-08-15</td>
+      <td>USA</td>
+      <td>A36</td>
+      <td>ITALY</td>
+      <td>GIOJA TAURO</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>38.43</td>
+      <td>15.90</td>
+      <td>NaN</td>
+      <td>7.5</td>
+      <td>7.5</td>
+      <td>1943</td>
+      <td>8</td>
+      <td>15</td>
+      <td>NaN</td>
+      <td>POINT (15.90000 38.43000)</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>1943-08-15</td>
+      <td>USA</td>
+      <td>A36</td>
+      <td>ITALY</td>
+      <td>SCILLA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>38.23</td>
+      <td>15.72</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1943</td>
+      <td>8</td>
+      <td>15</td>
+      <td>NaN</td>
+      <td>POINT (15.72000 38.23000)</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>1943-08-15</td>
+      <td>USA</td>
+      <td>A36</td>
+      <td>ITALY</td>
+      <td>GIOJA TAURO</td>
+      <td>NaN</td>
+      <td>ARMAMENT AND ORDNANCE PLANTS</td>
+      <td>38.43</td>
+      <td>15.90</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1943</td>
+      <td>8</td>
+      <td>15</td>
+      <td>NaN</td>
+      <td>POINT (15.90000 38.43000)</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>178198</th>
+      <td>178660</td>
+      <td>1945-02-15</td>
+      <td>NaN</td>
+      <td>B25</td>
+      <td>ITALY</td>
+      <td>SPILIMBERGO</td>
+      <td>NaN</td>
+      <td>SUPPLY DUMPS AND WAREHOUSES</td>
+      <td>46.10</td>
+      <td>12.90</td>
+      <td>18.0</td>
+      <td>36.0</td>
+      <td>36.0</td>
+      <td>1945</td>
+      <td>2</td>
+      <td>15</td>
+      <td>3810.0</td>
+      <td>POINT (12.90000 46.10000)</td>
+    </tr>
+    <tr>
+      <th>178199</th>
+      <td>178661</td>
+      <td>1945-02-15</td>
+      <td>NaN</td>
+      <td>B25</td>
+      <td>ITALY</td>
+      <td>SPILIMBERGO</td>
+      <td>NaN</td>
+      <td>SUPPLY DUMPS AND WAREHOUSES</td>
+      <td>46.10</td>
+      <td>12.90</td>
+      <td>18.0</td>
+      <td>36.0</td>
+      <td>36.0</td>
+      <td>1945</td>
+      <td>2</td>
+      <td>15</td>
+      <td>3810.0</td>
+      <td>POINT (12.90000 46.10000)</td>
+    </tr>
+    <tr>
+      <th>178200</th>
+      <td>178662</td>
+      <td>1945-02-15</td>
+      <td>NaN</td>
+      <td>B24</td>
+      <td>HUNGARY</td>
+      <td>ARAD</td>
+      <td>NaN</td>
+      <td>"RR INSTALLATIONS,  TRACKS,  MARSHALLING YARDS...</td>
+      <td>46.18</td>
+      <td>21.32</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1945</td>
+      <td>2</td>
+      <td>15</td>
+      <td>NaN</td>
+      <td>POINT (21.32000 46.18000)</td>
+    </tr>
+    <tr>
+      <th>178201</th>
+      <td>178663</td>
+      <td>1945-02-15</td>
+      <td>GREAT BRITAIN</td>
+      <td>LIB</td>
+      <td>GREECE</td>
+      <td>ABBAZIA</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>45.32</td>
+      <td>14.28</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>1945</td>
+      <td>2</td>
+      <td>15</td>
+      <td>NaN</td>
+      <td>POINT (14.28000 45.32000)</td>
+    </tr>
+    <tr>
+      <th>178202</th>
+      <td>178664</td>
+      <td>1945-02-15</td>
+      <td>GREAT BRITAIN</td>
+      <td>LIB</td>
+      <td>NaN</td>
+      <td>FIUME OIL REFINERY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>45.33</td>
+      <td>14.43</td>
+      <td>68.0</td>
+      <td>NaN</td>
+      <td>221.5</td>
+      <td>1945</td>
+      <td>2</td>
+      <td>15</td>
+      <td>NaN</td>
+      <td>POINT (14.43000 45.33000)</td>
+    </tr>
+  </tbody>
+</table>
+<p>120068 rows × 18 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">## your code here ...</span>
+
+<span class="n">frequent_targets</span> <span class="o">=</span> <span class="n">df_tar</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Target City&#39;</span><span class="p">)[</span><span class="s1">&#39;Target City&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;count&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">frequent_targets</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+    </tr>
+    <tr>
+      <th>Target City</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>BERLIN</th>
+      <td>2546</td>
+    </tr>
+    <tr>
+      <th>HAMBURG</th>
+      <td>1951</td>
+    </tr>
+    <tr>
+      <th>COLOGNE</th>
+      <td>1907</td>
+    </tr>
+    <tr>
+      <th>BREMEN</th>
+      <td>1880</td>
+    </tr>
+    <tr>
+      <th>KIEL</th>
+      <td>1281</td>
+    </tr>
+    <tr>
+      <th>KASSEL</th>
+      <td>1231</td>
+    </tr>
+    <tr>
+      <th>MUNICH</th>
+      <td>1005</td>
+    </tr>
+    <tr>
+      <th>MERSEBURG</th>
+      <td>1003</td>
+    </tr>
+    <tr>
+      <th>FRANKFURT AM MAIN</th>
+      <td>970</td>
+    </tr>
+    <tr>
+      <th>BREST</th>
+      <td>968</td>
+    </tr>
+    <tr>
+      <th>HANNOVER</th>
+      <td>910</td>
+    </tr>
+    <tr>
+      <th>VIENNA</th>
+      <td>883</td>
+    </tr>
+    <tr>
+      <th>MANNHEIM</th>
+      <td>855</td>
+    </tr>
+    <tr>
+      <th>LUDWIGSHAFEN</th>
+      <td>826</td>
+    </tr>
+    <tr>
+      <th>ESSEN</th>
+      <td>810</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">## your code here ...</span>
+<span class="c1">#df_tar.groupby(&#39;Target City&#39;)[(&#39;count&#39;, &#39;High Explosives Weight (Tons)&#39;)].count()#.agg([&#39;count&#39;]).sort_values(&#39;count&#39;, ascending = False)</span>
+<span class="c1">#df_tar.groupby(&#39;Target City&#39;)[(&#39;Target City&#39;, &#39;High Explosives Weight (Tons)&#39;)].transform(lambda x: np.arange(1, len(x)+1))</span>
+
+
+<span class="n">df_tar</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">df_tar</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Target City&#39;</span><span class="p">)[</span><span class="s1">&#39;Target City&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+
+<span class="n">df_tar</span><span class="p">[</span><span class="s1">&#39;count_bombs&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">df_tar</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Target City&#39;</span><span class="p">)[</span><span class="s1">&#39;High Explosives Weight (Tons)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+
+
+<span class="n">df_bomb_test</span> <span class="o">=</span> <span class="n">df_tar</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Target City&#39;</span><span class="p">)[[</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="s1">&#39;count_bombs&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">df_bomb_test</span>
+
+
+<span class="c1">#bombed_cities_list = list(df_bomb_test.index)</span>
+
+<span class="c1">#bombed_cities_index = [i for i in range(len(bombed_cities_list))]</span>
+
+
+<span class="c1">#series_bomb_test = pd.Series(bombed_cities_list, index = bombed_cities_index)</span>
+
+
+<span class="c1">#df_bomb_test2 = df_tar[&quot;Target City&quot;].isin(citiesBombList)</span>
+<span class="c1">#df_bombs = df_tar[df_bomb_test2]</span>
+
+<span class="c1">#df_bombs_new = df_bombs[[&quot;Target City&quot;, &quot;count_bombs&quot;]].copy()</span>
+<span class="c1">#df_bombs_new.drop_duplicates()</span>
+
+
+<span class="c1">#df_bomb_new = df_bombs.groupby(&#39;Target City&#39;)[&#39;High Explosives Weight (Tons)&#39;]</span>
+<span class="c1">#df_bombs</span>
+
+<span class="c1">#series_bomb_test.columns</span>
+
+<span class="c1">#pd.concat([series_bomb_test, df_bomb_new], axis = 1)</span>
+
+<span class="c1">#df_tar.groupby(&#39;count&#39;)[&#39;Target City&#39;].sort_values(&#39;count&#39;, ascending = False).head(1)</span>
+
+<span class="c1">#df_tar_dummy = df_tar.copy()</span>
+<span class="c1">#df_tar_dummy.set_index([&quot;Target City&quot;], inplace = True, append = True, drop = True)</span>
+
+<span class="c1">#df_tar_dummy.reset_index(inplace = True)</span>
+
+<span class="c1">#df_test2 = df_tar_dummy.groupby(&#39;Target City&#39;)[(&#39;level_0&#39;, &#39;count&#39;)].first().sort_values(&#39;count&#39;, ascending = False).head(25)#.reset_index(inplace= True)#.sort_values(&#39;count&#39;, ascending = False).head(25)</span>
+<span class="c1">#df_test2.reset_index(inplace = True)</span>
+<span class="c1">#df_tar_dummy.groupby(&#39;Target City&#39;)[&#39;count&#39;].first().reset_index()#.sort_values(&#39;count&#39;, ascending = False).head(25)</span>
+<span class="c1">#df_tar</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Target City</th>
+      <th>count</th>
+      <th>count_bombs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>840</th>
+      <td>BERLIN</td>
+      <td>2546.0</td>
+      <td>65504.0</td>
+    </tr>
+    <tr>
+      <th>2062</th>
+      <td>HAMBURG</td>
+      <td>1951.0</td>
+      <td>51343.0</td>
+    </tr>
+    <tr>
+      <th>1312</th>
+      <td>COLOGNE</td>
+      <td>1907.0</td>
+      <td>44159.0</td>
+    </tr>
+    <tr>
+      <th>982</th>
+      <td>BREMEN</td>
+      <td>1880.0</td>
+      <td>35293.0</td>
+    </tr>
+    <tr>
+      <th>2319</th>
+      <td>KIEL</td>
+      <td>1281.0</td>
+      <td>32116.0</td>
+    </tr>
+    <tr>
+      <th>2288</th>
+      <td>KASSEL</td>
+      <td>1231.0</td>
+      <td>27200.0</td>
+    </tr>
+    <tr>
+      <th>2999</th>
+      <td>MUNICH</td>
+      <td>1005.0</td>
+      <td>28321.0</td>
+    </tr>
+    <tr>
+      <th>2810</th>
+      <td>MERSEBURG</td>
+      <td>1003.0</td>
+      <td>31156.0</td>
+    </tr>
+    <tr>
+      <th>1822</th>
+      <td>FRANKFURT AM MAIN</td>
+      <td>970.0</td>
+      <td>27664.0</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>BREST</td>
+      <td>968.0</td>
+      <td>23870.0</td>
+    </tr>
+    <tr>
+      <th>2072</th>
+      <td>HANNOVER</td>
+      <td>910.0</td>
+      <td>23785.0</td>
+    </tr>
+    <tr>
+      <th>4391</th>
+      <td>VIENNA</td>
+      <td>883.0</td>
+      <td>35075.0</td>
+    </tr>
+    <tr>
+      <th>2713</th>
+      <td>MANNHEIM</td>
+      <td>855.0</td>
+      <td>20461.0</td>
+    </tr>
+    <tr>
+      <th>2651</th>
+      <td>LUDWIGSHAFEN</td>
+      <td>826.0</td>
+      <td>19398.0</td>
+    </tr>
+    <tr>
+      <th>1648</th>
+      <td>ESSEN</td>
+      <td>810.0</td>
+      <td>29671.0</td>
+    </tr>
+    <tr>
+      <th>4546</th>
+      <td>WILHELMSHAVEN</td>
+      <td>793.0</td>
+      <td>14952.0</td>
+    </tr>
+    <tr>
+      <th>1545</th>
+      <td>DUSSELDORF</td>
+      <td>792.0</td>
+      <td>15801.0</td>
+    </tr>
+    <tr>
+      <th>1029</th>
+      <td>BRUNSWICK</td>
+      <td>755.0</td>
+      <td>22182.0</td>
+    </tr>
+    <tr>
+      <th>172</th>
+      <td>45 00 N 010 40 E</td>
+      <td>741.0</td>
+      <td>577.0</td>
+    </tr>
+    <tr>
+      <th>1891</th>
+      <td>GELSENKIRCHEN</td>
+      <td>723.0</td>
+      <td>32279.0</td>
+    </tr>
+    <tr>
+      <th>1604</th>
+      <td>EMDEN</td>
+      <td>699.0</td>
+      <td>8033.0</td>
+    </tr>
+    <tr>
+      <th>1525</th>
+      <td>DUISBURG</td>
+      <td>676.0</td>
+      <td>22979.0</td>
+    </tr>
+    <tr>
+      <th>2676</th>
+      <td>MAGDEBURG</td>
+      <td>672.0</td>
+      <td>18067.0</td>
+    </tr>
+    <tr>
+      <th>3001</th>
+      <td>MUNSTER</td>
+      <td>596.0</td>
+      <td>14687.0</td>
+    </tr>
+    <tr>
+      <th>1502</th>
+      <td>DORTMUND</td>
+      <td>547.0</td>
+      <td>29983.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#df_tar.groupby(&#39;Target City&#39;)[[&#39;count&#39;, &#39;count_bombs&#39;]].first().reset_index().sort</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">df_bomb_test</span><span class="p">[</span><span class="s2">&quot;Target City&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">execution-count</dt>
+<dd class="field-odd"><p>9</p>
+</dd>
+</dl>
+<div class="highlight"><pre>
+[&#39;BERLIN&#39;,
+ &#39;HAMBURG&#39;,
+ &#39;COLOGNE&#39;,
+ &#39;BREMEN&#39;,
+ &#39;KIEL&#39;,
+ &#39;KASSEL&#39;,
+ &#39;MUNICH&#39;,
+ &#39;MERSEBURG&#39;,
+ &#39;FRANKFURT AM MAIN&#39;,
+ &#39;BREST&#39;,
+ &#39;HANNOVER&#39;,
+ &#39;VIENNA&#39;,
+ &#39;MANNHEIM&#39;,
+ &#39;LUDWIGSHAFEN&#39;,
+ &#39;ESSEN&#39;]
+</pre></div></div></blockquote>
+<p><strong>Q3: How did the aerial attacks change over time for the 15 most frequent targeted cities?</strong></p>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">## your code here ...</span>
+<span class="c1">#frequent_targets</span>
+<span class="c1">#df_tar</span>
+
+<span class="n">bombed_cities_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df_bomb_test</span><span class="p">[</span><span class="s2">&quot;Target City&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
+
+<span class="n">neue_spalte</span> <span class="o">=</span> <span class="n">df_tar</span><span class="p">[</span><span class="s2">&quot;Target City&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">bombed_cities_list</span><span class="p">)</span>
+
+<span class="n">df_change_overtime</span> <span class="o">=</span> <span class="n">df_tar</span><span class="p">[</span><span class="n">df_tar</span><span class="p">[</span><span class="s2">&quot;Target City&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">bombed_cities_list</span><span class="p">)]</span>
+
+
+
+<span class="n">df_change_overtime</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;Target City&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">])[</span><span class="s2">&quot;Target City&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">stacked</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Target Cities&quot;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequencies&quot;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+
+<span class="c1">#df_change.groupby(&quot;year&quot;)[&quot;Target City&quot;].count().plot()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;Frequencies&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/05-04c-EDA_Targets-template_20_1.png" src="_images/05-04c-EDA_Targets-template_20_1.png" />
+</div>
+</div>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="05-04b-EDA_Airplanes-template.html" class="btn btn-neutral float-left" title="2. Exploratory Data Analysis in Action - EDA: Airplanes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Gruppe Gelb
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

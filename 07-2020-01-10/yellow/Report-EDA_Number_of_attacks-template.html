@@ -1,0 +1,1010 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Exploratory Data Analysis in Action - EDA: Number of attacks &mdash; End Year Project 0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Exploratory Data Analysis in Action - EDA: Airplanes" href="05-04b-EDA_Airplanes-template.html" />
+    <link rel="prev" title="Programing with Python - FU Berlin - winter term 2019" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> End Year Project
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Exploratory Data Analysis in Action - EDA: Number of attacks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Research-questions">1.1. Research questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="05-04b-EDA_Airplanes-template.html">2. Exploratory Data Analysis in Action - EDA: Airplanes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-04c-EDA_Targets-template.html">3. Exploratory Data Analysis in Action - EDA: Targets</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">End Year Project</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>1. Exploratory Data Analysis in Action - EDA: Number of attacks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/05-04a-EDA_Number_of_attacks-template.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Exploratory-Data-Analysis-in-Action---EDA:-Number-of-attacks">
+<h1>1. Exploratory Data Analysis in Action - EDA: Number of attacks<a class="headerlink" href="#Exploratory-Data-Analysis-in-Action---EDA:-Number-of-attacks" title="Permalink to this headline">¶</a></h1>
+<p>In this section we explore the <a class="reference external" href="https://www.kaggle.com/usaf/world-war-ii">Arial Bombing Data Set</a> and apply techniques referred to as <strong>Exploratory Data Analysis</strong>.</p>
+<p><strong>Import statements</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+<p><strong>Global settings</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_rows</span> <span class="o">=</span> <span class="mi">999</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_columns</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Load data set</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="n">gdf_europe</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span> <span class="nb">open</span><span class="p">(</span> <span class="s2">&quot;../data/gdf_europe&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span> <span class="p">)</span> <span class="p">)</span>
+<span class="n">europe</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span> <span class="nb">open</span><span class="p">(</span> <span class="s2">&quot;../data/europe.p&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="Research-questions">
+<h2>1.1. Research questions<a class="headerlink" href="#Research-questions" title="Permalink to this headline">¶</a></h2>
+<p><strong>&#64;Number of attacks</strong> - Q1: How many attacks were launched between 1939 and 1945 over Europe? - Q2: Which Allied Force was responsible for the most of the attacks? Did this change over time? - Q3: Which Allied Force launched the most attacks against Germany? - Q4: Is there a seasonal pattern in the attacks against Germany (e.g. winter vs. summer)? - Q5: Which area experienced the highest number of attacks? Did the area change over time?</p>
+<blockquote>
+<div><p><strong>Q1: How many attacks were launched between 1939 and 1945 over Europe?</strong></p>
+</div></blockquote>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">## your code here</span>
+<span class="c1">#df_noa[&quot;Target Country&quot;].unique()</span>
+
+<span class="n">countries</span> <span class="o">=</span> <span class="n">europe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">europe</span><span class="p">[</span><span class="s2">&quot;continent&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Europe&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span>
+<span class="n">countries</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">countries</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+
+<span class="n">countriesList</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">countries</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+
+<span class="n">new</span> <span class="o">=</span> <span class="n">df_noa</span><span class="p">[</span><span class="s2">&quot;Target Country&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">countriesList</span><span class="p">)</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">df_noa</span><span class="p">[</span><span class="n">new</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">execution-count</dt>
+<dd class="field-odd"><p>24</p>
+</dd>
+</dl>
+<div class="highlight"><pre>
+112123
+</pre></div></div></blockquote>
+<p><strong>Q2: Which Allied Force was responsible for the most of the attacks? Did this change over time?</strong></p>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">## your code here</span>
+<span class="n">df_allies</span> <span class="o">=</span> <span class="n">df_noa</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">df_noa</span><span class="p">[</span><span class="s1">&#39;Country&#39;</span><span class="p">])]</span>
+<span class="n">df_allies2</span> <span class="o">=</span> <span class="n">df_allies</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Country&quot;</span><span class="p">)</span>
+
+
+<span class="c1">#data.groupby([&#39;date&#39;,&#39;type&#39;]).count()[&#39;amount&#39;].plot(ax=ax)</span>
+
+<span class="c1"># use unstack()</span>
+<span class="n">df_allies</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="s1">&#39;Country&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">df_allies2</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="c1">#The attack from SA isnt on the list because it has only attacked once, meaning it is only displayed as a dot</span>
+<span class="c1">#The attacks from AUS happen all in the same year, hence only a dot.</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Mission ID</th>
+      <th>Mission Date</th>
+      <th>Aircraft Series</th>
+      <th>Target Country</th>
+      <th>Target City</th>
+      <th>Target Type</th>
+      <th>Target Industry</th>
+      <th>Target Latitude</th>
+      <th>Target Longitude</th>
+      <th>Attacking Aircraft</th>
+      <th>High Explosives Weight (Tons)</th>
+      <th>Total Weight (Tons)</th>
+      <th>year</th>
+      <th>month</th>
+      <th>day</th>
+      <th>Altitude (meters)</th>
+      <th>geometry</th>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>AUSTRALIA</th>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>GREAT BRITAIN</th>
+      <td>27999</td>
+      <td>27999</td>
+      <td>27992</td>
+      <td>27772</td>
+      <td>27999</td>
+      <td>23338</td>
+      <td>26828</td>
+      <td>27999</td>
+      <td>27999</td>
+      <td>15420</td>
+      <td>22179</td>
+      <td>24042</td>
+      <td>27999</td>
+      <td>27999</td>
+      <td>27999</td>
+      <td>8155</td>
+      <td>27999</td>
+    </tr>
+    <tr>
+      <th>SOUTH AFRICA</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>USA</th>
+      <td>43095</td>
+      <td>43095</td>
+      <td>43095</td>
+      <td>43093</td>
+      <td>43095</td>
+      <td>41800</td>
+      <td>41909</td>
+      <td>43095</td>
+      <td>43095</td>
+      <td>26228</td>
+      <td>35541</td>
+      <td>40599</td>
+      <td>43095</td>
+      <td>43095</td>
+      <td>43095</td>
+      <td>31597</td>
+      <td>43095</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">fancy</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<img alt="_images/05-04a-EDA_Number_of_attacks-template_13_1.png" src="_images/05-04a-EDA_Number_of_attacks-template_13_1.png" />
+</div></blockquote>
+<p><strong>Q3: Which Allied Force launched the most attacks against Germany?</strong></p>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">## your code here</span>
+<span class="c1"># Just to confirm the results : df_allies.loc[(df_allies[&#39;Target Country&#39;] == &#39;GERMANY&#39;) &amp; (df_allies[&#39;Country&#39;] == &#39;USA&#39;)]</span>
+
+<span class="n">df_germany</span> <span class="o">=</span> <span class="n">df_allies</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_allies</span><span class="p">[</span><span class="s1">&#39;Target Country&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;GERMANY&#39;</span><span class="p">]</span><span class="c1">#.groupby(&#39;Country&#39;)</span>
+<span class="n">df_germany</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Country&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="c1">#GREAT BRITAIN</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Mission ID</th>
+      <th>Mission Date</th>
+      <th>Aircraft Series</th>
+      <th>Target Country</th>
+      <th>Target City</th>
+      <th>Target Type</th>
+      <th>Target Industry</th>
+      <th>Target Latitude</th>
+      <th>Target Longitude</th>
+      <th>Attacking Aircraft</th>
+      <th>High Explosives Weight (Tons)</th>
+      <th>Total Weight (Tons)</th>
+      <th>year</th>
+      <th>month</th>
+      <th>day</th>
+      <th>Altitude (meters)</th>
+      <th>geometry</th>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>GREAT BRITAIN</th>
+      <td>18929</td>
+      <td>18929</td>
+      <td>18929</td>
+      <td>18929</td>
+      <td>18929</td>
+      <td>16776</td>
+      <td>18887</td>
+      <td>18929</td>
+      <td>18929</td>
+      <td>9728</td>
+      <td>16112</td>
+      <td>16823</td>
+      <td>18929</td>
+      <td>18929</td>
+      <td>18929</td>
+      <td>6893</td>
+      <td>18929</td>
+    </tr>
+    <tr>
+      <th>USA</th>
+      <td>12566</td>
+      <td>12566</td>
+      <td>12566</td>
+      <td>12566</td>
+      <td>12566</td>
+      <td>12566</td>
+      <td>12566</td>
+      <td>12566</td>
+      <td>12566</td>
+      <td>8516</td>
+      <td>10565</td>
+      <td>12327</td>
+      <td>12566</td>
+      <td>12566</td>
+      <td>12566</td>
+      <td>9389</td>
+      <td>12566</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">## your code here</span>
+
+<span class="n">df_winter</span> <span class="o">=</span> <span class="n">df_germany</span><span class="o">.</span><span class="n">loc</span><span class="p">[((</span><span class="n">df_germany</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">12</span><span class="p">)</span> <span class="o">|</span>
+                    <span class="p">(</span><span class="n">df_germany</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">|</span>
+                    <span class="p">(</span><span class="n">df_germany</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">))]</span>
+
+<span class="n">df_summer</span> <span class="o">=</span> <span class="n">df_germany</span><span class="o">.</span><span class="n">loc</span><span class="p">[((</span><span class="n">df_germany</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span> <span class="o">|</span>
+                    <span class="p">(</span><span class="n">df_germany</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">7</span> <span class="p">)</span> <span class="o">|</span>
+                    <span class="p">(</span><span class="n">df_germany</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">8</span> <span class="p">))]</span>
+
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 1 line, 2 rows, index nr 1 (first position in the subplot)</span>
+<span class="n">df_winter_plot</span> <span class="o">=</span> <span class="n">df_winter</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df_winter</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">])[</span><span class="s1">&#39;Country&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;paleturquoise&quot;</span><span class="p">)</span>
+<span class="n">df_winter_plot</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Winter attacks&quot;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">18</span><span class="p">,</span> <span class="n">fontweight</span> <span class="o">=</span> <span class="s2">&quot;bold&quot;</span><span class="p">)</span>
+<span class="n">df_winter_plot</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Months&quot;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">df_winter_plot</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Frequencies&quot;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 1 line, 2 rows, index nr 2 (second position in the subplot)</span>
+<span class="n">df_summer_plot</span> <span class="o">=</span> <span class="n">df_summer</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df_summer</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">])[</span><span class="s1">&#39;Country&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;gold&quot;</span><span class="p">)</span>
+<span class="n">df_summer_plot</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Summer attacks&quot;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">18</span><span class="p">,</span> <span class="n">fontweight</span> <span class="o">=</span> <span class="s2">&quot;bold&quot;</span><span class="p">)</span>
+<span class="n">df_summer_plot</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Months&quot;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<span class="n">df_summer_plot</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Frequencies&quot;</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">fancy</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<img alt="_images/05-04a-EDA_Number_of_attacks-template_17_0.png" src="_images/05-04a-EDA_Number_of_attacks-template_17_0.png" />
+</div></blockquote>
+<p><strong>Q5: Which area in Germany experienced the highest number of attacks? Did the area change over time?</strong></p>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">## your code here</span>
+
+<span class="n">df_germany</span> <span class="o">=</span> <span class="n">df_noa</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_noa</span><span class="p">[</span><span class="s1">&#39;Target Country&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;GERMANY&#39;</span><span class="p">]</span>
+<span class="n">df_tally</span> <span class="o">=</span> <span class="n">df_germany</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;Target City&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+
+<span class="n">df_tally</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_tally</span><span class="p">[</span><span class="s2">&quot;Target Country&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">df_tally</span><span class="p">[</span><span class="s2">&quot;Target Country&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Mission ID</th>
+      <th>Mission Date</th>
+      <th>Country</th>
+      <th>Aircraft Series</th>
+      <th>Target Country</th>
+      <th>Target Type</th>
+      <th>Target Industry</th>
+      <th>Target Latitude</th>
+      <th>Target Longitude</th>
+      <th>Attacking Aircraft</th>
+      <th>High Explosives Weight (Tons)</th>
+      <th>Total Weight (Tons)</th>
+      <th>year</th>
+      <th>month</th>
+      <th>day</th>
+      <th>Altitude (meters)</th>
+      <th>geometry</th>
+    </tr>
+    <tr>
+      <th>Target City</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>BERLIN</th>
+      <td>2543</td>
+      <td>2543</td>
+      <td>1703</td>
+      <td>2543</td>
+      <td>2543</td>
+      <td>2543</td>
+      <td>2541</td>
+      <td>2543</td>
+      <td>2543</td>
+      <td>1773</td>
+      <td>2165</td>
+      <td>2452</td>
+      <td>2543</td>
+      <td>2543</td>
+      <td>2543</td>
+      <td>1733</td>
+      <td>2543</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">df_change</span> <span class="o">=</span> <span class="n">df_noa</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_noa</span><span class="p">[</span><span class="s1">&#39;Target City&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;BERLIN&#39;</span><span class="p">]</span>
+
+<span class="n">df_change</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;year&quot;</span><span class="p">)[</span><span class="s2">&quot;Target City&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+
+
+<span class="c1">#df_change.loc[df_change[&quot;year&quot;] == 1944].count()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x216b3363908&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/05-04a-EDA_Number_of_attacks-template_20_1.png" src="_images/05-04a-EDA_Number_of_attacks-template_20_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="05-04b-EDA_Airplanes-template.html" class="btn btn-neutral float-right" title="2. Exploratory Data Analysis in Action - EDA: Airplanes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Programing with Python - FU Berlin - winter term 2019" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Gruppe Gelb
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

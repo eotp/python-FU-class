@@ -1,0 +1,25 @@
+.. Gruppe Blau - Exploratory Data Analysis 'Targets' documentation master file, created by
+   sphinx-quickstart on Wed Dec 18 21:06:00 2019.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Gruppe Blau - Exploratory Data Analysis 'Targets''s documentation!
+=============================================================================
+
+**Exploratory Data Analysis**
+
+:Authors: Daria, Cedric, Leonid, Aleks
+:Date: |today|
+
+.. toctree::
+   :maxdepth: 2
+
+   Gruppe_Blau
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
