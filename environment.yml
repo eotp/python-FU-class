@@ -18,6 +18,7 @@ dependencies:
 - descartes
 - cartopy
 - folium
+- spyder
 
 - pip:
   - jupyter_sphinx_theme
