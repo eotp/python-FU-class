@@ -49,17 +49,17 @@ Dates, location and outline of the class are presented [here](https://www.fu-ber
   * Scikit Learn
   * Logisitic regression
   * Hyperparamter tuning
-  * Polynomial Regression
- 
+
 * 10 - 2020/01/31
+  * Polynomial Regression
   * Spyder IDE
   * Object oriented programming - Python classes
  
-* 11 - 2020/02/07
+* 2020/02/07 (cancelled!)
+  
+* 11 - 2020/02/14
   * Web scraping
- 
-* 12 - 2020/02/14
-  * tba
+  * Wrap-up
 
 
 *** 
