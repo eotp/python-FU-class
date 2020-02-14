@@ -1,4 +1,4 @@
-def text_exctraction(link):
+def text_extraction(link):
     # access the website
     page = requests.get(link)
     soup = BeautifulSoup(page.content, 'html.parser')

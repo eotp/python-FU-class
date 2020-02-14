@@ -23,7 +23,7 @@ def extract_comments(links, n_links=None, rs=42, verbose=True):
         if verbose:
             print(f'Processing link {e+1} from {n_links}: {link}')
             
-        txt = text_exctraction(link)
+        txt = text_extraction(link)
         cleaned_txt = clean_text(txt, ['\n', 'Schließen', '\r'])
         if cleaned_txt is not None:
             comments.append(cleaned_txt)
