@@ -15,12 +15,12 @@ Dates, location and outline of the class are presented [here](https://www.fu-ber
 * 03 - 2020/11/20
   * Python 101 continued
   * Plotting with Python
-  * Introduction to pandas
+  * Introduction to `pandas`
  
 * 04 - 2020/11/27
   * Pandas recap
-  * Simple data analysis using pandas
-  * Reporting using nbsphinx 
+  * Simple data analysis using `pandas`
+  * Reporting using `nbsphinx` 
 
 * 05 - 2020/12/04
   * Exploratory data analysis (EDA) 
@@ -49,13 +49,13 @@ Dates, location and outline of the class are presented [here](https://www.fu-ber
 
   * Introduction to Machine Learning
   * Regression analysis
-  * Scikit Learn
+  * `Scikit` Learn
   * Logisitic regression
   * Hyperparamter tuning
    
 * 11 - 2021/02/05
   * Polynomial Regression
-  * Spyder IDE
+  * `Spyder IDE`
   * Object oriented programming - Python classes
   
 * 12 - 2021/02/12
