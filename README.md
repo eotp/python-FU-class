@@ -1,66 +1,66 @@
-# Main repository for the Python class at FU Berlin, winter term 2019/20
+# Main repository for the Python class at FU Berlin, winter term 2020/21
 
-Dates, location and outline of the class are presented [here](https://www.fu-berlin.de/vv/de/lv/549631?m=348815&p=348375&pc=478016&sm=498562).
+Dates, location and outline of the class are presented [here](https://www.fu-berlin.de/vv/de/lv/634650).
 
 ## Content
 
-* 01 - 2019/11/01
+* 01 - 2020/11/06
   * Introduction into computational thinking
   * Programming languages and IDEs 
   * Why Python?
 
-* 2019/11/08 (cancelled!)
-
-* 02 - 2019/11/15
+* 02 - 2020/11/13
   * Python 101
   
-* 03 - 2019/11/22
+* 03 - 2020/11/20
   * Python 101 continued
   * Plotting with Python
   * Introduction to pandas
  
-* 04 - 2019/11/29
+* 04 - 2020/11/27
   * Pandas recap
   * Simple data analysis using pandas
   * Reporting using nbsphinx 
 
-* 05 - 2019/12/06
+* 05 - 2020/12/04
   * Exploratory data analysis (EDA) 
   * Study project - WW2
   
-* 06 - 2019/12/13
+* 06 - 2020/12/18
   * Interpolation and curve fitting
   * Inferential statistics
   * Population vs. sample statistics
   
-* 07 - 2020/01/10
+* 07 - 2020/01/08
   * Presentations study projects
 
-* 08 - 2020/01/17
+* 08 - 2021/01/15
+  * Presentations study projects
+
+* 09 - 2021/01/22  
   * Basics of git
   * Central Limit Theorem
   * Point and interval estimates (confidence intervals)
   * bootstrapping
-  * Hyothesis testing
+  * Hypothesis testing
 
-* 09 - 2020/01/24  
+
+* 10 - 2021/01/29
+
   * Introduction to Machine Learning
   * Regression analysis
   * Scikit Learn
   * Logisitic regression
   * Hyperparamter tuning
-
-* 10 - 2020/01/31
+   
+* 11 - 2021/02/05
   * Polynomial Regression
   * Spyder IDE
   * Object oriented programming - Python classes
- 
-* 2020/02/07 (cancelled!)
   
-* 11 - 2020/02/14
+* 12 - 2021/02/12
   * Web scraping
   * Wrap-up
-
 
 *** 
 
@@ -77,6 +77,6 @@ into your console. You activate your new environment by typing
 Then you are ready to go (if you are stuck check out the [conda documentation site](https://conda.io/docs/user-guide/tasks/manage-environments.html#)). Alternatively, you may launch [binder](https://mybinder.org/) to get a reproducible executable environment immediately in your browser. Simply click the _launch binder_ icon below.
 
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/eotp/python-FU-WiSe1920/master?urlpath=lab)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/eotp/python-FU-class/master?urlpath=lab)
 
 ***
