@@ -1,7 +1,7 @@
 cond = (
-    pop.age_group_name.isin(ages) & 
-    pop.location_name.isin(location) & 
-    pop.sex_name.isin(sex)
+    pop["age_group_name"].isin(ages) & 
+    pop["location_name"].isin(location) & 
+    pop["sex_name"].isin(sex)
 )
 
 pop_subset = pop.loc[cond,:]
