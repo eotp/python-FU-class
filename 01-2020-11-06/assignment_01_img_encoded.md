@@ -1,5 +1,7 @@
+<!-- omit in toc -->
 # Assignment 1
 
+_Due: 13.11.2020_
 1. Please follow the instructions below to install Conda.
 2. Get familiar with the Shell-Commands `cd`, `ls`, `pwd` and `mkdir`.
 3. Create a Conda environment called `fupy` with the packages `python=3.8` and `jupyterlab` installed.
@@ -7,6 +9,25 @@
 All information needed should be available below.
 
 If you should have any Questions don't hesitate to state them in our Webex-Teams channel!
+
+<!-- omit in toc -->
+# Table of Contents
+- [Conda Installation](#conda-installation)
+  - [Windows](#windows)
+  - [macOS](#macos)
+  - [Linux](#linux)
+    - [Download](#download)
+    - [Installation](#installation)
+- [Terminal Cheat Sheet](#terminal-cheat-sheet)
+  - [`ls`](#ls)
+  - [`pwd`](#pwd)
+  - [`cd`](#cd)
+  - [`mkdir`](#mkdir)
+- [Conda Cheat Sheet](#conda-cheat-sheet)
+  - [Creating an Conda environment from scratch](#creating-an-conda-environment-from-scratch)
+  - [Installing packages](#installing-packages)
+  - [Deleting environment](#deleting-environment)
+  - [Creating an Conda environment from an environment.yml file](#creating-an-conda-environment-from-an-environmentyml-file)
 
 # Conda Installation
 
@@ -7916,7 +7937,7 @@ Gu6kV2xOCfPeazKnHAMAANP0An7K8ZapUb7rF3QPvRcAANDXG+nZd+5fZgd8oJAHAICHty/i90Z+
 
 _Note: If you accidentally didn't initialize Conda you can do that by executing `~/miniconda3/bin/conda init`_
 
-## Terminal Cheat Sheet
+# Terminal Cheat Sheet
 
 - Hint: You can paste commands into the terminal using:
     - Windows: `CTRL + V`
@@ -7926,7 +7947,7 @@ _Note: If you accidentally didn't initialize Conda you can do that by executing 
 - Hint: You can autocomplete commands and arguments using `TAB`.
 - Hint: You can interrupt command execution using `CTRL + C` (e.g. if Conda gets stuck)
 
-### `ls`
+## `ls`
 
 - `ls` lists all files and directories in your current path.
 
@@ -7935,7 +7956,7 @@ _Note: If you accidentally didn't initialize Conda you can do that by executing 
     Desktop Documents Downloads miniconda3 Music Pictures Public Uni Videos
     ```
 
-### `pwd`
+## `pwd`
 
 - `pwd` returns your current path. Very useful if you should get lost!
 
@@ -7944,7 +7965,7 @@ _Note: If you accidentally didn't initialize Conda you can do that by executing 
     /home/aleks
     ```
 
-### `cd`
+## `cd`
 
 - `cd` (change directory) moves you into a specified directory
 - `..` states "one directory above". Thus by using `cd ..` you can switch to one directory above.
@@ -8000,7 +8021,7 @@ _Note: If you accidentally didn't initialize Conda you can do that by executing 
     /home/aleks
     ```
 
-### `mkdir`
+## `mkdir`
 
 - `mkdir` stands for _make directory_.
 
@@ -8043,7 +8064,7 @@ _Note: If you accidentally didn't initialize Conda you can do that by executing 
     /home/aleks/dir with spaces
     ```
 
-## Conda Cheat Sheet
+# Conda Cheat Sheet
 
 - As mentioned before Conda allows us to install Python packages easily, while making sure the package versions work well with another.
 
@@ -8056,7 +8077,7 @@ _Note: If you accidentally didn't initialize Conda you can do that by executing 
     conda config --add channels conda-forge
     ```
 
-### Creating an Conda environment from scratch
+## Creating an Conda environment from scratch
 
 - Once you have installed the Conda package manager, we create a virtual environment by installing Python and all other packages of interest.
 
@@ -8074,7 +8095,7 @@ _Note: If you accidentally didn't initialize Conda you can do that by executing 
     ```
 - After doing this you can see the changed environment in your Shells' prefix.
 
-### Installing packages
+## Installing packages
 
 - With the right environment activated you can use `conda install package_1 package_2 [..]` to install packages:
 
@@ -8084,13 +8105,13 @@ _Note: If you accidentally didn't initialize Conda you can do that by executing 
 
 - Conda will automatically install all packages on which the chosen ones depend.
 
-### Deleting environment
+## Deleting environment
 
 ```
 conda env remove -n environment_name
 ```
 
-### Creating a conda environment from an environment.yml file
+## Creating an Conda environment from an environment.yml file
 
 _Note: this will be used later in the lecture and is not part of the assignment_
 
