@@ -5,6 +5,7 @@ _Due: 13.11.2020_
 1. Please follow the instructions below to install Conda.
 2. Get familiar with the Shell-Commands `cd`, `ls`, `pwd` and `mkdir`.
 3. Create a Conda environment called `fupy` with the packages `python=3.8` and `jupyterlab` installed.
+4. Launch the `chatbot.py` application.
 
 All information needed should be available below.
 
@@ -28,6 +29,9 @@ If you should have any Questions don't hesitate to state them in our Webex-Teams
   - [Installing packages](#installing-packages)
   - [Deleting environment](#deleting-environment)
   - [Creating an Conda environment from an environment.yml file](#creating-an-conda-environment-from-an-environmentyml-file)
+- [Python](#python)
+  - [Launching Python](#launching-python)
+  - [Launching an Python Application](#launching-an-python-application)
 
 # Conda Installation
 
@@ -8126,3 +8130,39 @@ _Note: this will be used later in the lecture and is not part of the assignment_
 - Further you may use the Python module `pip` for downloading additional packages from PyPi, the Python Package Index.
 
 - Packaging in Python is still not yet completely free of pain, hence it is recommended to stay - if possible - within one realm (in our case Conda!), when you start to build more complex and sophisticated software.
+
+# Python
+
+## Launching Python
+
+- From your newly created conda environment you can launch the Python interpreter using (make sure, that you are in the right conda environment! Reminder: You can change the enviroment using `conda activate environment_name`):
+
+    ```
+    (fupy) aleks@pc$ python
+    Python 3.8.5 (default, Sep  4 2020, 07:30:14) 
+    [GCC 7.3.0] :: Anaconda, Inc. on linux
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>> 
+    ```
+
+## Launching an Python Application
+
+- Use `cd`, `ls` (and `pwd`) to navigate to the location you created/downloaded a Python file (ending with `.py`)
+
+    ```
+    (fupy) aleks@pc$ ls
+    Desktop Documents Downloads Music Pictures Public Uni Videos
+
+    (fupy) aleks@pc$ cd Uni/abv_dataanalysis_python/01_2020_11_06
+    (fupy) aleks@pc$ ls
+    chatbot.py
+    ```
+
+- Launch it using:
+
+    ```
+    (fupy) aleks@pc$ python chatbot.py
+    Hi, my name is Vincent.
+    What's your name?
+
+    ```
