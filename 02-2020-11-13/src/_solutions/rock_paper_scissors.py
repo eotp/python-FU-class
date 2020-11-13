@@ -1,4 +1,3 @@
-
 from random import choice
  
 rules = {'rock': 'paper', 'scissors': 'rock', 'paper': 'scissors'}
@@ -12,6 +11,7 @@ while True:
  
     elif human in rules:
         print('the computer played', computer, end='; ')
+        previous = previous[1:] + [human]
  
         if rules[computer] == human:  # if what beats the computer's choice is the human's choice...
             print('yay you win!')
