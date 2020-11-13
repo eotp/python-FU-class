@@ -31,6 +31,7 @@
 <li>Please follow the instructions below to install Conda.</li>
 <li>Get familiar with the Shell-Commands <code>cd</code>, <code>ls</code>, <code>pwd</code> and <code>mkdir</code>.</li>
 <li>Create a Conda environment called <code>fupy</code> with the packages <code>python=3.8</code> and <code>jupyterlab</code> installed.</li>
+<li>Launch the <code>chatbot.py</code> application.</li>
 </ol>
 <p>All information needed should be available below.</p>
 <p>If you should have any Questions don't hesitate to state them in our Webex-Teams channel!</p>
@@ -63,6 +64,12 @@
 <li><a href="#installing-packages">Installing packages</a></li>
 <li><a href="#deleting-environment">Deleting environment</a></li>
 <li><a href="#creating-an-conda-environment-from-an-environmentyml-file">Creating an Conda environment from an environment.yml file</a></li>
+</ul>
+</li>
+<li><a href="#python">Python</a>
+<ul>
+<li><a href="#launching-python">Launching Python</a></li>
+<li><a href="#launching-an-python-application">Launching an Python Application</a></li>
 </ul>
 </li>
 </ul>
@@ -8175,6 +8182,40 @@ aleks@pc$ pwd
 </li>
 <li>
 <p>Packaging in Python is still not yet completely free of pain, hence it is recommended to stay - if possible - within one realm (in our case Conda!), when you start to build more complex and sophisticated software.</p>
+</li>
+</ul>
+<h1 id="python">Python</h1>
+<h2 id="launching-python">Launching Python</h2>
+<ul>
+<li>
+<p>From your newly created conda environment you can launch the Python interpreter using (make sure, that you are in the right conda environment! Reminder: You can change the enviroment using <code>conda activate environment_name</code>):</p>
+<pre><code><code><div>(fupy) aleks@pc$ python
+Python 3.8.5 (default, Sep  4 2020, 07:30:14) 
+[GCC 7.3.0] :: Anaconda, Inc. on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; 
+</div></code></code></pre>
+</li>
+</ul>
+<h2 id="launching-an-python-application">Launching an Python Application</h2>
+<ul>
+<li>
+<p>Use <code>cd</code>, <code>ls</code> (and <code>pwd</code>) to navigate to the location you created/downloaded a Python file (ending with <code>.py</code>)</p>
+<pre><code><code><div>(fupy) aleks@pc$ ls
+Desktop Documents Downloads Music Pictures Public Uni Videos
+
+(fupy) aleks@pc$ cd Uni/abv_dataanalysis_python/01_2020_11_06
+(fupy) aleks@pc$ ls
+chatbot.py
+</div></code></code></pre>
+</li>
+<li>
+<p>Launch it using:</p>
+<pre><code><code><div>(fupy) aleks@pc$ python chatbot.py
+Hi, my name is Vincent.
+What's your name?
+
+</div></code></code></pre>
 </li>
 </ul>
 
