@@ -5,9 +5,15 @@ channels:
 dependencies:
 - python=3.7
 - jupyterlab
-- numpy
 - pandas
+- geopandas
+- descartes
+- cartopy
+- folium
 - matplotlib
 - seaborn
-- scipy
-- statsmodels
+- nbsphinx
+- pip
+
+- pip:
+  - jupyter_sphinx_theme
