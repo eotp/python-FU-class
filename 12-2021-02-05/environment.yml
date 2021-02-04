@@ -1,0 +1,16 @@
+name: class12
+channels:
+- conda-forge
+- defaults
+dependencies:
+- python=3.7
+- jupyterlab
+- numpy
+- pandas
+- scipy
+- matplotlib
+- seaborn
+- pip
+- scikit-learn
+- statsmodels
+- spyder
