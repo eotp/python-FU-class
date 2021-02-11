@@ -9,7 +9,7 @@ def clean_text(l, pattern):
         else:
             rv.append(s)
     try:
-        return rv[0]
+        return rv[1]
     except:
         print(f'An exception occured!\n')
         pass
