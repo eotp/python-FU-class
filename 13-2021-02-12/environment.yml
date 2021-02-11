@@ -1,0 +1,15 @@
+name: class13
+channels:
+- conda-forge
+- defaults
+dependencies:
+- python=3.8
+- jupyterlab
+- numpy
+- pandas
+- matplotlib
+- seaborn
+- spyder
+- wordcloud
+- requests
+- beautifulsoup4
