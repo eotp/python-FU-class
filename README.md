@@ -1,4 +1,4 @@
-# Main repository for the Python class at FU Berlin, winter term 2021
+# Main repository for the Python class at FU Berlin, summer term 2021
 
 Dates, location and outline of the class are presented [here](https://www.fu-berlin.de/vv/de/lv/658261).
 Starts at 13:15 to 16:30 CET
