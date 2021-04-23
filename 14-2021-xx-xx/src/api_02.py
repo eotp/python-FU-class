@@ -6,6 +6,7 @@ from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+import pydantic
 
 iris = datasets.load_iris()
 
@@ -70,3 +71,8 @@ def model_predict(sepal_length, sepal_width, petal_length, petal_width):
             "Predicted class name": predicted_class,
             "Predicted class": f"{prediction}"
            }
+
+@app.get("/bmi/calc/{height},{weight}")
+def bmi(height: int, weight: int):
+    bmi = height/weight * 25
+    return {"bmi calculated": str(bmi)}
