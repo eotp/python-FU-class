@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-    <html>
-    <head>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta charset="UTF-8">
         <title>Assignment 1</title>
         <style>
 </style>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
-<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link rel="stylesheet" href="Assignment%201-Dateien/katex.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="Assignment%201-Dateien/katex-copytex.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="Assignment%201-Dateien/markdown.css">
+<link rel="stylesheet" href="Assignment%201-Dateien/highlight.css">
 <style>
             body {
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
@@ -20,18 +20,18 @@
 .task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
 </style>
         
-        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        <script src="Assignment%201-Dateien/katex-copytex.js"></script>
         
     </head>
     <body class="vscode-light">
         <!-- omit in toc -->
 <h1 id="assignment-1">Assignment 1</h1>
-<p><em>Due: 13.11.2020</em></p>
+<p><em>Due: 30.04.2021</em></p>
 <ol>
 <li>Please follow the instructions below to install Conda.</li>
 <li>Get familiar with the Shell-Commands <code>cd</code>, <code>ls</code>, <code>pwd</code> and <code>mkdir</code>.</li>
-<li>Create a Conda environment called <code>fupy</code> with the packages <code>python=3.8</code> and <code>jupyterlab</code> installed.</li>
-<li>Launch the <code>chatbot.py</code> application.</li>
+<li>Create a Conda environment called <code>class01</code> with the packages <code>python=3.8</code> and <code>jupyterlab</code> installed.</li>
+<li>Launch the <code>chatbot.py</code> application and feel free to extend its functionalities!</li>
 </ol>
 <p>All information needed should be available below.</p>
 <p>If you should have any Questions don't hesitate to state them in our Webex-Teams channel!</p>
@@ -74,8 +74,13 @@
 </li>
 </ul>
 <h1 id="conda-installation">Conda Installation</h1>
-<p>We use Python throughout the class. We further use some additional packages, installing them individually can be unnecessarily complicated. Hence, we recommend installing Miniconda, which comes with Python (please use 3.x) and the package manager Conda.</p>
-<p><em>(Note that Conda is a part of the Anaconda distribution. If you are already using the Anaconda distribution you may skip installing Miniconda!)</em></p>
+<p>We use Python throughout the class. We further use some additional 
+packages, installing them individually can be unnecessarily complicated.
+ Hence, we recommend installing Miniconda, which comes with Python 
+(please use 3.x) and the package manager Conda.</p>
+<p><em>(Note that Conda is a part of the Anaconda distribution. If you 
+are already using the Anaconda distribution you may skip installing 
+Miniconda!)</em></p>
 <h2 id="windows">Windows</h2>
 <ul>
 <li>Visit <a href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a></li>
@@ -8021,7 +8026,7 @@ Desktop Documents Downloads miniconda3 Music Pictures Public Uni Videos
 <p><code>cd</code> (change directory) moves you into a specified directory</p>
 </li>
 <li>
-<p><code>..</code> states &quot;one directory above&quot;. Thus by using <code>cd ..</code> you can switch to one directory above.</p>
+<p><code>..</code> states "one directory above". Thus by using <code>cd ..</code> you can switch to one directory above.</p>
 <pre><code><code><div>(base) aleks@pc$ ls
 Desktop Documents Downloads Music Pictures Public Uni Videos
 
@@ -8089,7 +8094,7 @@ abv_dataanalysis_python course_a course_b
 <pre><code><code><div>aleks@pc$ pwd
 /home/aleks/Uni/abv_dataanalysis_python
 
-aleks@pc$ mkdir 01_2020_11_06
+aleks@pc$ mkdir 01-2020-04-23
 </div></code></code></pre>
 </li>
 </ul>
@@ -8106,7 +8111,7 @@ abv course_a course_b dataanalysis python
 <p>We now have created three different directories!</p>
 </li>
 <li>
-<p>To <code>cd</code> into a directory with spaces in the name, put quotation marks (<code>&quot;</code> or <code>'</code>) around it</p>
+<p>To <code>cd</code> into a directory with spaces in the name, put quotation marks (<code>"</code> or <code>'</code>) around it</p>
 <pre><code><code><div>aleks@pc$ ls
 'dir with spaces' dir_a dir_b
 aleks@pc$ cd 'dir with spaces'
@@ -8118,13 +8123,19 @@ aleks@pc$ pwd
 <h1 id="conda-cheat-sheet">Conda Cheat Sheet</h1>
 <ul>
 <li>
-<p>As mentioned before Conda allows us to install Python packages easily, while making sure the package versions work well with another.</p>
+<p>As mentioned before Conda allows us to install Python packages 
+easily, while making sure the package versions work well with another.</p>
 </li>
 <li>
 <p>Conda also allows us to create virtual environments, i.e. a separated collection of packages.</p>
 </li>
 <li>
-<p>The main idea behind that is to save a state in which we are able to run a project. When revisiting a project in the future some packages may have gotten updated, resulting in the project not running at all or in a different manner. Keeping an environment per project allows to restart the project with exactly the packages with which it has worked in the past!</p>
+<p>The main idea behind that is to save a state in which we are able to 
+run a project. When revisiting a project in the future some packages may
+ have gotten updated, resulting in the project not running at all or in a
+ different manner. Keeping an environment per project allows to restart 
+the project with exactly the packages with which it has worked in the 
+past!</p>
 </li>
 <li>
 <p>It is recommended to add the Conda-forge channel to your Conda channels, so we can install community packages:</p>
@@ -8135,17 +8146,19 @@ aleks@pc$ pwd
 <h2 id="creating-an-conda-environment-from-scratch">Creating an Conda environment from scratch</h2>
 <ul>
 <li>
-<p>Once you have installed the Conda package manager, we create a virtual environment by installing Python and all other packages of interest.</p>
+<p>Once you have installed the Conda package manager, we create a 
+virtual environment by installing Python and all other packages of 
+interest.</p>
 </li>
 <li>
-<p>Creating an Conda environment with the name <code>fupy</code>:</p>
-<pre><code><code><div>conda create -n fupy
+<p>Creating an Conda environment with the name <code>class01</code>:</p>
+<pre><code><code><div>conda create -n class01
 </div></code></code></pre>
 </li>
 <li>
 <p>The default Conda environment is <code>base</code>, to switch to the newly created environment use <code>conda activate environment_name</code>:</p>
-<pre><code><code><div>(base) aleks@pc$ conda activate fupy
-(fupy) aleks@pc$
+<pre><code><code><div>(base) aleks@pc$ conda activate class01
+(class01) aleks@pc$
 </div></code></code></pre>
 </li>
 <li>
@@ -8156,7 +8169,7 @@ aleks@pc$ pwd
 <ul>
 <li>
 <p>With the right environment activated you can use <code>conda install package_1 package_2 [..]</code> to install packages:</p>
-<pre><code><code><div>(fupy) aleks@pc$ conda install python=3.8 jupyterlab
+<pre><code><code><div>(class01) aleks@pc$ conda install python=3.8 jupyterlab
 </div></code></code></pre>
 </li>
 <li>
@@ -8170,7 +8183,10 @@ aleks@pc$ pwd
 <p><em>Note: this will be used later in the lecture and is not part of the assignment</em></p>
 <ul>
 <li>
-<p>Once you have installed the Conda package manager, you may create a virtual environment by instructions within a file (e.g. environment.yml). This allows you to recreate an existing environment from another machine.</p>
+<p>Once you have installed the Conda package manager, you may create a 
+virtual environment by instructions within a file (e.g. 
+environment.yml). This allows you to recreate an existing environment 
+from another machine.</p>
 </li>
 <li>
 <p>Move to your working directory (use <code>cd</code>) and make sure the environment.yml is available (use <code>ls</code>) and type one of the following command:</p>
@@ -8181,18 +8197,23 @@ aleks@pc$ pwd
 <p>Further you may use the Python module <code>pip</code> for downloading additional packages from PyPi, the Python Package Index.</p>
 </li>
 <li>
-<p>Packaging in Python is still not yet completely free of pain, hence it is recommended to stay - if possible - within one realm (in our case Conda!), when you start to build more complex and sophisticated software.</p>
+<p>Packaging in Python is still not yet completely free of pain, hence 
+it is recommended to stay - if possible - within one realm (in our case 
+Conda!), when you start to build more complex and sophisticated 
+software.</p>
 </li>
 </ul>
 <h1 id="python">Python</h1>
 <h2 id="launching-python">Launching Python</h2>
 <ul>
 <li>
-<p>From your newly created conda environment you can launch the Python interpreter using (make sure, that you are in the right conda environment! Reminder: You can change the enviroment using <code>conda activate environment_name</code>):</p>
-<pre><code><code><div>(fupy) aleks@pc$ python
+<p>From your newly created conda environment you can launch the Python 
+interpreter using (make sure, that you are in the right conda 
+environment! Reminder: You can change the enviroment using <code>conda activate environment_name</code>):</p>
+<pre><code><code><div>(class01) aleks@pc$ python
 Python 3.8.5 (default, Sep  4 2020, 07:30:14) 
 [GCC 7.3.0] :: Anaconda, Inc. on linux
-Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+Type "help", "copyright", "credits" or "license" for more information.
 &gt;&gt;&gt; 
 </div></code></code></pre>
 </li>
@@ -8201,17 +8222,17 @@ Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;licen
 <ul>
 <li>
 <p>Use <code>cd</code>, <code>ls</code> (and <code>pwd</code>) to navigate to the location you created/downloaded a Python file (ending with <code>.py</code>)</p>
-<pre><code><code><div>(fupy) aleks@pc$ ls
+<pre><code><code><div>(class01) aleks@pc$ ls
 Desktop Documents Downloads Music Pictures Public Uni Videos
 
-(fupy) aleks@pc$ cd Uni/abv_dataanalysis_python/01_2020_11_06
-(fupy) aleks@pc$ ls
+(class01) aleks@pc$ cd Uni/abv_dataanalysis_python/01-2020-04-23
+(class01) aleks@pc$ ls
 chatbot.py
 </div></code></code></pre>
 </li>
 <li>
 <p>Launch it using:</p>
-<pre><code><code><div>(fupy) aleks@pc$ python chatbot.py
+<pre><code><code><div>(class01) aleks@pc$ python chatbot.py
 Hi, my name is Vincent.
 What's your name?
 
@@ -8219,5 +8240,5 @@ What's your name?
 </li>
 </ul>
 
-    </body>
-    </html>
+    
+    </body></html>
