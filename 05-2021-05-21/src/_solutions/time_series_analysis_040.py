@@ -1,10 +1,10 @@
 ## Solution Challenge 4
 
 ## convert int into string
-data_ts.year.astype(str)
+data_ts["year"].astype(str)
 
 ## concatenate string columns
-date_string = data_ts.year.astype(str) + "-" + data_ts.month.astype(str)
+date_string = data_ts["year"].astype(str) + "-" + data_ts["month"].astype(str)
 
 ## generate PeriodIndex object
 idx = pd.to_datetime(date_string).dt.to_period('M')

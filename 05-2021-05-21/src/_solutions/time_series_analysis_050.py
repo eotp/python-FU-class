@@ -1,2 +1,2 @@
 ## Solution Challenge 5
-data_monthly.anomaly.describe()
+data_monthly["anomaly"].describe()
