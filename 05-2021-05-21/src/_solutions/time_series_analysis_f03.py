@@ -7,9 +7,9 @@ def plot_anomalies(df, title):
     w = 12*10
     
     ## compute 10-year-running mean for anomaly and add the result to the data frame
-    df["10-year-anomaly"] = df.anomaly.rolling(window=w, center=True).mean()
+    df["10-year-anomaly"] = df["anomaly"].rolling(window=w, center=True).mean()
     ## compute 10-year-running mean for uncertainty and add the result to the data frame
-    df["10-year-uncertainty"] = df.uncertainty.rolling(window=w, center=True).mean()
+    df["10-year-uncertainty"] = df["uncertainty"].rolling(window=w, center=True).mean()
 
     ## compute upper and lower bound of temperature anomaly
     upper_bound = df["10-year-anomaly"] + df["10-year-uncertainty"]
