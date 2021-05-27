@@ -1,0 +1,5 @@
+# Table of content
+# Learn more at https://jupyterbook.org/customize/toc.html
+#
+- file: 06-00_Processing_of_Tabular_Data.ipynb
+- file: 06-00_Temperature_anomalies.ipynb

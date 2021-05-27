@@ -12,8 +12,4 @@ dependencies:
 - folium
 - matplotlib
 - seaborn
-- nbsphinx
-- pip
-
-- pip:
-  - jupyter_sphinx_theme
+- jupyter-book

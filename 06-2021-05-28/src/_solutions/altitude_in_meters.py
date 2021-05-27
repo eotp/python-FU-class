@@ -1,2 +1,2 @@
 ## solution challenge 
-df_clean["Altitude (meters)"] = df_clean["Altitude (Hundreds of Feet)"].apply(lambda x: x*100*0.3048)
+df_clean["Altitude (meters)"] = df_clean["Altitude (Hundreds of Feet)"]*100*0.3048
