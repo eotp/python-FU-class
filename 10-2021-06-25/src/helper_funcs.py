@@ -88,23 +88,23 @@ def visualize_probabilities(p, loc, scale, tails='both', ax=None, xmin=-4, xmax=
         upper_za = norm.ppf(1-p/2,loc,scale)
         lower_za = norm.ppf(p/2,loc,scale)
         ax.vlines(upper_za, ymin=0, ymax=norm.pdf(upper_za, loc, scale))
-        ax.fill_between(x, y1=0, y2=y, where=x>upper_za, color='b0', alpha=alpha)
+        ax.fill_between(x, y1=0, y2=y, where=x>upper_za, color='C0', alpha=alpha)
         ax.vlines(lower_za, ymin=0, ymax=norm.pdf(lower_za, loc, scale))
-        ax.fill_between(x, y1=0, y2=y, where=x<lower_za, color='b0', alpha=alpha)
+        ax.fill_between(x, y1=0, y2=y, where=x<lower_za, color='C0', alpha=alpha)
     elif tails == 'inbetween':
         p = 1-p
         upper_za = norm.ppf(1-(p/2),loc,scale)
         lower_za = norm.ppf(p/2,loc,scale)
         ax.vlines(upper_za, ymin=0, ymax=norm.pdf(upper_za, loc, scale))
         ax.vlines(lower_za, ymin=0, ymax=norm.pdf(lower_za, loc, scale))
-        ax.fill_between(x, y1=0, y2=y, where=(x<upper_za) & (x>lower_za), color='b0', alpha=alpha)
+        ax.fill_between(x, y1=0, y2=y, where=(x<upper_za) & (x>lower_za), color='C0', alpha=alpha)
         p = 1-p
     elif tails == 'upper':
         ax.vlines(upper_za, ymin=0, ymax=norm.pdf(upper_za, loc, scale))
-        ax.fill_between(x, y1=0, y2=y, where=x>upper_za, color='b0', alpha=alpha)
+        ax.fill_between(x, y1=0, y2=y, where=x>upper_za, color='C0', alpha=alpha)
     elif tails == 'lower':
         ax.vlines(lower_za, ymin=0, ymax=norm.pdf(lower_za, loc, scale))
-        ax.fill_between(x, y1=0, y2=y, where=x<lower_za, color='b0', alpha=alpha)
+        ax.fill_between(x, y1=0, y2=y, where=x<lower_za, color='C0', alpha=alpha)
     else:
         pass
     ax.set_title(f'The marked area correspsonds to {np.round(p*100,1)}% of the total area under the curve', size=18)
