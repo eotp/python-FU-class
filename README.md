@@ -95,3 +95,7 @@ Then you are ready to go (if you are stuck check out the [conda documentation si
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/eotp/python-FU-class/master?urlpath=lab)
 
 ---
+
+> We should mention that the conda environments created during this course will take up a lot of space!
+> Feel free to run `conda env list` to display all created environments and delete them if you choose using `conda env remove -n env_name`.
+> Remember that you can always recreate any of the environments using `conda env create -f environment.yml` in any given sub- or the root-directory of this repo. 
