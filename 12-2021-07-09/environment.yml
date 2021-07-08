@@ -5,12 +5,15 @@ channels:
 dependencies:
 - python=3.7
 - jupyterlab
-- numpy
 - pandas
-- scipy
+- geopandas
+- descartes
+- cartopy
+- folium
 - matplotlib
 - seaborn
-- pip
-- scikit-learn
-- statsmodels
+- streamlit
 - spyder
+- pip
+- pip:
+  - streamlit-folium
