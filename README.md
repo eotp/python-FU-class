@@ -18,11 +18,12 @@ Starts at 13:30 to 17:00 CET
 - 03 - 2021/05/07
 
   - Python 101 continued
+  - Plotting with Python
 
 - 04 - 2021/05/14
 
-  - Plotting with Python
   - Introduction to `pandas`
+  - Simple data analysis using `pandas`
 
 - 05 - 2021/05/21
 
@@ -31,53 +32,54 @@ Starts at 13:30 to 17:00 CET
 
 - 06 - 2020/05/28
 
-  - Simple data analysis using `pandas`
-  - Reporting using `nbsphinx`
+  - Reporting using `jupyterbook`
   - Exploratory data analysis (EDA)
+  - Study project - WW2
 
 - 07 - 2021/06/04
 
-  - Study project - WW2
+  - Study project - WW2 (Group Session)
 
 - 08 - 2021/06/11
 
-  - Study project - WW2
+  - Presentations study projects
 
 - 09 - 2021/06/18
 
-  - Presentations study projects
+  - Object Oriented Programming (OOP)
 
 - 10 - 2021/06/25
-  - Basics of git (SKIPPED)
+  
   - Interpolation and curve fitting
   - Inferential statistics
   - Population vs. sample statistics
   - Central Limit Theorem
   - Point and interval estimates (confidence intervals)
+  - Hypothesis testing
+  - Bootstrapping
+  - Introduction to Machine Learning
+  - Skipped:
+    - Regression analysis
+    - Logisitic regression
+    - Hyperparamter tuning
+    - Polynomial Regression
 
 * 11 - 2021/07/02
-  - bootstrapping
-  - Hypothesis testing
-  - Introduction to Machine Learning
-  - Regression analysis
+  
+  - `Spyder IDE`
+  - Web scraping
+  - Wordclouds
+
 * 12 - 2021/07/09
 
-  - `Scikit` Learn
-  - Logisitic regression
-  - Hyperparamter tuning
-  - Polynomial Regression
-  - Object oriented programming - Python classes
+  - Feedback round
+  - Dashboarding with `streamlit`
+  - Creating dynamic Maps with `folium` 
+  
+* 13 - 2021/xx/xx (optional lecture)
 
-* 13 - 2021/xx/xx
-
-  - Object oriented programming - Python classes
-  - `Spyder IDE` (SKIPPED)
-  - Web scraping
-  - Wrap-up
-
-* 14 - 2021/xx/xx (optional lecture)
   - APIs (FastAPI)
-
+  
 ---
 
 In order to re-run the class materials I encourage you to use the [conda](https://conda.io/docs/) package manager. Once installed, create an environment and install all required dependencies on your machine by typing
