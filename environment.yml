@@ -11,7 +11,6 @@ dependencies:
 - scipy
 - matplotlib
 - seaborn
-- nbsphinx
 - pip
 - scikit-learn
 - statsmodels
@@ -22,7 +21,10 @@ dependencies:
 - wordcloud
 - requests
 - beautifulsoup4
+- streamlit
 
 - pip:
+  - jupyter-book
   - jupyter_sphinx_theme
   - stop-words
+  - streamlit-folium
