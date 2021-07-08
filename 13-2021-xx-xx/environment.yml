@@ -1,19 +1,15 @@
-name: class13
+name: class14
 channels:
   - conda-forge
   - defaults
 dependencies:
-  - pip
   - python=3.8
   - jupyterlab
   - numpy
   - pandas
   - matplotlib
   - seaborn
-  - spyder
-  - wordcloud
   - requests
-  - beautifulsoup4
-
-  - pip:
-      - stop-words
+  - fastapi
+  - uvicorn
+  - scikit-learn
