@@ -1,7 +1,7 @@
 <!-- omit in toc -->
 # Assignment 1
 
-_Due: 13.11.2020_
+_Deadline: 29.10.2021_
 1. Please follow the instructions below to install Conda.
 2. Get familiar with the Shell-Commands `cd`, `ls`, `pwd` and `mkdir`.
 3. Create a Conda environment called `fupy` with the packages `python=3.8` and `jupyterlab` installed.
@@ -8044,7 +8044,7 @@ _Note: If you accidentally didn't initialize Conda you can do that by executing 
     aleks@pc$ pwd
     /home/aleks/Uni/abv_dataanalysis_python
 
-    aleks@pc$ mkdir 01_2020_11_06
+    aleks@pc$ mkdir 01-2021-10-22
     ```
 
 **WARNING**
@@ -8153,7 +8153,7 @@ _Note: this will be used later in the lecture and is not part of the assignment_
     (fupy) aleks@pc$ ls
     Desktop Documents Downloads Music Pictures Public Uni Videos
 
-    (fupy) aleks@pc$ cd Uni/abv_dataanalysis_python/01_2020_11_06
+    (fupy) aleks@pc$ cd Uni/abv_dataanalysis_python/01-2021-10-22
     (fupy) aleks@pc$ ls
     chatbot.py
     ```
