@@ -1,5 +1,6 @@
 ## solution challenge 
 def features_above_threshold(df, threshold=0.5):    
-    cols2keep = df.notnull().sum()/df.shape[0] > threshold 
-    rv = df.columns[cols2keep.values]
-    return rv
+    n_samples = df.shape[0]
+    cols2keep = df.notnull().sum()/n_samples > threshold 
+    cols2keep = cols2keep.loc[cols2keep == True].index
+    return cols2keep
