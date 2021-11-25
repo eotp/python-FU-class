@@ -42,11 +42,11 @@ Starts at 13:15 to 16:30 CET
 
 - 08 - 2021/12/10
 
-  - Presentations study projects
+  - Object Oriented Programming (OOP)
 
 - 09 - 2022/01/14
 
-  - Object Oriented Programming (OOP)
+  - Presentations study projects (**Submission deadline: 06.01.2022**)
 
 - 10 - 2022/01/21
   
