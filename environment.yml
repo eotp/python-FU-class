@@ -25,6 +25,5 @@ dependencies:
 
 - pip:
   - jupyter-book
-  - jupyter_sphinx_theme
   - stop-words
   - streamlit-folium
