@@ -29,10 +29,10 @@ Starts at 13:15 to 16:30 CET
 
   - Pandas recap
   - Simple data analysis using `pandas`
+  - Reporting using `jupyterbook`
 
 - 06 - 2021/11/26
 
-  - Reporting using `jupyterbook`
   - Exploratory data analysis (EDA)
   - Study project - WW2
 
