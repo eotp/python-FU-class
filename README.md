@@ -65,19 +65,20 @@ Starts at 13:15 to 16:30 CET
     - Polynomial Regression
 
 * 11 - 2022/01/28
-  
+
   - `Spyder IDE`
+  - Dashboarding with `streamlit`
+  - Creating dynamic Maps with `folium` 
+
+* 12 - 2022/02/04
+  
   - Web scraping
   - Wordclouds
 
-* 12 - 2022/02/04
-
-  - Feedback round
-  - Dashboarding with `streamlit`
-  - Creating dynamic Maps with `folium` 
   
 * 13 - 2022/02/11 (optional lecture)
 
+  - Feedback round
   - APIs (FastAPI)
   
 ---
