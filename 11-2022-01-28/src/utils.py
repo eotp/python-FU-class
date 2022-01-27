@@ -1,6 +1,7 @@
 import folium
 import geopandas as gpd
 import pandas as pd
+import seaborn as sns
 import streamlit as st
 from matplotlib import pyplot as plt
 from streamlit_folium import folium_static
@@ -59,19 +60,18 @@ def create_choropleth(data, column, columns, key_on):
         quantiles = [0, 0.99, 0.99, 1]
 
     # actual choropleth
-
     choropleth = folium.Choropleth(
         geo_data=data,  # geodata
         data=data,  # numerical data
         key_on=key_on,  # weird stuff, "JSON Index to find datapoints with"; usually feature.properties.NAME_COLUMN
         columns=columns,  # columns to include (usually: [NAME_COLUMN, NUMERICAL_VALUE_COLUMN])
-        fill_color="YlOrBr",  # colormap to use
-        legend_name='Number of Attacks',  # selfexplanatory
+        fill_color="Blues",  # colormap to use, see https://github.com/dsc/colorbrewer-python for more
+        legend_name="Number of Attacks",  # selfexplanatory
         bins=data[column]
         .quantile(quantiles)
         .tolist(),  # bins to put numerical data to (and apply colormap accordingly)
         highlight=True,  # highlight area on mouse-over
-        name="Choropleth"  # name of Layer
+        name="Choropleth",  # name of Layer
     )
 
     style_function = "font-size: 15px; font-weight: bold"
@@ -119,34 +119,44 @@ def timeplot(df, target_name, min_date, max_date):
     """
     Create time based plot. In this case number of attacks accross chosen dates
     """
+    st.title(f"Number of Attacks on {target_name} between {min_date} - {max_date}")
+    sns.set_theme(
+        style="ticks", rc={"axes.spines.right": False, "axes.spines.top": False}
+    )
     fig, ax = plt.subplots()
-    df.loc[
+
+    df = df.loc[
         (df["name"] == target_name)
         & (df["Mission Date"] >= pd.to_datetime(min_date))
         & (df["Mission Date"] <= pd.to_datetime(max_date)),
-        "Mission Date",
-    ].value_counts().sort_index().plot(ax=ax)
-    ax.grid()
-    ax.set_xlabel("Date")
-    ax.set_ylabel("Number of Attacks")
-    st.title(f"Number of Attacks on {target_name} between {min_date} - {max_date}")
-    st.pyplot(fig)
+    ]
+    df = df.copy()
+    if df.empty:
+        st.warning("No data to display")
+    else:
+        df["Cumulative Number of Attacks"] = 1
+        df.set_index("Mission Date", inplace=True)
+        df.sort_index(inplace=True)
+        df["Cumulative Number of Attacks"] = df["Cumulative Number of Attacks"].cumsum()
+        sns.lineplot(data=df["Cumulative Number of Attacks"], ax=ax)
+        ax.grid()
+        ax.tick_params(axis="x", labelrotation=45)
+        st.pyplot(fig)
+
 
 def markerCluster(df):
     """
     Create a Map with Clusters of Markers
     """
     from folium import IFrame
-    from folium.plugins import MarkerCluster
+    from folium.plugins import FastMarkerCluster, MarkerCluster
 
     cluster_map = initiate_map()
 
     h = folium.FeatureGroup(name="Hydroelectric")
     h.add_child(
         # takes a list of x and y coordinates as input
-        MarkerCluster(
-            locations=list(zip(df["Target Latitude"], df["Target Longitude"]))
-        )
+        FastMarkerCluster(data=df[["Target Latitude", "Target Longitude"]])
     )
     cluster_map.add_child(h)
 
