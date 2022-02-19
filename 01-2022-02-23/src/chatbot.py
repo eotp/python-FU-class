@@ -7,8 +7,8 @@ user = input()
 if user.lower() == "joachim":
     print("Good afternoon my creator!")
     print("")
-elif user.lower() in ["aleks", "lisa"]:
-    print("Oh, what a pleasure! It feels great to have the Charite folks in the house.")
+elif user.lower() in ["patric"]:
+    print("Oh, what a pleasure! It feels great to have you in the house.")
     time.sleep(1)
     print("Is Joachim somewhere around too?")
     answer = input()
