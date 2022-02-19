@@ -1,54 +1,54 @@
-# Main repository for the Python class at FU Berlin, winter term 2021/2022
+# Main repository for the Python class at FU Berlin, winter semster break 2022
 
-Dates, location and outline of the class are presented [here](https://www.fu-berlin.de/vv/de/lv/706279).
-Starts at 13:15 to 16:30 CET
+Dates, location and outline of the class are presented [here](https://www.fu-berlin.de/vv/de/lv/706278).
+Starts at 13:15 and ends at 16:30 CET
 
 ## Content
 
-- 01 - 2021/10/22
+- 01 - 2022/02/23
 
   - Introduction into computational thinking
   - Programming languages and IDEs
   - Why Python?
 
-- 02 - 2021/10/29
+- 02 - 2022/02/24
 
   - Python 101
 
-- 03 - 2021/11/05
+- 03 - 2022/03/02
 
   - Python 101 continued
   - Plotting with Python
 
-- 04 - 2021/11/12
+- 04 - 2022/03/03
 
   - Introduction to `pandas`
   - Simple data analysis using `pandas`
 
-- 05 - 2021/11/19
+- 05 - 2022/03/09
 
   - Pandas recap
   - Simple data analysis using `pandas`
   - Reporting using `jupyterbook`
 
-- 06 - 2021/11/26
+- 06 - 2022/03/10
 
   - Exploratory data analysis (EDA)
   - Study project - WW2
 
-- 07 - 2021/12/03
+- 07 - 2022/03/16
 
   - Study project - WW2 (Group Session)
 
-- 08 - 2021/12/10
+- 08 - 2022/03/17
 
   - Object Oriented Programming (OOP)
 
-- 09 - 2022/01/14
+- 09 - 2022/03/23
 
   - Presentations study projects (**Submission deadline: 06.01.2022**)
 
-- 10 - 2022/01/21
+- 10 - 2022/03/24
   
   - Interpolation and curve fitting
   - Inferential statistics
@@ -64,19 +64,19 @@ Starts at 13:15 to 16:30 CET
     - Hyperparamter tuning
     - Polynomial Regression
 
-* 11 - 2022/01/28
+* 11 - 2022/03/30
 
   - `Spyder IDE`
   - Dashboarding with `streamlit`
   - Creating dynamic Maps with `folium` 
 
-* 12 - 2022/02/04
+* 12 - 2022/03/31
   
   - Web scraping
   - Wordclouds
 
   
-* 13 - 2022/02/11 (optional lecture)
+* 13 - 2022/xx/xx (optional lecture)
 
   - Feedback round
   - APIs (FastAPI)
