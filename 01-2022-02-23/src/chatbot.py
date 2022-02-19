@@ -2,7 +2,7 @@ import time
 
 print("Hi, my name is Vincent.")
 time.sleep(1)
-print("What´s your name?")
+print("What is your name?")
 user = input()
 if user.lower() == "joachim":
     print("Good afternoon my creator!")
