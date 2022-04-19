@@ -5,50 +5,50 @@ Starts at 13:15 and ends at 16:30 CET
 
 ## Content
 
-- 01 - 2022/02/23
+- 01 - 2022/04/28
 
   - Introduction into computational thinking
   - Programming languages and IDEs
   - Why Python?
 
-- 02 - 2022/02/24
+- 02 - 2022/05/05
 
   - Python 101
 
-- 03 - 2022/03/02
+- 03 - 2022/05/12
 
   - Python 101 continued
   - Plotting with Python
 
-- 04 - 2022/03/03
+- 04 - 2022/05/19
 
   - Introduction to `pandas`
   - Simple data analysis using `pandas`
 
-- 05 - 2022/03/09
+- 05 - 2022/06/02
 
   - Pandas recap
   - Simple data analysis using `pandas`
   - Reporting using `jupyterbook`
 
-- 06 - 2022/03/10
+- 06 - 2022/06/09
 
   - Exploratory data analysis (EDA)
   - Study project - WW2
 
-- 07 - 2022/03/16
+- 07 - 2022/06/16
 
   - Study project - WW2 (Group Session)
 
-- 08 - 2022/03/17
+- 08 - 2022/06/23
 
   - Object Oriented Programming (OOP)
 
-- 09 - 2022/03/23
+- 09 - 2022/06/30
 
   - Presentations study projects (**Submission deadline: 06.01.2022**)
 
-- 10 - 2022/03/24
+- 10 - 2022/07/07
   
   - Interpolation and curve fitting
   - Inferential statistics
@@ -64,13 +64,13 @@ Starts at 13:15 and ends at 16:30 CET
     - Hyperparamter tuning
     - Polynomial Regression
 
-* 11 - 2022/03/30
+* 11 - 2022/07/14
 
   - `Spyder IDE`
   - Dashboarding with `streamlit`
   - Creating dynamic Maps with `folium` 
 
-* 12 - 2022/03/31
+* 12 - 2022/07/21
   
   - Web scraping
   - Wordclouds
