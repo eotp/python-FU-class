@@ -46,7 +46,7 @@ Starts at 13:15 and ends at 16:30 CET
 
 - 09 - 2022/06/30
 
-  - Presentations study projects (**Submission deadline: 06.01.2022**)
+  - Presentations study projects (**Submission deadline: 26.06.2022 for example?**)
 
 - 10 - 2022/07/07
   
