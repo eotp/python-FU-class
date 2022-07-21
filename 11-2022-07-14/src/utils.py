@@ -15,12 +15,14 @@ def load_files():
     Loads necessary files and transforms them (in case they already shouldn't be in) to
         CRS::EPSG:4326
     """
-    europe = pd.read_pickle("../data/europe_attacks.p").to_crs("EPSG:4326")
-    bl = pd.read_pickle("../data/bl_attacks.p").to_crs("EPSG:4326")
-    kreise = pd.read_pickle("../data/kreise_attacks.p").to_crs("EPSG:4326")
+    europe = pd.read_pickle("../data/europe_pp.p").to_crs("EPSG:4326")
+    bl = pd.read_pickle("../data/bl_pp.p").to_crs("EPSG:4326")
+    kreise = pd.read_pickle("../data/kreise_pp.p").to_crs("EPSG:4326")
     kreise_full = pd.read_pickle("../data/kreise_full.p").to_crs("EPSG:4326")
     gdf_europe = pd.read_pickle("../data/gdf_europe.p").to_crs("EPSG:4326")
-    return europe, bl, kreise, kreise_full, gdf_europe
+    world = pd.read_pickle("../data/world_pp.p").to_crs("EPSG:4326")
+    world_full = pd.read_pickle("../data/world_full.p").to_crs("EPSG:4326")
+    return europe, bl, kreise, kreise_full, gdf_europe, world, world_full
 
 
 def initiate_map(location=[50.736950, 10.285853], zoom_start=5):
@@ -40,7 +42,7 @@ def add_tiles(map):
     folium.LayerControl().add_to(map)
 
 
-def create_choropleth(data, column, columns, key_on):
+def create_choropleth(data, column, columns, key_on, fuel_type=""):
     """
     Create Choropleth (see: https://python-visualization.github.io/folium/quickstart.html#Choropleth-maps)
     for passed dataset.
@@ -59,6 +61,10 @@ def create_choropleth(data, column, columns, key_on):
         # Colormap needs 4 bins
         quantiles = [0, 0.99, 0.99, 1]
 
+    legend_name = "Number of Powerplants"
+    if fuel_type != "":
+        legend_name += f" ({fuel_type})"
+
     # actual choropleth
     choropleth = folium.Choropleth(
         geo_data=data,  # geodata
@@ -66,7 +72,7 @@ def create_choropleth(data, column, columns, key_on):
         key_on=key_on,  # weird stuff, "JSON Index to find datapoints with"; usually feature.properties.NAME_COLUMN
         columns=columns,  # columns to include (usually: [NAME_COLUMN, NUMERICAL_VALUE_COLUMN])
         fill_color="Blues",  # colormap to use, see https://github.com/dsc/colorbrewer-python for more
-        legend_name="Number of Attacks",  # selfexplanatory
+        legend_name=legend_name,  # selfexplanatory
         bins=data[column]
         .quantile(quantiles)
         .tolist(),  # bins to put numerical data to (and apply colormap accordingly)
@@ -88,7 +94,7 @@ def create_choropleth(data, column, columns, key_on):
         choropleth.geojson.add_child(
             folium.features.GeoJsonTooltip(
                 fields=[str(x) for x in columns],
-                aliases=["Name: ", "Number of Attacks: "],
+                aliases=["Name: ", legend_name],
                 style=style_function,
                 localize=True,
             )
@@ -97,7 +103,7 @@ def create_choropleth(data, column, columns, key_on):
     return choropleth
 
 
-def create_and_display_map(data, column, columns, key_on, center=None):
+def create_and_display_map(data, column, columns, key_on, fuel_type = "", center=None):
     if center is not None:
         # Center map around chosen location (Landkreis)
         location = data.loc[data["name"] == center].centroid
@@ -108,7 +114,7 @@ def create_and_display_map(data, column, columns, key_on, center=None):
         zoom_start = 5
     map = initiate_map(location=location, zoom_start=zoom_start)
 
-    create_choropleth(data, column, columns, key_on).add_to(map)
+    create_choropleth(data, column, columns, key_on, fuel_type).add_to(map)
 
     add_tiles(map)
 
@@ -156,7 +162,7 @@ def markerCluster(df):
     h = folium.FeatureGroup(name="Hydroelectric")
     h.add_child(
         # takes a list of x and y coordinates as input
-        FastMarkerCluster(data=df[["Target Latitude", "Target Longitude"]])
+        FastMarkerCluster(data=df[["latitude", "longitude"]])
     )
     cluster_map.add_child(h)
 
