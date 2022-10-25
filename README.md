@@ -1,6 +1,6 @@
 # Main repository for the Python class at FU Berlin, winter semester 2022/23
 
-Dates, location and outline of the class are presented [here](https://www.fu-berlin.de/vv/de/lv/706278).
+Dates, location and outline of the class are presented [here](https://www.fu-berlin.de/vv/de/lv/768653).
 Starts at 13:15 and ends at 16:30 CET
 
 ## Content
