@@ -3,7 +3,7 @@ channels:
 - conda-forge
 - defaults
 dependencies:
-- python=3.7
+- python=3.10
 - jupyterlab
 - pandas
 - geopandas
@@ -12,8 +12,5 @@ dependencies:
 - folium
 - matplotlib
 - seaborn
-- nbsphinx
-- pip
+- jupyter-book
 
-- pip:
-  - jupyter_sphinx_theme
