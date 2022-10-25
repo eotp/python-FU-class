@@ -1,54 +1,54 @@
-# Main repository for the Python class at FU Berlin, winter semster break 2022
+# Main repository for the Python class at FU Berlin, winter semester 2022/23
 
 Dates, location and outline of the class are presented [here](https://www.fu-berlin.de/vv/de/lv/706278).
 Starts at 13:15 and ends at 16:30 CET
 
 ## Content
 
-- 01 - 2022/04/28 (alle) 
+- 01 - 2022/10/27 (alle) 
 
   - Introduction into computational thinking
   - Programming languages and IDEs
   - Why Python?
 
-- 02 - 2022/05/05 (aleks + (martha))
+- 02 - 2022/11/03 (martha (+condaleks))
 
   - Python 101
 
-- 03 - 2022/05/12 (leo)
+- 03 - 2022/11/10 (leo (+jemand conda?))
 
   - Python 101 continued
   - Plotting with Python
 
-- 04 - 2022/05/19 (martha)
+- 04 - 2022/11/17 (aleks)
 
   - Introduction to `pandas`
   - Simple data analysis using `pandas`
 
-- 05 - 2022/06/02 (martha)
+- 05 - 2022/11/24 (martha)
 
   - Pandas recap
   - Simple data analysis using `pandas`
   - Reporting using `jupyterbook`
 
-- 06 - 2022/06/09 (aleks)
+- 06 - 2022/12/01 (aleks)
 
   - Exploratory data analysis (EDA)
-  - Study project - WW2
+  - Study project - Powerplants
 
-- 07 - 2022/06/16 (leo + aleks)
+- 07 - 2022/12/08 (aleks (wenn sie sehr kommunikativ sind evtl ne zweite sonst ists eher langweilig))
 
-  - Study project - WW2 (Group Session)
+  - Study project - Powerplants (Group Session)
 
-- 08 - 2022/06/23 (aleks / martha)
+- 08 - 2023/01/05 (alle im optimalfall)
+
+  - Presentations study projects (**Submission deadline: 03.01.2022 for example?**)
+
+- 09 - 2023/01/12 (martha)
 
   - Object Oriented Programming (OOP)
 
-- 09 - 2022/06/30 (leo + aleks)
-
-  - Presentations study projects (**Submission deadline: 26.06.2022 for example?**)
-
-- 10 - 2022/07/07 (aleks / leo) 
+- 10 - 2023/01/19 (aleks) 
   
   - Interpolation and curve fitting
   - Inferential statistics
@@ -64,19 +64,18 @@ Starts at 13:15 and ends at 16:30 CET
     - Hyperparamter tuning
     - Polynomial Regression
 
-* 11 - 2022/07/14 (aleks)
+* 11 - 2023/01/26 (aleks)
 
   - `Spyder IDE`
   - Dashboarding with `streamlit`
   - Creating dynamic Maps with `folium` 
 
-* 12 - 2022/07/21 (martha)
+* 12 - 2023/02/02 (leo notfalls tauschen)
   
   - Web scraping
   - Wordclouds
 
-  
-* 13 - 2022/xx/xx (optional lecture)
+* 13 - 2023/02/09 (aleks)
 
   - Feedback round
   - APIs (FastAPI)
