@@ -1,433 +1,444 @@
 <!DOCTYPE html>
-<html><head>
-<title>assignment_01_img_encoded.md</title>
-<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<html>
 
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
+<head>
+	<title>assignment_01_img_encoded.md</title>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
+	<style>
+		/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+		/*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
-}
+		body {
+			font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+			font-size: var(--vscode-markdown-font-size, 14px);
+			padding: 0 26px;
+			line-height: var(--vscode-markdown-line-height, 22px);
+			word-wrap: break-word;
+		}
 
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
+		#code-csp-warning {
+			position: fixed;
+			top: 0;
+			right: 0;
+			color: white;
+			margin: 16px;
+			text-align: center;
+			font-size: 12px;
+			font-family: sans-serif;
+			background-color: #444444;
+			cursor: pointer;
+			padding: 6px;
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+		}
 
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
+		#code-csp-warning:hover {
+			text-decoration: none;
+			background-color: #007acc;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+		}
 
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
+		body.scrollBeyondLastLine {
+			margin-bottom: calc(100vh - 22px);
+		}
 
-body.showEditorSelection .code-line {
-	position: relative;
-}
+		body.showEditorSelection .code-line {
+			position: relative;
+		}
 
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
+		body.showEditorSelection .code-active-line:before,
+		body.showEditorSelection .code-line:hover:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: -12px;
+			height: 100%;
+		}
 
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
+		body.showEditorSelection li.code-active-line:before,
+		body.showEditorSelection li.code-line:hover:before {
+			left: -30px;
+		}
 
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
+		.vscode-light.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.15);
+		}
 
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
+		.vscode-light.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.40);
+		}
 
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
+		.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
 
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
+		.vscode-dark.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.4);
+		}
 
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
+		.vscode-dark.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.60);
+		}
 
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
+		.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
 
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
+		.vscode-high-contrast.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 160, 0, 0.7);
+		}
 
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
+		.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 160, 0, 1);
+		}
 
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
+		.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
 
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
 
-a {
-	text-decoration: none;
-}
+		a {
+			text-decoration: none;
+		}
 
-a:hover {
-	text-decoration: underline;
-}
+		a:hover {
+			text-decoration: underline;
+		}
 
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
-}
+		a:focus,
+		input:focus,
+		select:focus,
+		textarea:focus {
+			outline: 1px solid -webkit-focus-ring-color;
+			outline-offset: -1px;
+		}
 
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
+		hr {
+			border: 0;
+			height: 2px;
+			border-bottom: 2px solid;
+		}
 
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
+		h1 {
+			padding-bottom: 0.3em;
+			line-height: 1.2;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
 
-h1, h2, h3 {
-	font-weight: normal;
-}
+		h1,
+		h2,
+		h3 {
+			font-weight: normal;
+		}
 
-table {
-	border-collapse: collapse;
-}
+		table {
+			border-collapse: collapse;
+		}
 
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
+		table>thead>tr>th {
+			text-align: left;
+			border-bottom: 1px solid;
+		}
 
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td {
+			padding: 5px 10px;
+		}
 
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
+		table>tbody>tr+tr>td {
+			border-top: 1px solid;
+		}
 
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
+		blockquote {
+			margin: 0 7px 0 5px;
+			padding: 0 16px 0 10px;
+			border-left-width: 5px;
+			border-left-style: solid;
+		}
 
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
-}
+		code {
+			font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+			font-size: 1em;
+			line-height: 1.357em;
+		}
 
-body.wordWrap pre {
-	white-space: pre-wrap;
-}
+		body.wordWrap pre {
+			white-space: pre-wrap;
+		}
 
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
-}
+		pre:not(.hljs),
+		pre.hljs code>div {
+			padding: 16px;
+			border-radius: 3px;
+			overflow: auto;
+		}
 
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
+		pre code {
+			color: var(--vscode-editor-foreground);
+			tab-size: 4;
+		}
 
-/** Theming */
+		/** Theming */
 
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
-}
+		.vscode-light pre {
+			background-color: rgba(220, 220, 220, 0.4);
+		}
 
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
-}
+		.vscode-dark pre {
+			background-color: rgba(10, 10, 10, 0.4);
+		}
 
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
-}
+		.vscode-high-contrast pre {
+			background-color: rgb(0, 0, 0);
+		}
 
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
-}
+		.vscode-high-contrast h1 {
+			border-color: rgb(0, 0, 0);
+		}
 
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
-}
+		.vscode-light table>thead>tr>th {
+			border-color: rgba(0, 0, 0, 0.69);
+		}
 
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
-}
+		.vscode-dark table>thead>tr>th {
+			border-color: rgba(255, 255, 255, 0.69);
+		}
 
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
-}
+		.vscode-light h1,
+		.vscode-light hr,
+		.vscode-light table>tbody>tr+tr>td {
+			border-color: rgba(0, 0, 0, 0.18);
+		}
 
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
-}
+		.vscode-dark h1,
+		.vscode-dark hr,
+		.vscode-dark table>tbody>tr+tr>td {
+			border-color: rgba(255, 255, 255, 0.18);
+		}
+	</style>
 
-</style>
+	<style>
+		/* Tomorrow Theme */
+		/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+		/* Original theme - https://github.com/chriskempson/tomorrow-theme */
 
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+		/* Tomorrow Comment */
+		.hljs-comment,
+		.hljs-quote {
+			color: #8e908c;
+		}
 
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
+		/* Tomorrow Red */
+		.hljs-variable,
+		.hljs-template-variable,
+		.hljs-tag,
+		.hljs-name,
+		.hljs-selector-id,
+		.hljs-selector-class,
+		.hljs-regexp,
+		.hljs-deletion {
+			color: #c82829;
+		}
 
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
+		/* Tomorrow Orange */
+		.hljs-number,
+		.hljs-built_in,
+		.hljs-builtin-name,
+		.hljs-literal,
+		.hljs-type,
+		.hljs-params,
+		.hljs-meta,
+		.hljs-link {
+			color: #f5871f;
+		}
 
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
+		/* Tomorrow Yellow */
+		.hljs-attribute {
+			color: #eab700;
+		}
 
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
+		/* Tomorrow Green */
+		.hljs-string,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-addition {
+			color: #718c00;
+		}
 
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
+		/* Tomorrow Blue */
+		.hljs-title,
+		.hljs-section {
+			color: #4271ae;
+		}
 
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
+		/* Tomorrow Purple */
+		.hljs-keyword,
+		.hljs-selector-tag {
+			color: #8959a8;
+		}
 
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
+		.hljs {
+			display: block;
+			overflow-x: auto;
+			color: #4d4d4c;
+			padding: 0.5em;
+		}
 
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
+		.hljs-emphasis {
+			font-style: italic;
+		}
 
-.hljs-emphasis {
-	font-style: italic;
-}
+		.hljs-strong {
+			font-weight: bold;
+		}
+	</style>
 
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
+	<style>
+		/*
  * Markdown PDF CSS
  */
 
- body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
-}
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+			padding: 0 12px;
+		}
 
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
+		pre {
+			background-color: #f8f8f8;
+			border: 1px solid #cccccc;
+			border-radius: 3px;
+			overflow-x: auto;
+			white-space: pre-wrap;
+			overflow-wrap: break-word;
+		}
 
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
+		pre:not(.hljs) {
+			padding: 23px;
+			line-height: 19px;
+		}
 
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
+		blockquote {
+			background: rgba(127, 127, 127, 0.1);
+			border-color: rgba(0, 122, 204, 0.5);
+		}
 
-.emoji {
-	height: 1.4em;
-}
+		.emoji {
+			height: 1.4em;
+		}
 
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
+		code {
+			font-size: 14px;
+			line-height: 19px;
+		}
 
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
+		/* for inline code */
+		:not(pre):not(.hljs)>code {
+			color: #C9AE75;
+			/* Change the old color so it seems less like an error */
+			font-size: inherit;
+		}
 
-/* Page Break : use <div class="page"/> to insert page break
+		/* Page Break : use <div class="page"/> to insert page break
 -------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
+		.page {
+			page-break-after: always;
+		}
+	</style>
 
-</style>
-
-<script src="assignment_01_files/mermaid.js"></script>
+	<script src="assignment_01_files/mermaid.js"></script>
 </head>
+
 <body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
-<!-- omit in toc -->
-<h1 id="assignment-1">Assignment 1</h1>
-<p><em>Deadline: 05.05.2022</em></p>
-<ol>
-<li>Please follow the instructions below to install Conda.</li>
-<li>Get familiar with the Shell-Commands <code>cd</code>, <code>ls</code>, <code>pwd</code> and <code>mkdir</code>.</li>
-<li>Create a Conda environment called <code>fupy</code> with the packages <code>python=3.8</code> and <code>jupyterlab</code> installed.</li>
-<li>Launch the <code>chatbot.py</code> application.</li>
-</ol>
-<p>All information needed should be available below.</p>
-<p>If you should have any Questions don't hesitate to state them in our Discord channel!</p>
-<!-- omit in toc -->
-<h1 id="table-of-contents">Table of Contents</h1>
-<ul>
-<li><a href="#conda-installation">Conda Installation</a>
-<ul>
-<li><a href="#windows">Windows</a></li>
-<li><a href="#macos">macOS</a></li>
-<li><a href="#linux">Linux</a>
-<ul>
-<li><a href="#download">Download</a></li>
-<li><a href="#installation">Installation</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#terminal-cheat-sheet">Terminal Cheat Sheet</a>
-<ul>
-<li><a href="#ls"><code>ls</code></a></li>
-<li><a href="#pwd"><code>pwd</code></a></li>
-<li><a href="#cd"><code>cd</code></a></li>
-<li><a href="#mkdir"><code>mkdir</code></a></li>
-</ul>
-</li>
-<li><a href="#conda-cheat-sheet">Conda Cheat Sheet</a>
-<ul>
-<li><a href="#creating-an-conda-environment-from-scratch">Creating an Conda environment from scratch</a></li>
-<li><a href="#installing-packages">Installing packages</a></li>
-<li><a href="#deleting-environment">Deleting environment</a></li>
-<li><a href="#creating-an-conda-environment-from-an-environmentyml-file">Creating an Conda environment from an environment.yml file</a></li>
-</ul>
-</li>
-<li><a href="#python">Python</a>
-<ul>
-<li><a href="#launching-python">Launching Python</a></li>
-<li><a href="#launching-an-python-application">Launching an Python Application</a></li>
-</ul>
-</li>
-</ul>
-<h1 id="conda-installation">Conda Installation</h1>
-<p>We use Python throughout the class. We further use some additional 
-packages, installing them individually can be unnecessarily complicated.
- Hence, we recommend installing Miniconda, which comes with Python 
-(please use 3.x) and the package manager Conda.</p>
-<p><em>(Note that Conda is a part of the Anaconda distribution. If you 
-are already using the Anaconda distribution you may skip installing 
-Miniconda!)</em></p>
-<h2 id="windows">Windows</h2>
-<ul>
-<li>Visit <a href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a></li>
-<li>Download the installer for Python 3.x, for your OS-Architecture (probably <code>64bit</code>) and run it.</li>
-<li>You can click on <code>continue</code> in each step.</li>
-</ul>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAGECAYAAADA9NJLAAAABHNCSVQICAgIfAhkiAAAABl0RVh0
+	<script>
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+				? 'dark'
+				: 'default'
+		});
+	</script>
+	<!-- omit in toc -->
+	<h1 id="assignment-1">Assignment 1</h1>
+	<p><em>Deadline: 03.11.2022</em></p>
+	<ol>
+		<li>Please follow the instructions below to install Conda.</li>
+		<li>Get familiar with the Shell-Commands <code>cd</code>, <code>ls</code>, <code>pwd</code> and
+			<code>mkdir</code>.</li>
+		<li>Create a Conda environment called <code>fupy</code> with the packages <code>python=3.8</code> and
+			<code>jupyterlab</code> installed.</li>
+		<li>Launch the <code>chatbot.py</code> application.</li>
+	</ol>
+	<p>All information needed should be available below.</p>
+	<p>If you should have any Questions don't hesitate to state them in our Discord channel!</p>
+	<!-- omit in toc -->
+	<h1 id="table-of-contents">Table of Contents</h1>
+	<ul>
+		<li><a href="#conda-installation">Conda Installation</a>
+			<ul>
+				<li><a href="#windows">Windows</a></li>
+				<li><a href="#macos">macOS</a></li>
+				<li><a href="#linux">Linux</a>
+					<ul>
+						<li><a href="#download">Download</a></li>
+						<li><a href="#installation">Installation</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li><a href="#terminal-cheat-sheet">Terminal Cheat Sheet</a>
+			<ul>
+				<li><a href="#ls"><code>ls</code></a></li>
+				<li><a href="#pwd"><code>pwd</code></a></li>
+				<li><a href="#cd"><code>cd</code></a></li>
+				<li><a href="#mkdir"><code>mkdir</code></a></li>
+			</ul>
+		</li>
+		<li><a href="#conda-cheat-sheet">Conda Cheat Sheet</a>
+			<ul>
+				<li><a href="#creating-an-conda-environment-from-scratch">Creating an Conda environment from scratch</a>
+				</li>
+				<li><a href="#installing-packages">Installing packages</a></li>
+				<li><a href="#deleting-environment">Deleting environment</a></li>
+				<li><a href="#creating-an-conda-environment-from-an-environmentyml-file">Creating an Conda environment
+						from an environment.yml file</a></li>
+			</ul>
+		</li>
+		<li><a href="#python">Python</a>
+			<ul>
+				<li><a href="#launching-python">Launching Python</a></li>
+				<li><a href="#launching-an-python-application">Launching an Python Application</a></li>
+			</ul>
+		</li>
+	</ul>
+	<h1 id="conda-installation">Conda Installation</h1>
+	<p>We use Python throughout the class. We further use some additional
+		packages, installing them individually can be unnecessarily complicated.
+		Hence, we recommend installing Miniconda, which comes with Python
+		(please use 3.x) and the package manager Conda.</p>
+	<p><em>(Note that Conda is a part of the Anaconda distribution. If you
+			are already using the Anaconda distribution you may skip installing
+			Miniconda!)</em></p>
+	<h2 id="windows">Windows</h2>
+	<ul>
+		<li>Visit <a
+				href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a>
+		</li>
+		<li>Download the installer for Python 3.x, for your OS-Architecture (probably <code>64bit</code>) and run it.
+		</li>
+		<li>You can click on <code>continue</code> in each step.</li>
+	</ul>
+	<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAGECAYAAADA9NJLAAAABHNCSVQICAgIfAhkiAAAABl0RVh0
 U29mdHdhcmUAZ25vbWUtc2NyZWVuc2hvdO8Dvz4AACAASURBVHic7L17eBvHee//XYAXUff7/S6A
 tmnIsi3LigFfo8gOQMdmHIendWMzTlKgaUoBbar2PDlse9ry9+vpUU4DuCdpgCZxmDhOSicO7JhA
 YseOZJuwZEm+CaYsLmRJ1l0UdeP9Asz5Y3eBBbC7WJAgQVHv53nwiNqdnXnnndl9d96ZnZerr69n
@@ -938,15 +949,18 @@ FrkWKNBFRKTPbNu2rb+LELUU6CIinVzJCG75YlcyglsunfrQRURErnGO4yjQRUREooECXUREJAoo
 0EVERK5xhmEo0EVERKKBAl1EROQapxq6iIhIFFCgi4iIRAHTNBXoIiIi1zrV0EVERKKAaugiIiJR
 wDTNlrncf/SjH/V3WUREROQKuVwujL179zqhUIhIJNL2chwH27Yv+N9zLxEREel9hmG0vUzTbPvv
 uZfL5cLtdvP/AWJsFkQk1X7DAAAAAElFTkSuQmCC"></p>
-<ul>
-<li>You should now find two freshly installed programs, in your Start Menu, in the <code>Anaconda3 (64-bit)</code> directory.
-<ul>
-<li>Both spawn a terminal window from which the <code>conda</code> command is accessible.</li>
-<li><strong>Please use the <code>Anaconda Powershell Prompt</code></strong> <em>(instead of the <code>Anaconda prompt</code>)</em> <strong>, as that one also allows inputting typical commands from the UNIX world (macOS, Linux, etc.).</strong></li>
-</ul>
-</li>
-</ul>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdQAAAKUCAYAAAANTrofAAAABHNCSVQICAgIfAhkiAAAABl0RVh0
+	<ul>
+		<li>You should now find two freshly installed programs, in your Start Menu, in the
+			<code>Anaconda3 (64-bit)</code> directory.
+			<ul>
+				<li>Both spawn a terminal window from which the <code>conda</code> command is accessible.</li>
+				<li><strong>Please use the <code>Anaconda Powershell Prompt</code></strong> <em>(instead of the
+						<code>Anaconda prompt</code>)</em> <strong>, as that one also allows inputting typical commands
+						from the UNIX world (macOS, Linux, etc.).</strong></li>
+			</ul>
+		</li>
+	</ul>
+	<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdQAAAKUCAYAAAANTrofAAAABHNCSVQICAgIfAhkiAAAABl0RVh0
 U29mdHdhcmUAZ25vbWUtc2NyZWVuc2hvdO8Dvz4AACAASURBVHic7L1NrCTLdef3j8jM+ri3mxJH
 lD2Ax+aj9TGGAdN6hvCAoQEBnFl4IUCAvKCNMSziLQjBXkhLLwlurKUB7wQZeMOF4YE2hGkQXtCj
 BxCwAL/NE2TAGGkEkyN5BM2ABCm+7luVXxFeZP4j/3kqsurevre7b/fL07h9b1VlxseJE1FVv3Pi
@@ -3681,13 +3695,15 @@ JN9xsR7RmmCMhhsnbDYbAAO22y2ccxiGAUSE3W4HnUh0BaJAzE+Tg9YGxmjAeTA8xnELhod3DBDD
 6AHrzSYEKQrleTkWfVTeX13/DogUbm52CJ7tGtPk4D0wxDI7eKxWKwAeu+02BGtiIATIqn3vbWGt
 QrgZJzh2UACU0ikQ4r3DZMN4dc5Ck8JqNYCZMe5uEiG/Wq1ARNlCJhLh5aKsMivCGF1Z4yilMMRF
 S60NgZvValVZ51hr8f8D4fKYS9+3UlcAAAAASUVORK5CYII="></p>
-<h2 id="macos">macOS</h2>
-<ul>
-<li>Visit <a href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a></li>
-<li>Download the Python 3.x <strong>pkg</strong> installer and run it.</li>
-<li>You can click on <code>continue</code> in each step.</li>
-</ul>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAr0AAAH5CAYAAACMBYY/AAAABHNCSVQICAgIfAhkiAAAABl0RVh0
+	<h2 id="macos">macOS</h2>
+	<ul>
+		<li>Visit <a
+				href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a>
+		</li>
+		<li>Download the Python 3.x <strong>pkg</strong> installer and run it.</li>
+		<li>You can click on <code>continue</code> in each step.</li>
+	</ul>
+	<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAr0AAAH5CAYAAACMBYY/AAAABHNCSVQICAgIfAhkiAAAABl0RVh0
 U29mdHdhcmUAZ25vbWUtc2NyZWVuc2hvdO8Dvz4AACAASURBVHic7J13eFTV1offmclMOgkk1AAB
 pIbeO4EEEUhEpGOBK9iuYvsUuer1XrAioFKUImABBKWXC0gXAoSaUAKEFgiGDiGQRpLJzPdHnOPM
 MDWF5nqfZ+DMPrusvc+ZyW/WWXtvldFoNCIIgiAIgiAIDzHqe22AIAiCIAiCIJQ0InoFQRAEQRCE
@@ -4517,10 +4533,11 @@ ttbjdhsfbD0Xa5/TMhEREdGF4hZ6rW1268636jufCm65fbkds9dzdOP4cAqnyq4dp3DrdJOb3QwM
 lVwjfdm10utU0XUKtdaKqnmnXm5os7YLwsxwB+v2rSHX6SEW5Sq7F3ocL0MvEREReTWf0GvudwuS
 5ra5VH4B5yERbkMlylV73Y7TyzmWuz6CZkllXv987xYW7Sqp5cbcut1s5mWdcttyWi53LuWug9u1
 ISIiIpqruVY3y4VEp5BrXa5kSILXIQxOFV6nAFxJ4HU7dwD4/1aZtoHJFLFBAAAAAElFTkSuQmCC"></p>
-<ul>
-<li>After you completed the installation, with the next start of the Terminal application you will be able to use the <code>conda</code> command.</li>
-</ul>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArMAAAHuCAYAAACMH4SvAAAABHNCSVQICAgIfAhkiAAAABl0RVh0
+	<ul>
+		<li>After you completed the installation, with the next start of the Terminal application you will be able to
+			use the <code>conda</code> command.</li>
+	</ul>
+	<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArMAAAHuCAYAAACMH4SvAAAABHNCSVQICAgIfAhkiAAAABl0RVh0
 U29mdHdhcmUAZ25vbWUtc2NyZWVuc2hvdO8Dvz4AACAASURBVHic7L17tF1VdT/+mWufJDzkEUQD
 FJVYQYKCaSASrBUMRmBAsSgOqaKIL146LGhrqy1YWqXUoPVBZahVUaMOBhpFtFYUCEIKKCAvwUT7
 EyG8CoZHBELOWvP3x5yfudY+NzyKuQn4PcsRuffcffZea6655vzM55YHH3xQ4WO33XbDeIzHeIzH
@@ -6654,38 +6671,38 @@ Z13D4uQoqqLmmeWnmXbTw+f920c/x/vOuYlf2fZr3PZ3t3LTXTfwms0/xqlbtnFg9VlWZsvzpYki
 RM8zh56m8+1/Oedz1d7fuvMqHtv/GJnMtJvy4KOfY3FyFHsv+Uu++uSXuPaOK3ndD72Oi9/wLv7s
 s+/nrkc+zkcu3cfG4SYu/9C7+PJTX+LSMy976S7IeqzHerxs48QTT2TPnj2Mx2O2bNnCcDg8vO+8
 885j586d3H777ezfvx9jDBdddNF3PdZ/AgqSu1oSvVbPAAAAAElFTkSuQmCC"></p>
-<h2 id="linux">Linux</h2>
-<ul>
-<li>For Linux there is unfortunately no graphical installer available, thus you need to use your terminal.</li>
-</ul>
-<h3 id="download">Download</h3>
-<ul>
-<li>
-<p>Open a terminal window and enter the following command:</p>
-<pre class="hljs"><code><div>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+	<h2 id="linux">Linux</h2>
+	<ul>
+		<li>For Linux there is unfortunately no graphical installer available, thus you need to use your terminal.</li>
+	</ul>
+	<h3 id="download">Download</h3>
+	<ul>
+		<li>
+			<p>Open a terminal window and enter the following command:</p>
+			<pre class="hljs"><code><div>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 </div></code></pre>
-</li>
-<li>
-<p>In case you don't have <code>wget</code> installed, please use the following command instead:</p>
-<pre class="hljs"><code><div>curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &gt; Miniconda3-latest-Linux-x86_64.sh
+		</li>
+		<li>
+			<p>In case you don't have <code>wget</code> installed, please use the following command instead:</p>
+			<pre class="hljs"><code><div>curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &gt; Miniconda3-latest-Linux-x86_64.sh
 </div></code></pre>
-</li>
-</ul>
-<h3 id="installation">Installation</h3>
-<ul>
-<li>
-<p>Run the following command to start the installation:</p>
-<pre class="hljs"><code><div>bash Miniconda3-latest-Linux-x86_64.sh
+		</li>
+	</ul>
+	<h3 id="installation">Installation</h3>
+	<ul>
+		<li>
+			<p>Run the following command to start the installation:</p>
+			<pre class="hljs"><code><div>bash Miniconda3-latest-Linux-x86_64.sh
 </div></code></pre>
-</li>
-<li>
-<p>You will be prompted to press <code>ENTER</code>, do that.</p>
-</li>
-<li>
-<p>Afterwards the EULA will be displayed. Press <code>q</code> to quit reading it.</p>
-</li>
-</ul>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAvoAAAH6CAYAAAB29+hIAAAABHNCSVQICAgIfAhkiAAAABl0RVh0
+		</li>
+		<li>
+			<p>You will be prompted to press <code>ENTER</code>, do that.</p>
+		</li>
+		<li>
+			<p>Afterwards the EULA will be displayed. Press <code>q</code> to quit reading it.</p>
+		</li>
+	</ul>
+	<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAvoAAAH6CAYAAAB29+hIAAAABHNCSVQICAgIfAhkiAAAABl0RVh0
 U29mdHdhcmUAZ25vbWUtc2NyZWVuc2hvdO8Dvz4AACAASURBVHic7N13eNXU/wfwd+7q7d57QmmB
 Uspo2VtBpaACssEFyldxoThQXLhx4FZUFEH2D0VBkY2IsjeU1b33uu3t7Z35/dEWCnSk5ZZR36/n
 yYO2JyefnCQnnyYnCUBERERERERERERERERERERERERERERERNYgXOf5iYiIiIiofmJzZ2xOot7Q
@@ -8021,13 +8038,16 @@ br4DAAAA+D+zhnW70hy78G8e6zRXyhCeKuzb7d477eQT9AEAAIDB7IJ+4prqR2tdnb6TLoTbnZyT
 KtwT6gEAAIChs9bc2/0arqsjNt0Ec6djMt3cAwAAAHDHKcC7uR/EbShP9Qu6mc4FAAAAwJlTSU+6
 vgECGXwhQR4AAAAYeelCfNqQL2UX3gn+AAAAwMhzFewBAAAAAAAAAAAAAAAAAAAAAMDI+A9wQWBe
 NoSLZAAAAABJRU5ErkJggg=="></p>
-<ul>
-<li>Enter <code>yes</code> and confirm with <code>ENTER</code> to accept the terms.</li>
-<li>Next you will be asked to specify the installation path, press <code>ENTER</code> to use the default one.</li>
-<li>Now the installer asks whether to initialize <code>miniconda3</code>. <strong>Enter <code>yes</code> and confirm with <code>ENTER</code></strong></li>
-<li>After you completed the installation, with the next start of a terminal window you will be able to use the <code>conda</code> command.</li>
-</ul>
-<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAvoAAAH6CAYAAAB29+hIAAAABHNCSVQICAgIfAhkiAAAABl0RVh0
+	<ul>
+		<li>Enter <code>yes</code> and confirm with <code>ENTER</code> to accept the terms.</li>
+		<li>Next you will be asked to specify the installation path, press <code>ENTER</code> to use the default one.
+		</li>
+		<li>Now the installer asks whether to initialize <code>miniconda3</code>. <strong>Enter <code>yes</code> and
+				confirm with <code>ENTER</code></strong></li>
+		<li>After you completed the installation, with the next start of a terminal window you will be able to use the
+			<code>conda</code> command.</li>
+	</ul>
+	<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAvoAAAH6CAYAAAB29+hIAAAABHNCSVQICAgIfAhkiAAAABl0RVh0
 U29mdHdhcmUAZ25vbWUtc2NyZWVuc2hvdO8Dvz4AACAASURBVHic7N13fFX14f/x97kjOyETMiCT
 BMLeoAhYBBfaKuLgq7WO1m/1W6vfota2dv9aa7fW2tpaV91fK1aLA0TZmyAjzEyy985Ncsf5/REC
 AQMkYXp8PR+P84hJzjn33GF43c/93HMlAAAAAAAAAAAAAAAAAAAAAABwOhjneHsAAAAAx2f2d8P+
@@ -8324,50 +8344,52 @@ r/eGy1Vn643vbEX/1NGdqs0M/mpwfjibL/IBAOBwvSmaXfu9ozu9GG/n68fexLNrm/IZAADwNWtj
 fWw0Zyz+h9f27rUzwnfF/tjqfW8lX+gDAMC2sdBf73f9aO2kt+/si/CxN+fsintRDwAAt9fO3I/9
 Gu6kV2xOCfPeazKnHAMAANP0An7K8ZapUb7rF3QPvRcAANDXG+nZd+5fZgd8oJAHAICHty/i90Z+
 1d3iXfgDAMDDmxT2AAAAAAAAAAAAAADAw/gbeDWZiHzdomgAAAAASUVORK5CYII="></p>
-<p><em>Note: If you accidentally didn't initialize Conda you can do that by executing <code>~/miniconda3/bin/conda init</code></em></p>
-<h1 id="terminal-cheat-sheet">Terminal Cheat Sheet</h1>
-<ul>
-<li>
-<p>Hint: You can paste commands into the terminal using:</p>
-<ul>
-<li>Windows: <code>CTRL + V</code></li>
-<li>macOS: <code>CMD + V</code></li>
-<li>Linux: <code>CTRL + SHIFT + V</code></li>
-</ul>
-</li>
-<li>
-<p>Hint: You can autocomplete commands and arguments using <code>TAB</code>.</p>
-</li>
-<li>
-<p>Hint: You can interrupt command execution using <code>CTRL + C</code> (e.g. if Conda gets stuck)</p>
-</li>
-</ul>
-<h2 id="ls"><code>ls</code></h2>
-<ul>
-<li>
-<p><code>ls</code> lists all files and directories in your current path.</p>
-<pre class="hljs"><code><div>(base) aleks@pc$ ls
+	<p><em>Note: If you accidentally didn't initialize Conda you can do that by executing
+			<code>~/miniconda3/bin/conda init</code></em></p>
+	<h1 id="terminal-cheat-sheet">Terminal Cheat Sheet</h1>
+	<ul>
+		<li>
+			<p>Hint: You can paste commands into the terminal using:</p>
+			<ul>
+				<li>Windows: <code>CTRL + V</code></li>
+				<li>macOS: <code>CMD + V</code></li>
+				<li>Linux: <code>CTRL + SHIFT + V</code></li>
+			</ul>
+		</li>
+		<li>
+			<p>Hint: You can autocomplete commands and arguments using <code>TAB</code>.</p>
+		</li>
+		<li>
+			<p>Hint: You can interrupt command execution using <code>CTRL + C</code> (e.g. if Conda gets stuck)</p>
+		</li>
+	</ul>
+	<h2 id="ls"><code>ls</code></h2>
+	<ul>
+		<li>
+			<p><code>ls</code> lists all files and directories in your current path.</p>
+			<pre class="hljs"><code><div>(base) aleks@pc$ ls
 Desktop Documents Downloads miniconda3 Music Pictures Public Uni Videos
 </div></code></pre>
-</li>
-</ul>
-<h2 id="pwd"><code>pwd</code></h2>
-<ul>
-<li>
-<p><code>pwd</code> returns your current path. Very useful if you should get lost!</p>
-<pre class="hljs"><code><div>(base) aleks@pc$ pwd
+		</li>
+	</ul>
+	<h2 id="pwd"><code>pwd</code></h2>
+	<ul>
+		<li>
+			<p><code>pwd</code> returns your current path. Very useful if you should get lost!</p>
+			<pre class="hljs"><code><div>(base) aleks@pc$ pwd
 /home/aleks
 </div></code></pre>
-</li>
-</ul>
-<h2 id="cd"><code>cd</code></h2>
-<ul>
-<li>
-<p><code>cd</code> (change directory) moves you into a specified directory</p>
-</li>
-<li>
-<p><code>..</code> states "one directory above". Thus by using <code>cd ..</code> you can switch to one directory above.</p>
-<pre class="hljs"><code><div>(base) aleks@pc$ ls
+		</li>
+	</ul>
+	<h2 id="cd"><code>cd</code></h2>
+	<ul>
+		<li>
+			<p><code>cd</code> (change directory) moves you into a specified directory</p>
+		</li>
+		<li>
+			<p><code>..</code> states "one directory above". Thus by using <code>cd ..</code> you can switch to one
+				directory above.</p>
+			<pre class="hljs"><code><div>(base) aleks@pc$ ls
 Desktop Documents Downloads Music Pictures Public Uni Videos
 
 (base) aleks@pc$ pwd
@@ -8381,205 +8403,219 @@ Desktop Documents Downloads Music Pictures Public Uni Videos
 (base) aleks@pc$ pwd
 /home/aleks
 </div></code></pre>
-</li>
-<li>
-<p>When starting a terminal window your path will be set to your <strong>Home-Directory</strong>. Depending on which Operating System you use the path-names will look different.</p>
-<ul>
-<li>
-<p>Windows (<code>C:\Users\username</code>):</p>
-<pre class="hljs"><code><div>C:\Users\aleks&gt; pwd
+		</li>
+		<li>
+			<p>When starting a terminal window your path will be set to your <strong>Home-Directory</strong>. Depending
+				on which Operating System you use the path-names will look different.</p>
+			<ul>
+				<li>
+					<p>Windows (<code>C:\Users\username</code>):</p>
+					<pre class="hljs"><code><div>C:\Users\aleks&gt; pwd
 
 Path
 ----
 C:\Users\aleks
 </div></code></pre>
-</li>
-<li>
-<p>macOS (<code>/Users/username</code>):</p>
-<pre class="hljs"><code><div>aleks@macOS$ pwd
+				</li>
+				<li>
+					<p>macOS (<code>/Users/username</code>):</p>
+					<pre class="hljs"><code><div>aleks@macOS$ pwd
 /Users/aleks
 </div></code></pre>
-</li>
-<li>
-<p>Linux (<code>/home/username</code>):</p>
-<pre class="hljs"><code><div>aleks@linux$ pwd
+				</li>
+				<li>
+					<p>Linux (<code>/home/username</code>):</p>
+					<pre class="hljs"><code><div>aleks@linux$ pwd
 /home/aleks
 </div></code></pre>
-</li>
-</ul>
-</li>
-<li>
-<p>Luckily we can use the same command on each OS to get back to our Home-Directory, i.e. <code>cd ~</code> or <code>cd $HOME</code>.</p>
-<pre class="hljs"><code><div>(base) aleks@pc$ cd aa/bb/cc/dd
+				</li>
+			</ul>
+		</li>
+		<li>
+			<p>Luckily we can use the same command on each OS to get back to our Home-Directory, i.e. <code>cd ~</code>
+				or <code>cd $HOME</code>.</p>
+			<pre class="hljs"><code><div>(base) aleks@pc$ cd aa/bb/cc/dd
 (base) aleks@pc$ cd $HOME
 (base) aleks@pc$ pwd
 /home/aleks
 </div></code></pre>
-</li>
-</ul>
-<h2 id="mkdir"><code>mkdir</code></h2>
-<ul>
-<li>
-<p><code>mkdir</code> stands for <em>make directory</em>.</p>
-<pre class="hljs"><code><div>aleks@pc$ ls
+		</li>
+	</ul>
+	<h2 id="mkdir"><code>mkdir</code></h2>
+	<ul>
+		<li>
+			<p><code>mkdir</code> stands for <em>make directory</em>.</p>
+			<pre class="hljs"><code><div>aleks@pc$ ls
 course_a course_b
 
 aleks@pc$ mkdir abv_dataanalysis_python
 aleks@pc$ ls
 abv_dataanalysis_python course_a course_b
 </div></code></pre>
-</li>
-<li>
-<p>We suggest creating a folder for each lecture/session, e.g.:</p>
-<pre class="hljs"><code><div>aleks@pc$ pwd
+		</li>
+		<li>
+			<p>We suggest creating a folder for each lecture/session, e.g.:</p>
+			<pre class="hljs"><code><div>aleks@pc$ pwd
 /home/aleks/Uni/abv_dataanalysis_python
 
-aleks@pc$ mkdir 01-2022-02-24
+aleks@pc$ mkdir 01-2022-10-26
 </div></code></pre>
-</li>
-</ul>
-<p><strong>WARNING</strong></p>
-<ul>
-<li>
-<p>Please make sure to not use spaces when naming files and directories! As the terminal separates arguments between spaces.</p>
-<pre class="hljs"><code><div>aleks@pc$ mkdir abv dataanalysis python
+		</li>
+	</ul>
+	<p><strong>WARNING</strong></p>
+	<ul>
+		<li>
+			<p>Please make sure to not use spaces when naming files and directories! As the terminal separates arguments
+				between spaces.</p>
+			<pre class="hljs"><code><div>aleks@pc$ mkdir abv dataanalysis python
 aleks@pc$ ls
 abv course_a course_b dataanalysis python
 </div></code></pre>
-</li>
-<li>
-<p>We now have created three different directories!</p>
-</li>
-<li>
-<p>To <code>cd</code> into a directory with spaces in the name, put quotation marks (<code>"</code> or <code>'</code>) around it</p>
-<pre class="hljs"><code><div>aleks@pc$ ls
+		</li>
+		<li>
+			<p>We now have created three different directories!</p>
+		</li>
+		<li>
+			<p>To <code>cd</code> into a directory with spaces in the name, put quotation marks (<code>"</code> or
+				<code>'</code>) around it</p>
+			<pre class="hljs"><code><div>aleks@pc$ ls
 'dir with spaces' dir_a dir_b
 aleks@pc$ cd 'dir with spaces'
 aleks@pc$ pwd
 /home/aleks/dir with spaces
 </div></code></pre>
-</li>
-</ul>
-<h1 id="conda-cheat-sheet">Conda Cheat Sheet</h1>
-<ul>
-<li>
-<p>As mentioned before Conda allows us to install Python packages 
-easily, while making sure the package versions work well with another.</p>
-</li>
-<li>
-<p>Conda also allows us to create virtual environments, i.e. a separated collection of packages.</p>
-</li>
-<li>
-<p>The main idea behind that is to save a state in which we are able to 
-run a project. When revisiting a project in the future some packages may
- have gotten updated, resulting in the project not running at all or in a
- different manner. Keeping an environment per project allows to restart 
-the project with exactly the packages with which it has worked in the 
-past!</p>
-</li>
-<li>
-<p>It is recommended to add the Conda-forge channel to your Conda channels, so we can install community packages:</p>
-<pre class="hljs"><code><div>conda config --add channels conda-forge
+		</li>
+	</ul>
+	<h1 id="conda-cheat-sheet">Conda Cheat Sheet</h1>
+	<ul>
+		<li>
+			<p>As mentioned before Conda allows us to install Python packages
+				easily, while making sure the package versions work well with another.</p>
+		</li>
+		<li>
+			<p>Conda also allows us to create virtual environments, i.e. a separated collection of packages.</p>
+		</li>
+		<li>
+			<p>The main idea behind that is to save a state in which we are able to
+				run a project. When revisiting a project in the future some packages may
+				have gotten updated, resulting in the project not running at all or in a
+				different manner. Keeping an environment per project allows to restart
+				the project with exactly the packages with which it has worked in the
+				past!</p>
+		</li>
+		<li>
+			<p>It is recommended to add the Conda-forge channel to your Conda channels, so we can install community
+				packages:</p>
+			<pre class="hljs"><code><div>conda config --add channels conda-forge
 </div></code></pre>
-</li>
-</ul>
-<h2 id="creating-an-conda-environment-from-scratch">Creating an Conda environment from scratch</h2>
-<ul>
-<li>
-<p>Once you have installed the Conda package manager, we create a 
-virtual environment by installing Python and all other packages of 
-interest.</p>
-</li>
-<li>
-<p>Creating an Conda environment with the name <code>fupy</code>:</p>
-<pre class="hljs"><code><div>conda create -n fupy
+		</li>
+	</ul>
+	<h2 id="creating-an-conda-environment-from-scratch">Creating an Conda environment from scratch</h2>
+	<ul>
+		<li>
+			<p>Once you have installed the Conda package manager, we create a
+				virtual environment by installing Python and all other packages of
+				interest.</p>
+		</li>
+		<li>
+			<p>Creating an Conda environment with the name <code>fupy</code>:</p>
+			<pre class="hljs"><code><div>conda create -n fupy
 </div></code></pre>
-</li>
-<li>
-<p>The default Conda environment is <code>base</code>, to switch to the newly created environment use <code>conda activate environment_name</code>:</p>
-<pre class="hljs"><code><div>(base) aleks@pc$ conda activate fupy
+		</li>
+		<li>
+			<p>The default Conda environment is <code>base</code>, to switch to the newly created environment use
+				<code>conda activate environment_name</code>:</p>
+			<pre class="hljs"><code><div>(base) aleks@pc$ conda activate fupy
 (fupy) aleks@pc$
 </div></code></pre>
-</li>
-<li>
-<p>After doing this you can see the changed environment in your Shells' prefix.</p>
-</li>
-</ul>
-<h2 id="installing-packages">Installing packages</h2>
-<ul>
-<li>
-<p>With the right environment activated you can use <code>conda install package_1 package_2 [..]</code> to install packages:</p>
-<pre class="hljs"><code><div>(fupy) aleks@pc$ conda install python=3.8 jupyterlab
+		</li>
+		<li>
+			<p>After doing this you can see the changed environment in your Shells' prefix.</p>
+		</li>
+	</ul>
+	<h2 id="installing-packages">Installing packages</h2>
+	<ul>
+		<li>
+			<p>With the right environment activated you can use <code>conda install package_1 package_2 [..]</code> to
+				install packages:</p>
+			<pre class="hljs"><code><div>(fupy) aleks@pc$ conda install python=3.8 jupyterlab
 </div></code></pre>
-</li>
-<li>
-<p>Conda will automatically install all packages on which the chosen ones depend.</p>
-</li>
-</ul>
-<h2 id="deleting-environment">Deleting environment</h2>
-<pre class="hljs"><code><div>conda env remove -n environment_name
+		</li>
+		<li>
+			<p>Conda will automatically install all packages on which the chosen ones depend.</p>
+		</li>
+	</ul>
+	<h2 id="deleting-environment">Deleting environment</h2>
+	<pre class="hljs"><code><div>conda env remove -n environment_name
 </div></code></pre>
-<h2 id="creating-an-conda-environment-from-an-environmentyml-file">Creating an Conda environment from an environment.yml file</h2>
-<p><em>Note: this will be used later in the lecture and is not part of the assignment</em></p>
-<ul>
-<li>
-<p>Once you have installed the Conda package manager, you may create a 
-virtual environment by instructions within a file (e.g. 
-environment.yml). This allows you to recreate an existing environment 
-from another machine.</p>
-</li>
-<li>
-<p>Move to your working directory (use <code>cd</code>) and make sure the environment.yml is available (use <code>ls</code>) and type one of the following command:</p>
-<pre class="hljs"><code><div>conda env create -f environment.yml
+	<h2 id="creating-an-conda-environment-from-an-environmentyml-file">Creating an Conda environment from an
+		environment.yml file</h2>
+	<p><em>Note: this will be used later in the lecture and is not part of the assignment</em></p>
+	<ul>
+		<li>
+			<p>Once you have installed the Conda package manager, you may create a
+				virtual environment by instructions within a file (e.g.
+				environment.yml). This allows you to recreate an existing environment
+				from another machine.</p>
+		</li>
+		<li>
+			<p>Move to your working directory (use <code>cd</code>) and make sure the environment.yml is available (use
+				<code>ls</code>) and type one of the following command:</p>
+			<pre class="hljs"><code><div>conda env create -f environment.yml
 </div></code></pre>
-</li>
-<li>
-<p>Further you may use the Python module <code>pip</code> for downloading additional packages from PyPi, the Python Package Index.</p>
-</li>
-<li>
-<p>Packaging in Python is still not yet completely free of pain, hence 
-it is recommended to stay - if possible - within one realm (in our case 
-Conda!), when you start to build more complex and sophisticated 
-software.</p>
-</li>
-</ul>
-<h1 id="python">Python</h1>
-<h2 id="launching-python">Launching Python</h2>
-<ul>
-<li>
-<p>From your newly created conda environment you can launch the Python 
-interpreter using (make sure, that you are in the right conda 
-environment! Reminder: You can change the enviroment using <code>conda activate environment_name</code>):</p>
-<pre class="hljs"><code><div>(fupy) aleks@pc$ python
+		</li>
+		<li>
+			<p>Further you may use the Python module <code>pip</code> for downloading additional packages from PyPi, the
+				Python Package Index.</p>
+		</li>
+		<li>
+			<p>Packaging in Python is still not yet completely free of pain, hence
+				it is recommended to stay - if possible - within one realm (in our case
+				Conda!), when you start to build more complex and sophisticated
+				software.</p>
+		</li>
+	</ul>
+	<h1 id="python">Python</h1>
+	<h2 id="launching-python">Launching Python</h2>
+	<ul>
+		<li>
+			<p>From your newly created conda environment you can launch the Python
+				interpreter using (make sure, that you are in the right conda
+				environment! Reminder: You can change the enviroment using
+				<code>conda activate environment_name</code>):</p>
+			<pre class="hljs"><code><div>(fupy) aleks@pc$ python
 Python 3.8.5 (default, Sep  4 2020, 07:30:14) 
 [GCC 7.3.0] :: Anaconda, Inc. on linux
 Type "help", "copyright", "credits" or "license" for more information.
 &gt;&gt;&gt; 
 </div></code></pre>
-</li>
-</ul>
-<h2 id="launching-an-python-application">Launching an Python Application</h2>
-<ul>
-<li>
-<p>Use <code>cd</code>, <code>ls</code> (and <code>pwd</code>) to navigate to the location you created/downloaded a Python file (ending with <code>.py</code>)</p>
-<pre class="hljs"><code><div>(fupy) aleks@pc$ ls
+		</li>
+	</ul>
+	<h2 id="launching-an-python-application">Launching an Python Application</h2>
+	<ul>
+		<li>
+			<p>Use <code>cd</code>, <code>ls</code> (and <code>pwd</code>) to navigate to the location you
+				created/downloaded a Python file (ending with <code>.py</code>)</p>
+			<pre class="hljs"><code><div>(fupy) aleks@pc$ ls
 Desktop Documents Downloads Music Pictures Public Uni Videos
 
-(fupy) aleks@pc$ cd Uni/abv_dataanalysis_python/01-2022-02-24
+(fupy) aleks@pc$ cd Uni/abv_dataanalysis_python/01-2022-10-26
 (fupy) aleks@pc$ ls
 chatbot.py
 </div></code></pre>
-</li>
-<li>
-<p>Launch it using:</p>
-<pre class="hljs"><code><div>(fupy) aleks@pc$ python chatbot.py
+		</li>
+		<li>
+			<p>Launch it using:</p>
+			<pre class="hljs"><code><div>(fupy) aleks@pc$ python chatbot.py
 Hi, my name is Vincent.
 What's your name?
 
 </div></code></pre>
-</li>
-</ul>
+		</li>
+	</ul>
 
 
 
-</body></html>
+</body>
+
+</html>
