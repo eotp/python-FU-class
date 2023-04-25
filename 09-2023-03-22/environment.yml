@@ -1,0 +1,11 @@
+name: class09
+channels:
+- conda-forge
+- defaults
+dependencies:
+- python=3.10
+- jupyterlab
+- pandas
+- matplotlib
+- numpy
+- spyder

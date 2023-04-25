@@ -1,0 +1,1150 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature anomalies - A prelimnary analysis &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '05-01_Temperature_anomalies';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Challenge: Processing of Tabular Data" href="05-00_Processing_of_Tabular_Data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05-00_Processing_of_Tabular_Data.html">Challenge: Processing of Tabular Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Temperature anomalies - A prelimnary analysis</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/05-01_Temperature_anomalies.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Temperature anomalies - A prelimnary analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#we-explore-the-global-temperature-anomaly-from-1750-to-present">1. We explore the global temperature anomaly from 1750 to present.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#we-construct-an-informative-time-series-plot-for-the-global-temperature-anomaly">2. We construct an informative time series plot for the global temperature anomaly.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#we-write-a-function-to-plot-temperature-anomalies-for-any-given-country-region-of-the-database">3. We write a function to plot temperature anomalies for any given country/region of the database.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#save-a-nice-locking-time-series-plot-to-disk">4. Save a nice locking time series plot to disk.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-1-explore-the-global-temperature-anomaly-from-1750-to-present">Objective 1 - Explore the global temperature anomaly from 1750 to present</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-1-0-take-a-first-look-at-the-data">Objective 1.0 - Take a first look at the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1-inspect-the-first-50-lines-of-the-raw-text-file-and-read-the-metadata-to-get-familiar-with-the-nature-of-the-data-set-and-its-generation-time-3-minutes"><strong>Challenge 1: Inspect the first 50 lines of the raw text file and read the metadata to get familiar with the nature of the data set and its generation. (Time: 3 Minutes)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#macos-linux"><strong>macOS/Linux</strong>:</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#windows"><strong>Windows</strong>:</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#macos-linux-solution"><strong>macOS/Linux Solution</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-solution"><strong>Windows Solution</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-1-1-load-the-data-set-with-pandas">Objective 1.1 - Load the data set with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-2-type-pd-read-csv-into-the-cell-below-and-run-the-cell"><strong>Challenge 2: Type <code class="docutils literal notranslate"><span class="pre">?pd.read_csv</span></code> into the cell below and run the cell.</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-3-load-the-file-complete-tavg-complete-txt-using-the-pd-read-csv-function-build-up-the-function-call-sequentially-in-order-to-fulfill-our-particular-needs-time-8-minutes"><strong>Challenge 3: Load the file <code class="docutils literal notranslate"><span class="pre">Complete_TAVG_complete.txt</span></code> using the <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function. Build up the function call sequentially in order to fulfill our particular needs. (Time: 8 Minutes)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-1-2-exploratory-data-analysis">Objective 1.2 - Exploratory data analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-4-generate-a-time-based-index-by-combining-the-columns-year-and-month-time-5-minutes"><strong>Challenge 4: Generate a time based index by combining the columns <code class="docutils literal notranslate"><span class="pre">year</span></code> and <code class="docutils literal notranslate"><span class="pre">month</span></code>. (Time: 5 Minutes)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-5-print-the-descriptive-statistics-of-the-anomaly-column-time-2-minutes"><strong>Challenge 5: Print the descriptive statistics of the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> column. (Time: 2 Minutes)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-6-plotting-of-the-distribution-of-the-anomaly-column-time-3-minutes"><strong>Challenge 6: Plotting of the distribution of the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> column. (Time: 3 Minutes)</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-2-construct-an-informative-time-series-plot-for-the-global-temperature-anomaly">Objective 2 -  Construct an informative time series plot for the global temperature anomaly</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-2-1-construct-a-simple-time-series-plot-of-the-global-temperature-anomaly">Objective 2.1 -  Construct a simple time series plot of the global temperature anomaly</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-7-plot-a-time-series-plot-of-the-anomaly-column-time-3-minutes"><strong>Challenge 7: Plot a time series plot of the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> column. (Time: 3 Minutes)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-2-2-improve-the-simple-time-series-plot-by-computing-a-10-year-running-mean-for-the-anomaly-and-the-uncertainty-columns">Objective 2.2 -  Improve the simple time series plot by computing a 10-year running mean for the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> and the <code class="docutils literal notranslate"><span class="pre">uncertainty</span></code> columns.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-8-compute-a-10-year-running-mean-for-the-anomaly-and-the-uncertainty-columns-and-plot-them"><strong>Challenge 8: Compute a 10-year running mean for the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> and the <code class="docutils literal notranslate"><span class="pre">uncertainty</span></code> columns and plot them.</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-9-read-the-code-line-for-line-and-try-to-figure-out-what-each-line-of-code-is-doing-time-5-minutes"><strong>Challenge 9: Read the code line for line and try to figure out what each line of code is doing. (Time: 5 minutes)</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-3-write-a-function-to-plot-temperature-anomalies-for-any-given-country-region-of-the-database">Objective 3 - Write a function to plot temperature anomalies for any given country/region of the database</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-3-1-locate-the-data-files-find-the-correct-url-of-interest-in-the-open-database-of-earth-berkeley">Objective 3.1 - Locate the data files (find the correct url) of interest in the open database of Earth Berkeley</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-10-wrap-this-idea-into-a-python-function-called-data-url-which-takes-one-input-argument-the-name-of-the-country-region-time-5-minutes"><strong>Challenge 10: Wrap this idea into a python function called <code class="docutils literal notranslate"><span class="pre">data_url()</span></code>, which takes one input argument, the name of the country/region. (Time: 5 minutes)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-3-1-3-2-and-3-3-load-temperature-data-assign-a-time-based-index-and-plot-the-data-of-interest">Objective 3.1, 3.2 and 3.3 - Load temperature data, assign a time based index and plot the data of interest</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-11-apply-data-url-followed-by-read-temp-data-monthly-index-and-plot-anomalies-to-plot-the-temperature-anomaly-for-germany-from-1750-to-present-time-4-minutes"><strong>Challenge 11: Apply <code class="docutils literal notranslate"><span class="pre">data_url()</span></code>, followed by <code class="docutils literal notranslate"><span class="pre">read_temp_data()</span></code>, <code class="docutils literal notranslate"><span class="pre">monthly_index()</span></code> and <code class="docutils literal notranslate"><span class="pre">plot_anomalies()</span></code> to plot the temperature anomaly for Germany from 1750 to present. (Time: 4 minutes)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-12-use-the-function-plot-country-anomalies-to-plot-the-temperature-anomalies-for"><strong>Challenge 12: Use the function <code class="docutils literal notranslate"><span class="pre">plot_country_anomalies()</span></code> to plot the temperature anomalies for</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-4-save-a-time-series-plot-to-disk">Objective 4 - Save a time series plot to disk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-13-create-a-plot-of-a-country-of-your-choice-use-the-function-plt-savefig-to-save-the-plot-to-disk-save-the-plot-as-a-png-file-with-a-resolution-of-300-dpi-in-the-folder-figures-time-3-minutes"><strong>Challenge 13: Create a plot of a country of your choice. Use the function <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> to save the plot to disk. Save the plot as a <code class="docutils literal notranslate"><span class="pre">.png</span></code> file with a resolution of 300 dpi in the folder <code class="docutils literal notranslate"><span class="pre">../figures/</span></code>. (Time: 3 Minutes)</strong></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="temperature-anomalies-a-prelimnary-analysis">
+<h1>Temperature anomalies - A prelimnary analysis<a class="headerlink" href="#temperature-anomalies-a-prelimnary-analysis" title="Permalink to this headline">#</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p>In this section we explore a real world data set. We consider land-surface temperature anomalies provided by <a class="reference external" href="http://berkeleyearth.org/"><strong>Berkeley Earth</strong></a>, an independent non-profit entity, which established an <a class="reference external" href="http://berkeleyearth.org/data/">open database</a> with air temperature data of different spatial and temporal scales.</p>
+<div class="section" id="objectives">
+<h3>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">#</a></h3>
+<div class="section" id="we-explore-the-global-temperature-anomaly-from-1750-to-present">
+<h4>1. We explore the global temperature anomaly from 1750 to present.<a class="headerlink" href="#we-explore-the-global-temperature-anomaly-from-1750-to-present" title="Permalink to this headline">#</a></h4>
+</div>
+<div class="section" id="we-construct-an-informative-time-series-plot-for-the-global-temperature-anomaly">
+<h4>2. We construct an informative time series plot for the global temperature anomaly.<a class="headerlink" href="#we-construct-an-informative-time-series-plot-for-the-global-temperature-anomaly" title="Permalink to this headline">#</a></h4>
+</div>
+<div class="section" id="we-write-a-function-to-plot-temperature-anomalies-for-any-given-country-region-of-the-database">
+<h4>3. We write a function to plot temperature anomalies for any given country/region of the database.<a class="headerlink" href="#we-write-a-function-to-plot-temperature-anomalies-for-any-given-country-region-of-the-database" title="Permalink to this headline">#</a></h4>
+</div>
+<div class="section" id="save-a-nice-locking-time-series-plot-to-disk">
+<h4>4. Save a nice locking time series plot to disk.<a class="headerlink" href="#save-a-nice-locking-time-series-plot-to-disk" title="Permalink to this headline">#</a></h4>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">#</a></h2>
+<p>We start by importing the packages/libraries that we will need for these tasks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># this call causes the figures to be plotted below the code cells</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline   
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="objective-1-explore-the-global-temperature-anomaly-from-1750-to-present">
+<h2>Objective 1 - Explore the global temperature anomaly from 1750 to present<a class="headerlink" href="#objective-1-explore-the-global-temperature-anomaly-from-1750-to-present" title="Permalink to this headline">#</a></h2>
+<div class="section" id="objective-1-0-take-a-first-look-at-the-data">
+<h3>Objective 1.0 - Take a first look at the data<a class="headerlink" href="#objective-1-0-take-a-first-look-at-the-data" title="Permalink to this headline">#</a></h3>
+<p>The land-surface average temperature data set produced by the Berkeley Averaging method is found online:</p>
+<p><a class="reference external" href="http://berkeleyearth.lbl.gov/auto/Global/Complete_TAVG_complete.txt">http://berkeleyearth.lbl.gov/auto/Global/Complete_TAVG_complete.txt</a></p>
+<p>We already downloaded the data set for you. It is stored in the <code class="docutils literal notranslate"><span class="pre">../data</span></code> folder under the filename <code class="docutils literal notranslate"><span class="pre">Complete_TAVG_complete.txt</span></code>.</p>
+<div class="section" id="challenge-1-inspect-the-first-50-lines-of-the-raw-text-file-and-read-the-metadata-to-get-familiar-with-the-nature-of-the-data-set-and-its-generation-time-3-minutes">
+<h4><strong>Challenge 1: Inspect the first 50 lines of the raw text file and read the metadata to get familiar with the nature of the data set and its generation. (Time: 3 Minutes)</strong><a class="headerlink" href="#challenge-1-inspect-the-first-50-lines-of-the-raw-text-file-and-read-the-metadata-to-get-familiar-with-the-nature-of-the-data-set-and-its-generation-time-3-minutes" title="Permalink to this headline">#</a></h4>
+<blockquote>
+<div><p>Hint: To run a shell command from within the <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Notebook</span></code> use the <code class="docutils literal notranslate"><span class="pre">!</span></code> magic.</p>
+</div></blockquote>
+<div class="section" id="macos-linux">
+<h5><strong>macOS/Linux</strong>:<a class="headerlink" href="#macos-linux" title="Permalink to this headline">#</a></h5>
+<ul class="simple">
+<li><p>In order to look at the first 50 lines of the text file you may use the <code class="docutils literal notranslate"><span class="pre">bash</span></code> command</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>!head<span class="w"> </span>-50<span class="w"> </span>PATH_TO_FILE/FILENAME
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows">
+<h5><strong>Windows</strong>:<a class="headerlink" href="#windows" title="Permalink to this headline">#</a></h5>
+<ul class="simple">
+<li><p>In order to use the <code class="docutils literal notranslate"><span class="pre">!</span></code> magic with powershell please run</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;comspec&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;powershell.exe&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>In order to look at the first 50 lines of the text file you may use the <code class="docutils literal notranslate"><span class="pre">powershell</span></code> command</p></li>
+</ul>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">!</span><span class="nb">gc </span><span class="n">PATH_TO_FILE</span><span class="p">/</span><span class="n">FILENAME</span> <span class="n">-head</span> <span class="n">50</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here ...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="macos-linux-solution">
+<h5><strong>macOS/Linux Solution</strong><a class="headerlink" href="#macos-linux-solution" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_macos_linux</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="windows-solution">
+<h5><strong>Windows Solution</strong><a class="headerlink" href="#windows-solution" title="Permalink to this headline">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_windows</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The dataset is a good example of datasets used in science: text format, good documentation, human readable but a bit harder to deal with programmatically (e.g. column names as comments instead of strict CSV).</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="objective-1-1-load-the-data-set-with-pandas">
+<h3>Objective 1.1 - Load the data set with <code class="docutils literal notranslate"><span class="pre">pandas</span></code><a class="headerlink" href="#objective-1-1-load-the-data-set-with-pandas" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library offers several data import operations. In this section we use the <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function. This function is very powerful and ships with many additional arguments to parse data, given in a variety of forms.</p>
+<p>The get familiar with the <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function, we look up the documentation to gain some intuition.</p>
+<div class="section" id="challenge-2-type-pd-read-csv-into-the-cell-below-and-run-the-cell">
+<h4><strong>Challenge 2: Type <code class="docutils literal notranslate"><span class="pre">?pd.read_csv</span></code> into the cell below and run the cell.</strong><a class="headerlink" href="#challenge-2-type-pd-read-csv-into-the-cell-below-and-run-the-cell" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here ...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_020.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Don’t be intimidated by the number of available arguments to the function call.<br />
+Note that most of the arguments come with a pre-defined default value, hence we focus on those few arguments, for which we actually need to provide the input.</p>
+</div>
+<div class="section" id="challenge-3-load-the-file-complete-tavg-complete-txt-using-the-pd-read-csv-function-build-up-the-function-call-sequentially-in-order-to-fulfill-our-particular-needs-time-8-minutes">
+<h4><strong>Challenge 3: Load the file <code class="docutils literal notranslate"><span class="pre">Complete_TAVG_complete.txt</span></code> using the <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function. Build up the function call sequentially in order to fulfill our particular needs. (Time: 8 Minutes)</strong><a class="headerlink" href="#challenge-3-load-the-file-complete-tavg-complete-txt-using-the-pd-read-csv-function-build-up-the-function-call-sequentially-in-order-to-fulfill-our-particular-needs-time-8-minutes" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Start by providing the path to the file to the <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">comment</span></code> argument, to specify which lines should not be parsed. Note that not defining the <code class="docutils literal notranslate"><span class="pre">comment</span></code> argument will cause an error for this dataset!</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">delim_whitespace=True</span></code> to specify that whitespace (e.g. <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">'</span></code> or <code class="docutils literal notranslate"><span class="pre">'</span>&#160;&#160;&#160; <span class="pre">'</span></code>) will be used as the column separator.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">header=None</span></code> to indicate that the first line is not a header line.</p></li>
+<li><p>Set the <code class="docutils literal notranslate"><span class="pre">usecols</span></code> argument to pick a subset of the columns.  For the purpose of this tutorial we are only interested in the columns <code class="docutils literal notranslate"><span class="pre">&quot;year&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;month&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;anomaly&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;uncertainty&quot;</span></code>. <em>Hint: Our columns of interest are at column indices <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span></code></em></p></li>
+<li><p>Specify column names by using the <code class="docutils literal notranslate"><span class="pre">names</span></code> argument (<code class="docutils literal notranslate"><span class="pre">[&quot;year&quot;,</span> <span class="pre">&quot;month&quot;,</span> <span class="pre">&quot;anomaly&quot;,</span> <span class="pre">&quot;uncertainty&quot;]</span></code>).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here ...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_030.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>For the sake of reproducibility we refactor our code and write a function called <code class="docutils literal notranslate"><span class="pre">read_temp_data</span></code>, with only one input argument, the <code class="docutils literal notranslate"><span class="pre">FILEPATH</span></code>.  <em>Note that we have already written the function for you. The code is stored in the folder</em> <code class="docutils literal notranslate"><span class="pre">../src/_solutions/</span></code> <em>with the filename</em> <code class="docutils literal notranslate"><span class="pre">time_series_analysis_f01.py</span></code>. We use the magic function <code class="docutils literal notranslate"><span class="pre">%load</span></code> to load the Python file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%load ./src/_solutions/time_series_analysis_f01.py
+</pre></div>
+</div>
+</li>
+</ul>
+<p><em>Uncomment the code cell below and execute the code cell once to import the file and once more to actually run the code.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_f01.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Apply the <code class="docutils literal notranslate"><span class="pre">read_temp_data()</span></code> function to create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object containing the global land surface temperature anomaly provided by the open database of Berkeley Earth and store it into a variable called <code class="docutils literal notranslate"><span class="pre">data_raw</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FILEPATH</span> <span class="o">=</span> <span class="s1">&#39;../data/Complete_TAVG_complete.txt&#39;</span>
+<span class="n">data_raw</span> <span class="o">=</span> <span class="n">read_temp_data</span><span class="p">(</span><span class="n">FILEPATH</span><span class="p">)</span>
+<span class="n">data_raw</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## use the sample method to look at 10 rows at random</span>
+<span class="n">data_raw</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="objective-1-2-exploratory-data-analysis">
+<h3>Objective 1.2 - Exploratory data analysis<a class="headerlink" href="#objective-1-2-exploratory-data-analysis" title="Permalink to this headline">#</a></h3>
+<p>In this section we work with time series data; hence, we want to make use of the full functionality for time series analysis provided by the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library. Consequently, we provide <code class="docutils literal notranslate"><span class="pre">pandas</span></code> an appropriate time-based index.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## make a copy of the DataFrame object</span>
+<span class="n">data_ts</span> <span class="o">=</span> <span class="n">data_raw</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_ts</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># index of the DataFrame object</span>
+<span class="n">data_ts</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data types in the DataFrame object</span>
+<span class="n">data_ts</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="challenge-4-generate-a-time-based-index-by-combining-the-columns-year-and-month-time-5-minutes">
+<h4><strong>Challenge 4: Generate a time based index by combining the columns <code class="docutils literal notranslate"><span class="pre">year</span></code> and <code class="docutils literal notranslate"><span class="pre">month</span></code>. (Time: 5 Minutes)</strong><a class="headerlink" href="#challenge-4-generate-a-time-based-index-by-combining-the-columns-year-and-month-time-5-minutes" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Apply the <code class="docutils literal notranslate"><span class="pre">astype()</span></code> method on a <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> object to convert an <code class="docutils literal notranslate"><span class="pre">int</span></code> into a <code class="docutils literal notranslate"><span class="pre">string</span></code>.</p></li>
+<li><p>Concatenate (<code class="docutils literal notranslate"><span class="pre">+</span></code>) the columns <code class="docutils literal notranslate"><span class="pre">year</span></code> and <code class="docutils literal notranslate"><span class="pre">month</span></code> (both being <code class="docutils literal notranslate"><span class="pre">string</span></code> objects) with a <code class="docutils literal notranslate"><span class="pre">&quot;-&quot;</span></code> in between and apply <code class="docutils literal notranslate"><span class="pre">pd.to_datetime()</span></code> to generate a <code class="docutils literal notranslate"><span class="pre">datetime</span></code> object.</p>
+<ul>
+<li><p><em>Note: you will need two concatenations: One to concatenate <code class="docutils literal notranslate"><span class="pre">year</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;-&quot;</span></code> and another to contatenate the result with <code class="docutils literal notranslate"><span class="pre">month</span></code></em></p></li>
+</ul>
+</li>
+<li><p>Chain the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> attribute and the <code class="docutils literal notranslate"><span class="pre">to_period('M')</span></code> method together and to generate an index (<code class="docutils literal notranslate"><span class="pre">PeriodIndex</span></code>).</p></li>
+<li><p>Assign the <code class="docutils literal notranslate"><span class="pre">PeriodIndex</span></code> back to the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object <code class="docutils literal notranslate"><span class="pre">data_ts</span></code> using <code class="docutils literal notranslate"><span class="pre">set_index()</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here ...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_040.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>For the sake of reproducibility we refactor our code and write a function called <code class="docutils literal notranslate"><span class="pre">monthly_index</span></code>, with only one input argument, a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object. <em>Note that we have already written the function for you.</em></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%load ../src/_solutions/time_series_analysis_f02.py
+</pre></div>
+</div>
+</li>
+</ul>
+<p><em>Uncomment the code cell below and execute the cell once to import the file and once more to actually run the code.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_f02.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Apply the <code class="docutils literal notranslate"><span class="pre">monthly_index()</span></code> function to create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> with a monthly <code class="docutils literal notranslate"><span class="pre">PeriodIndex</span></code> and store it into a variable called <code class="docutils literal notranslate"><span class="pre">data_monthly</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_monthly</span> <span class="o">=</span> <span class="n">monthly_index</span><span class="p">(</span><span class="n">data_raw</span><span class="p">)</span>
+<span class="n">data_monthly</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="challenge-5-print-the-descriptive-statistics-of-the-anomaly-column-time-2-minutes">
+<h4><strong>Challenge 5: Print the descriptive statistics of the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> column. (Time: 2 Minutes)</strong><a class="headerlink" href="#challenge-5-print-the-descriptive-statistics-of-the-anomaly-column-time-2-minutes" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>count</p></li>
+<li><p>mean</p></li>
+<li><p>standard deviation</p></li>
+<li><p>min</p></li>
+<li><p>25, 50, and 75%-quantile</p></li>
+<li><p>max</p></li>
+</ul>
+<p><em>Hint: Recall the <code class="docutils literal notranslate"><span class="pre">describe()</span></code> method</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##  your code here ...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_050.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="challenge-6-plotting-of-the-distribution-of-the-anomaly-column-time-3-minutes">
+<h4><strong>Challenge 6: Plotting of the distribution of the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> column. (Time: 3 Minutes)</strong><a class="headerlink" href="#challenge-6-plotting-of-the-distribution-of-the-anomaly-column-time-3-minutes" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>Plot the distribution of <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> using the <code class="docutils literal notranslate"><span class="pre">plot.hist()</span></code> method (Feel free to play around with the <code class="docutils literal notranslate"><span class="pre">bins</span></code> argument).</p></li>
+<li><p>Plot the distribution of <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> for the periods 1850-1900 and 1950-2000 in one plot</p>
+<ul>
+<li><p><em>Hint: Recall the <code class="docutils literal notranslate"><span class="pre">loc</span></code> method</em></p></li>
+<li><p><em>Hint: Recall that you can create <code class="docutils literal notranslate"><span class="pre">fig</span></code> and <code class="docutils literal notranslate"><span class="pre">ax</span></code> objects by running <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code></em></p></li>
+<li><p><em>Hint: Recall that you can pass an <code class="docutils literal notranslate"><span class="pre">ax</span></code> object to the plotting function: <code class="docutils literal notranslate"><span class="pre">plot.hist(ax=ax)</span></code></em></p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here ...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_060.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="objective-2-construct-an-informative-time-series-plot-for-the-global-temperature-anomaly">
+<h2>Objective 2 -  Construct an informative time series plot for the global temperature anomaly<a class="headerlink" href="#objective-2-construct-an-informative-time-series-plot-for-the-global-temperature-anomaly" title="Permalink to this headline">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library makes plotting very easy. Calling the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> method on a <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> or <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> object will create a plot. Note that <code class="docutils literal notranslate"><span class="pre">pandas</span></code> relies on the extremely powerful <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library. Refer to the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> <a class="reference external" href="https://matplotlib.org/gallery/index.html">gallery</a> of the <a class="reference external" href="https://matplotlib.org/">online documentation</a> to get an idea what <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> can do for you.</p>
+<hr class="docutils" />
+<div class="section" id="objective-2-1-construct-a-simple-time-series-plot-of-the-global-temperature-anomaly">
+<h3>Objective 2.1 -  Construct a simple time series plot of the global temperature anomaly<a class="headerlink" href="#objective-2-1-construct-a-simple-time-series-plot-of-the-global-temperature-anomaly" title="Permalink to this headline">#</a></h3>
+<div class="section" id="challenge-7-plot-a-time-series-plot-of-the-anomaly-column-time-3-minutes">
+<h4><strong>Challenge 7: Plot a time series plot of the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> column. (Time: 3 Minutes)</strong><a class="headerlink" href="#challenge-7-plot-a-time-series-plot-of-the-anomaly-column-time-3-minutes" title="Permalink to this headline">#</a></h4>
+<p><em>Hint: Use the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> method</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here ... </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_070.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="objective-2-2-improve-the-simple-time-series-plot-by-computing-a-10-year-running-mean-for-the-anomaly-and-the-uncertainty-columns">
+<h3>Objective 2.2 -  Improve the simple time series plot by computing a 10-year running mean for the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> and the <code class="docutils literal notranslate"><span class="pre">uncertainty</span></code> columns.<a class="headerlink" href="#objective-2-2-improve-the-simple-time-series-plot-by-computing-a-10-year-running-mean-for-the-anomaly-and-the-uncertainty-columns" title="Permalink to this headline">#</a></h3>
+<div class="section" id="challenge-8-compute-a-10-year-running-mean-for-the-anomaly-and-the-uncertainty-columns-and-plot-them">
+<h4><strong>Challenge 8: Compute a 10-year running mean for the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> and the <code class="docutils literal notranslate"><span class="pre">uncertainty</span></code> columns and plot them.</strong><a class="headerlink" href="#challenge-8-compute-a-10-year-running-mean-for-the-anomaly-and-the-uncertainty-columns-and-plot-them" title="Permalink to this headline">#</a></h4>
+<p>We compute a running mean by combining the <code class="docutils literal notranslate"><span class="pre">rolling()</span></code>  and the <code class="docutils literal notranslate"><span class="pre">mean()</span></code> method.   (Time: 10 minutes)</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">rolling()</span></code> method takes several arguments. We need to find an appropriate value for the <code class="docutils literal notranslate"><span class="pre">window</span></code> argument. Further we set <code class="docutils literal notranslate"><span class="pre">center=True</span></code>.</p></li>
+<li><p>Once we have called the <code class="docutils literal notranslate"><span class="pre">rolling()</span></code> method we chain it with the <code class="docutils literal notranslate"><span class="pre">mean()</span></code> method to compute the 10-year running mean. <em>Hint: Use the <code class="docutils literal notranslate"><span class="pre">plot()</span></code> method to verify the computation.</em></p></li>
+<li><p>Repeat the procedure for the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> and the <code class="docutils literal notranslate"><span class="pre">uncertainty</span></code> columns and add the two columns to the dataframe, denoted as <code class="docutils literal notranslate"><span class="pre">10-year-anomaly</span></code> and <code class="docutils literal notranslate"><span class="pre">10-year-uncertainty</span></code>.</p></li>
+<li><p>Plot the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code>, the <code class="docutils literal notranslate"><span class="pre">10-year-anomaly</span></code> as well as the <code class="docutils literal notranslate"><span class="pre">&quot;10-year-uncertainty&quot;</span></code> within one single plot. <em>Hint: Note that the <code class="docutils literal notranslate"><span class="pre">uncertainty</span></code> corresponds to the absolute value of deviation. Compute <code class="docutils literal notranslate"><span class="pre">10-year-anomaly</span></code> <span class="math notranslate nohighlight">\(+\)</span> <code class="docutils literal notranslate"><span class="pre">10-year-uncertainty</span></code> and <code class="docutils literal notranslate"><span class="pre">10-year-anomaly</span></code> <span class="math notranslate nohighlight">\(-\)</span> <code class="docutils literal notranslate"><span class="pre">10-year-uncertainty</span></code> to get the upper and lower bounds of uncertainty.</em></p></li>
+</ul>
+<p>Rolling mean demo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## compute window length 10 years --&gt; 10 * 12 months</span>
+<span class="n">w</span> <span class="o">=</span> <span class="mi">12</span><span class="o">*</span><span class="mi">10</span>
+
+<span class="c1">## compute 10-year-running mean for anomaly and plot the result</span>
+<span class="n">rolling_mean_anomaly</span> <span class="o">=</span> <span class="n">data_monthly</span><span class="p">[</span><span class="s2">&quot;anomaly&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">w</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">rolling_mean_anomaly</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">rolling_mean_anomaly</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Note that for the first years we can’t calculate a 10 year mean.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## compute window length 10 years --&gt; 10 * 12 months</span>
+<span class="n">w</span> <span class="o">=</span> <span class="mi">12</span><span class="o">*</span><span class="mi">10</span>
+
+<span class="c1">## compute 10-year-running mean for anomaly and plot the result</span>
+<span class="n">data_monthly</span><span class="p">[</span><span class="s2">&quot;10-year-anomaly&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_monthly</span><span class="p">[</span><span class="s2">&quot;anomaly&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">w</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+
+<span class="c1">## your code here ...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_080.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>For the sake of reproducibility we refactor our code and write a function called <code class="docutils literal notranslate"><span class="pre">plot_anomalies</span></code>, with two input argument, a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object and a <code class="docutils literal notranslate"><span class="pre">string</span></code>, corresponding to the title of the plot.</p></li>
+</ul>
+<p>Note that we have already written the function for you. Moreover, we added some boilerplate code the control the figure aesthetics such as <code class="docutils literal notranslate"><span class="pre">color</span></code>, <code class="docutils literal notranslate"><span class="pre">linewidth</span></code>, <code class="docutils literal notranslate"><span class="pre">linestyle</span></code>, fillings (<code class="docutils literal notranslate"><span class="pre">fill_between</span></code>) and opacity (<code class="docutils literal notranslate"><span class="pre">alpha</span></code>); further we added a <code class="docutils literal notranslate"><span class="pre">title</span></code> and axis labels.</p>
+</div>
+<div class="section" id="challenge-9-read-the-code-line-for-line-and-try-to-figure-out-what-each-line-of-code-is-doing-time-5-minutes">
+<h4><strong>Challenge 9: Read the code line for line and try to figure out what each line of code is doing. (Time: 5 minutes)</strong><a class="headerlink" href="#challenge-9-read-the-code-line-for-line-and-try-to-figure-out-what-each-line-of-code-is-doing-time-5-minutes" title="Permalink to this headline">#</a></h4>
+<p>*The code is stored in the folder <code class="docutils literal notranslate"><span class="pre">../src/_solutions/</span></code> with the filename <code class="docutils literal notranslate"><span class="pre">time_series_analysis_f03.py</span></code>. We use the magic function <code class="docutils literal notranslate"><span class="pre">%load</span></code> to import the Python file.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%load ../src/_solutions/time_series_analysis_f03.py
+</pre></div>
+</div>
+<p><em>Uncomment the code cell below.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_f03.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Apply the <code class="docutils literal notranslate"><span class="pre">plot_anomalies()</span></code> function to create a figure.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_anomalies</span><span class="p">(</span><span class="n">data_monthly</span><span class="p">,</span> 
+               <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Global temperature anomaly relative to the period 1951-1980&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="objective-3-write-a-function-to-plot-temperature-anomalies-for-any-given-country-region-of-the-database">
+<h2>Objective 3 - Write a function to plot temperature anomalies for any given country/region of the database<a class="headerlink" href="#objective-3-write-a-function-to-plot-temperature-anomalies-for-any-given-country-region-of-the-database" title="Permalink to this headline">#</a></h2>
+<p>In the previous sections we sequentially built up code segments that finally produce an informative time series plot. In this section we refactor our code to become even more generic. We write a function that produces such a time series plot for any given region or country name.</p>
+<p>Again we build up our code base sequentially; however this time, we make use of the functions <code class="docutils literal notranslate"><span class="pre">read_temp_data()</span></code>, <code class="docutils literal notranslate"><span class="pre">monthly_index()</span></code> and <code class="docutils literal notranslate"><span class="pre">plot_anomalies()</span></code>. Hence, reducing the lines of code to write and in addition, our code becomes more readable.</p>
+<p>We follow the procedure outlined below</p>
+<ol class="arabic simple">
+<li><p>Locate the data files (find the correct url) of interest in the open database of <a class="reference external" href="http://berkeleyearth.org/">Earth Berkeley</a>.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Load temperature data from the internet and preprocess it using our <code class="docutils literal notranslate"><span class="pre">read_temp_data()</span></code> function.</p></li>
+<li><p>Assign a time based index to the data set using our <code class="docutils literal notranslate"><span class="pre">monthly_index()</span></code> function.</p></li>
+<li><p>Plot the data of interest using our <code class="docutils literal notranslate"><span class="pre">plot_anomalies()</span></code> function.</p></li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="objective-3-1-locate-the-data-files-find-the-correct-url-of-interest-in-the-open-database-of-earth-berkeley">
+<h3>Objective 3.1 - Locate the data files (find the correct url) of interest in the open database of <a class="reference external" href="http://berkeleyearth.org/">Earth Berkeley</a><a class="headerlink" href="#objective-3-1-locate-the-data-files-find-the-correct-url-of-interest-in-the-open-database-of-earth-berkeley" title="Permalink to this headline">#</a></h3>
+<p>Follow the link below and you see that the temperature data set for each particular country/region can be accessed via an unique url:</p>
+<p><a class="reference external" href="http://berkeleyearth.lbl.gov/auto/Regional/TAVG/Text/">http://berkeleyearth.lbl.gov/auto/Regional/TAVG/Text/</a></p>
+<p>Note that Jupyter notebooks allow us to embed an <code class="docutils literal notranslate"><span class="pre">IFrame</span></code> into a notebook cell (see below)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="s2">&quot;http://berkeleyearth.lbl.gov/auto/Regional/TAVG/Text/&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>By investigating the structure of the database we realize that each particular data set can be assessed via an unique url, which may be decomposed into three parts:</p>
+<p>Part 1 - the base url: <code class="docutils literal notranslate"><span class="pre">http://berkeleyearth.lbl.gov/auto/Regional/TAVG/Text/...</span></code><br />
+Part 2 -  the country/region name: <code class="docutils literal notranslate"><span class="pre">...afghanistan...</span></code>, <code class="docutils literal notranslate"><span class="pre">...africa...</span></code> or <code class="docutils literal notranslate"><span class="pre">...angola...</span></code>, among others.<br />
+Part 3 -  the url suffix: <code class="docutils literal notranslate"><span class="pre">...-TAVG-Trend.txt</span></code></p>
+<p>For example, the url for the temperature data set of Germany is</p>
+<p><code class="docutils literal notranslate"><span class="pre">BASE_URL</span></code> + <code class="docutils literal notranslate"><span class="pre">COUNTRY</span></code> + <code class="docutils literal notranslate"><span class="pre">SUFFIX</span></code> = <a class="reference external" href="http://berkeleyearth.lbl.gov/auto/Regional/TAVG/Text/germany-TAVG-Trend.txt">http://berkeleyearth.lbl.gov/auto/Regional/TAVG/Text/germany-TAVG-Trend.txt</a></p>
+<div class="section" id="challenge-10-wrap-this-idea-into-a-python-function-called-data-url-which-takes-one-input-argument-the-name-of-the-country-region-time-5-minutes">
+<h4><strong>Challenge 10: Wrap this idea into a python function called <code class="docutils literal notranslate"><span class="pre">data_url()</span></code>, which takes one input argument, the name of the country/region. (Time: 5 minutes)</strong><a class="headerlink" href="#challenge-10-wrap-this-idea-into-a-python-function-called-data-url-which-takes-one-input-argument-the-name-of-the-country-region-time-5-minutes" title="Permalink to this headline">#</a></h4>
+<p><em>Hint: Concatenate <code class="docutils literal notranslate"><span class="pre">string</span></code> objects using the <code class="docutils literal notranslate"><span class="pre">+</span></code> sign</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here ...</span>
+<span class="k">def</span> <span class="nf">data_url</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">pass</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_100.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>What is the url for the temperature data set for Germany?<br />
+Use the function <code class="docutils literal notranslate"><span class="pre">data_url()</span></code> to build the url for accessing temperature data for Germany.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_url</span><span class="p">(</span><span class="s2">&quot;germany&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="objective-3-1-3-2-and-3-3-load-temperature-data-assign-a-time-based-index-and-plot-the-data-of-interest">
+<h3>Objective 3.1, 3.2 and 3.3 - Load temperature data, assign a time based index and plot the data of interest<a class="headerlink" href="#objective-3-1-3-2-and-3-3-load-temperature-data-assign-a-time-based-index-and-plot-the-data-of-interest" title="Permalink to this headline">#</a></h3>
+<p>Owing to the fact that we consequently refactored our code into python functions, these tasks become fairly easy. We just have to call one function after the other.</p>
+<div class="section" id="challenge-11-apply-data-url-followed-by-read-temp-data-monthly-index-and-plot-anomalies-to-plot-the-temperature-anomaly-for-germany-from-1750-to-present-time-4-minutes">
+<h4><strong>Challenge 11: Apply <code class="docutils literal notranslate"><span class="pre">data_url()</span></code>, followed by <code class="docutils literal notranslate"><span class="pre">read_temp_data()</span></code>, <code class="docutils literal notranslate"><span class="pre">monthly_index()</span></code> and <code class="docutils literal notranslate"><span class="pre">plot_anomalies()</span></code> to plot the temperature anomaly for Germany from 1750 to present. (Time: 4 minutes)</strong><a class="headerlink" href="#challenge-11-apply-data-url-followed-by-read-temp-data-monthly-index-and-plot-anomalies-to-plot-the-temperature-anomaly-for-germany-from-1750-to-present-time-4-minutes" title="Permalink to this headline">#</a></h4>
+<p><em>Note that the <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function, built into our <code class="docutils literal notranslate"><span class="pre">read_temp_data()</span></code> function, also accepts an url as input argument and that the  <code class="docutils literal notranslate"><span class="pre">plot_anomalies()</span></code> function awaits two arguments, a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object and a <code class="docutils literal notranslate"><span class="pre">string</span></code> object as <code class="docutils literal notranslate"><span class="pre">title</span></code>.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here ...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_110.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Once again, for the sake of reproducibility we refactor our code and write a function called <code class="docutils literal notranslate"><span class="pre">plot_country_anomalies</span></code>, with one input argument, a <code class="docutils literal notranslate"><span class="pre">string</span></code> object referring to a particular country/region of interest. Note that we have already written the function for you (<code class="docutils literal notranslate"><span class="pre">time_series_analysis_f04.py</span></code>).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%load ../src/_solutions/time_series_analysis_f04.py
+</pre></div>
+</div>
+</li>
+</ul>
+<p><em>Uncomment the code cell below.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_f04.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="challenge-12-use-the-function-plot-country-anomalies-to-plot-the-temperature-anomalies-for">
+<h4><strong>Challenge 12: Use the function <code class="docutils literal notranslate"><span class="pre">plot_country_anomalies()</span></code> to plot the temperature anomalies for</strong><a class="headerlink" href="#challenge-12-use-the-function-plot-country-anomalies-to-plot-the-temperature-anomalies-for" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">germany</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">australia</span></code> and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">china</span></code><br />
+(Time: 6 Minutes)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here ...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_120.py</span>
+<span class="c1">## Solution Challenge 12</span>
+<span class="n">plot_country_anomalies</span><span class="p">(</span><span class="s2">&quot;germany&quot;</span><span class="p">)</span>
+<span class="n">plot_country_anomalies</span><span class="p">(</span><span class="s2">&quot;australia&quot;</span><span class="p">)</span>
+<span class="n">plot_country_anomalies</span><span class="p">(</span><span class="s2">&quot;china&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="objective-4-save-a-time-series-plot-to-disk">
+<h2>Objective 4 - Save a time series plot to disk<a class="headerlink" href="#objective-4-save-a-time-series-plot-to-disk" title="Permalink to this headline">#</a></h2>
+<p>Finally, we are done and want to save one of our plots to disk. Therefore we call the <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> function.</p>
+<div class="section" id="challenge-13-create-a-plot-of-a-country-of-your-choice-use-the-function-plt-savefig-to-save-the-plot-to-disk-save-the-plot-as-a-png-file-with-a-resolution-of-300-dpi-in-the-folder-figures-time-3-minutes">
+<h3><strong>Challenge 13: Create a plot of a country of your choice. Use the function <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> to save the plot to disk. Save the plot as a <code class="docutils literal notranslate"><span class="pre">.png</span></code> file with a resolution of 300 dpi in the folder <code class="docutils literal notranslate"><span class="pre">../figures/</span></code>. (Time: 3 Minutes)</strong><a class="headerlink" href="#challenge-13-create-a-plot-of-a-country-of-your-choice-use-the-function-plt-savefig-to-save-the-plot-to-disk-save-the-plot-as-a-png-file-with-a-resolution-of-300-dpi-in-the-folder-figures-time-3-minutes" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here ...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/time_series_analysis_130.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="05-00_Processing_of_Tabular_Data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Challenge: Processing of Tabular Data</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#we-explore-the-global-temperature-anomaly-from-1750-to-present">1. We explore the global temperature anomaly from 1750 to present.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#we-construct-an-informative-time-series-plot-for-the-global-temperature-anomaly">2. We construct an informative time series plot for the global temperature anomaly.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#we-write-a-function-to-plot-temperature-anomalies-for-any-given-country-region-of-the-database">3. We write a function to plot temperature anomalies for any given country/region of the database.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#save-a-nice-locking-time-series-plot-to-disk">4. Save a nice locking time series plot to disk.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-1-explore-the-global-temperature-anomaly-from-1750-to-present">Objective 1 - Explore the global temperature anomaly from 1750 to present</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-1-0-take-a-first-look-at-the-data">Objective 1.0 - Take a first look at the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-1-inspect-the-first-50-lines-of-the-raw-text-file-and-read-the-metadata-to-get-familiar-with-the-nature-of-the-data-set-and-its-generation-time-3-minutes"><strong>Challenge 1: Inspect the first 50 lines of the raw text file and read the metadata to get familiar with the nature of the data set and its generation. (Time: 3 Minutes)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#macos-linux"><strong>macOS/Linux</strong>:</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#windows"><strong>Windows</strong>:</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#macos-linux-solution"><strong>macOS/Linux Solution</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-solution"><strong>Windows Solution</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-1-1-load-the-data-set-with-pandas">Objective 1.1 - Load the data set with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-2-type-pd-read-csv-into-the-cell-below-and-run-the-cell"><strong>Challenge 2: Type <code class="docutils literal notranslate"><span class="pre">?pd.read_csv</span></code> into the cell below and run the cell.</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-3-load-the-file-complete-tavg-complete-txt-using-the-pd-read-csv-function-build-up-the-function-call-sequentially-in-order-to-fulfill-our-particular-needs-time-8-minutes"><strong>Challenge 3: Load the file <code class="docutils literal notranslate"><span class="pre">Complete_TAVG_complete.txt</span></code> using the <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function. Build up the function call sequentially in order to fulfill our particular needs. (Time: 8 Minutes)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-1-2-exploratory-data-analysis">Objective 1.2 - Exploratory data analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-4-generate-a-time-based-index-by-combining-the-columns-year-and-month-time-5-minutes"><strong>Challenge 4: Generate a time based index by combining the columns <code class="docutils literal notranslate"><span class="pre">year</span></code> and <code class="docutils literal notranslate"><span class="pre">month</span></code>. (Time: 5 Minutes)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-5-print-the-descriptive-statistics-of-the-anomaly-column-time-2-minutes"><strong>Challenge 5: Print the descriptive statistics of the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> column. (Time: 2 Minutes)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-6-plotting-of-the-distribution-of-the-anomaly-column-time-3-minutes"><strong>Challenge 6: Plotting of the distribution of the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> column. (Time: 3 Minutes)</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-2-construct-an-informative-time-series-plot-for-the-global-temperature-anomaly">Objective 2 -  Construct an informative time series plot for the global temperature anomaly</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-2-1-construct-a-simple-time-series-plot-of-the-global-temperature-anomaly">Objective 2.1 -  Construct a simple time series plot of the global temperature anomaly</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-7-plot-a-time-series-plot-of-the-anomaly-column-time-3-minutes"><strong>Challenge 7: Plot a time series plot of the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> column. (Time: 3 Minutes)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-2-2-improve-the-simple-time-series-plot-by-computing-a-10-year-running-mean-for-the-anomaly-and-the-uncertainty-columns">Objective 2.2 -  Improve the simple time series plot by computing a 10-year running mean for the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> and the <code class="docutils literal notranslate"><span class="pre">uncertainty</span></code> columns.</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-8-compute-a-10-year-running-mean-for-the-anomaly-and-the-uncertainty-columns-and-plot-them"><strong>Challenge 8: Compute a 10-year running mean for the <code class="docutils literal notranslate"><span class="pre">anomaly</span></code> and the <code class="docutils literal notranslate"><span class="pre">uncertainty</span></code> columns and plot them.</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-9-read-the-code-line-for-line-and-try-to-figure-out-what-each-line-of-code-is-doing-time-5-minutes"><strong>Challenge 9: Read the code line for line and try to figure out what each line of code is doing. (Time: 5 minutes)</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-3-write-a-function-to-plot-temperature-anomalies-for-any-given-country-region-of-the-database">Objective 3 - Write a function to plot temperature anomalies for any given country/region of the database</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-3-1-locate-the-data-files-find-the-correct-url-of-interest-in-the-open-database-of-earth-berkeley">Objective 3.1 - Locate the data files (find the correct url) of interest in the open database of Earth Berkeley</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-10-wrap-this-idea-into-a-python-function-called-data-url-which-takes-one-input-argument-the-name-of-the-country-region-time-5-minutes"><strong>Challenge 10: Wrap this idea into a python function called <code class="docutils literal notranslate"><span class="pre">data_url()</span></code>, which takes one input argument, the name of the country/region. (Time: 5 minutes)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-3-1-3-2-and-3-3-load-temperature-data-assign-a-time-based-index-and-plot-the-data-of-interest">Objective 3.1, 3.2 and 3.3 - Load temperature data, assign a time based index and plot the data of interest</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-11-apply-data-url-followed-by-read-temp-data-monthly-index-and-plot-anomalies-to-plot-the-temperature-anomaly-for-germany-from-1750-to-present-time-4-minutes"><strong>Challenge 11: Apply <code class="docutils literal notranslate"><span class="pre">data_url()</span></code>, followed by <code class="docutils literal notranslate"><span class="pre">read_temp_data()</span></code>, <code class="docutils literal notranslate"><span class="pre">monthly_index()</span></code> and <code class="docutils literal notranslate"><span class="pre">plot_anomalies()</span></code> to plot the temperature anomaly for Germany from 1750 to present. (Time: 4 minutes)</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-12-use-the-function-plot-country-anomalies-to-plot-the-temperature-anomalies-for"><strong>Challenge 12: Use the function <code class="docutils literal notranslate"><span class="pre">plot_country_anomalies()</span></code> to plot the temperature anomalies for</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objective-4-save-a-time-series-plot-to-disk">Objective 4 - Save a time series plot to disk</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-13-create-a-plot-of-a-country-of-your-choice-use-the-function-plt-savefig-to-save-the-plot-to-disk-save-the-plot-as-a-png-file-with-a-resolution-of-300-dpi-in-the-folder-figures-time-3-minutes"><strong>Challenge 13: Create a plot of a country of your choice. Use the function <code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> to save the plot to disk. Save the plot as a <code class="docutils literal notranslate"><span class="pre">.png</span></code> file with a resolution of 300 dpi in the folder <code class="docutils literal notranslate"><span class="pre">../figures/</span></code>. (Time: 3 Minutes)</strong></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

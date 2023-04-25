@@ -1,53 +1,53 @@
-# Main repository for the Python class at FU Berlin, summer semester  2023
+# Main repository for the Python class at FU Berlin, winter semester break 2023
 
-Dates, location and outline of the class are presented [here](https://www.fu-berlin.de/vv/de/lv/799751).
+Dates, location and outline of the class are presented [here](https://www.fu-berlin.de/vv/de/lv/771397).
 Starts at 13:15 and ends at 16:30 CET
 
 ## Content
 
-- 01 - 2023/04/28
+- 01 - 2023/02/22
 
   - Introduction into computational thinking
   - Programming languages and IDEs
   - Why Python?
 
-- 02 - 2023/05/05
+- 02 - 2023/02/23
 
   - Python 101
 
-- 03 - 2023/05/12
+- 03 - 2023/03/01
 
   - Python 101 continued
   - Plotting with Python
 
-- 04 - 2023/05/19 
+- 04 - 2023/03/02 
 
   - Introduction to `pandas`
   - Simple data analysis using `pandas`
 
-- 05 - 2023/05/26
+- 05 - 2023/03/07
 
   - Pandas recap
   - Simple data analysis using `pandas`
   - Reporting using `jupyterbook`
 
-- 06 - 2023/06/02
+- 06 - 2023/03/09
 
   - Exploratory data analysis (EDA)
   - Study project - Powerplants
 
-- 07 - 2023/06/09
+- 07 - 2023/03/15
 
   - Study project - Powerplants (Group Session)
 
-- 08 - 2023/06/16 
+- 08 - 2023/03/16 
   - Object Oriented Programming (OOP)
   - (**Submission deadline: 2023/03/19**)
   
-- 09 - 2023/06/23 
+- 09 - 2023/03/22 
   - Presentations study projects 
 
-- 10 - 2023/06/30
+- 10 - 2023/03/23
   
   - Interpolation and curve fitting
   - Inferential statistics
@@ -63,18 +63,18 @@ Starts at 13:15 and ends at 16:30 CET
     - Hyperparamter tuning
     - Polynomial Regression
 
-* 11 - 2023/07/07
+* 11 - 2023/03/29
 
   - `Spyder IDE`
   - Dashboarding with `streamlit`
   - Creating dynamic Maps with `folium` 
 
-* 12 - 2023/07/14
+* 12 - 2023/03/30
   
   - Web scraping
   - Wordclouds
 
-* 13 - 2023/07/21 [opt]
+* 13 - 2023/xx/xx [opt]
 
   - Feedback round
   - APIs (FastAPI)
