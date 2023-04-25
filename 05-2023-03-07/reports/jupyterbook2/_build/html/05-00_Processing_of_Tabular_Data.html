@@ -1,0 +1,1158 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge: Processing of Tabular Data &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '05-00_Processing_of_Tabular_Data';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Temperature anomalies - A prelimnary analysis" href="05-01_Temperature_anomalies.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/fu-logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/fu-logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Challenge: Processing of Tabular Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-01_Temperature_anomalies.html">Temperature anomalies - A prelimnary analysis</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/05-00_Processing_of_Tabular_Data.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Challenge: Processing of Tabular Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-data">Read the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-read-the-ihme-gbd-2016-population-estimates-1990-2016-y2017m09d14-csv-file-stored-in-the-data-folder-and-store-it-to-a-variable-namend-pop-hint-use-the-pd-read-csv-function">Challenge: Read the <code class="docutils literal notranslate"><span class="pre">IHME_GBD_2016_POPULATION_ESTIMATES_1990_2016_Y2017M09D14.CSV</span></code> file stored in the <code class="docutils literal notranslate"><span class="pre">../data/</span></code> folder and store it to a variable namend <code class="docutils literal notranslate"><span class="pre">pop</span></code>. <em>Hint: Use the</em> <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> <em>function.</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-inspect-the-data-by">Challenge: Inspect the data by</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-a-subset-of-the-dataset">Analyzing a subset of the dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-subset-the-data-set-based-on-age-groups-location-and-sex-as-given-below-and-save-the-resulting-data-frame-to-a-variable-called-pop-subset">Challenge: Subset the data set based on age groups, location and sex as given below and save the resulting  data frame to a variable called <code class="docutils literal notranslate"><span class="pre">pop_subset</span></code>.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#split-apply-combine">Split-Apply-Combine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-compute-the-population-of-germany-italy-and-france-for-the-years-1990-to-2016-hint-use-the-groupby-function">Challenge: Compute the population of Germany, Italy and France for the years 1990 to 2016. <em>Hint: Use the</em> <code class="docutils literal notranslate"><span class="pre">groupby</span></code> <em>function.</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge">Challenge:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-redo-the-analysis-from-above-but-now-include-spain-in-addition-to-germany-italy-and-france-into-the-analysis">Challenge: Redo the analysis from above but now include Spain in addition to Germany, Italy and France into the analysis.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="challenge-processing-of-tabular-data">
+<h1>Challenge: Processing of Tabular Data<a class="headerlink" href="#challenge-processing-of-tabular-data" title="Permalink to this headline">#</a></h1>
+<p><strong>Import Statements</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="read-the-data">
+<h2>Read the data<a class="headerlink" href="#read-the-data" title="Permalink to this headline">#</a></h2>
+<div class="section" id="challenge-read-the-ihme-gbd-2016-population-estimates-1990-2016-y2017m09d14-csv-file-stored-in-the-data-folder-and-store-it-to-a-variable-namend-pop-hint-use-the-pd-read-csv-function">
+<h3>Challenge: Read the <code class="docutils literal notranslate"><span class="pre">IHME_GBD_2016_POPULATION_ESTIMATES_1990_2016_Y2017M09D14.CSV</span></code> file stored in the <code class="docutils literal notranslate"><span class="pre">../data/</span></code> folder and store it to a variable namend <code class="docutils literal notranslate"><span class="pre">pop</span></code>. <em>Hint: Use the</em> <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> <em>function.</em><a class="headerlink" href="#challenge-read-the-ihme-gbd-2016-population-estimates-1990-2016-y2017m09d14-csv-file-stored-in-the-data-folder-and-store-it-to-a-variable-namend-pop-hint-use-the-pd-read-csv-function" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/IHME_GBD_2016_POPULATION_ESTIMATES_1990_2016_Y2017M09D14.CSV&quot;</span><span class="p">)</span>
+<span class="n">pop</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location_id</th>
+      <th>location_name</th>
+      <th>sex_id</th>
+      <th>sex_name</th>
+      <th>age_group_id</th>
+      <th>age_group_name</th>
+      <th>year_id</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Global</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>1</td>
+      <td>Under 5</td>
+      <td>1990</td>
+      <td>3.073378e+08</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Global</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>1</td>
+      <td>Under 5</td>
+      <td>1990</td>
+      <td>2.911299e+08</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Global</td>
+      <td>3</td>
+      <td>Both</td>
+      <td>1</td>
+      <td>Under 5</td>
+      <td>1990</td>
+      <td>5.984677e+08</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Global</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>1</td>
+      <td>Under 5</td>
+      <td>1991</td>
+      <td>3.089656e+08</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>Global</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>1</td>
+      <td>Under 5</td>
+      <td>1991</td>
+      <td>2.921822e+08</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>603931</th>
+      <td>44639</td>
+      <td>Middle SDI</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>235</td>
+      <td>95 plus</td>
+      <td>2015</td>
+      <td>3.984956e+05</td>
+    </tr>
+    <tr>
+      <th>603932</th>
+      <td>44639</td>
+      <td>Middle SDI</td>
+      <td>3</td>
+      <td>Both</td>
+      <td>235</td>
+      <td>95 plus</td>
+      <td>2015</td>
+      <td>5.625882e+05</td>
+    </tr>
+    <tr>
+      <th>603933</th>
+      <td>44639</td>
+      <td>Middle SDI</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>235</td>
+      <td>95 plus</td>
+      <td>2016</td>
+      <td>1.766505e+05</td>
+    </tr>
+    <tr>
+      <th>603934</th>
+      <td>44639</td>
+      <td>Middle SDI</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>235</td>
+      <td>95 plus</td>
+      <td>2016</td>
+      <td>4.302028e+05</td>
+    </tr>
+    <tr>
+      <th>603935</th>
+      <td>44639</td>
+      <td>Middle SDI</td>
+      <td>3</td>
+      <td>Both</td>
+      <td>235</td>
+      <td>95 plus</td>
+      <td>2016</td>
+      <td>6.068534e+05</td>
+    </tr>
+  </tbody>
+</table>
+<p>603936 rows × 8 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/tab_data01.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="inspect-the-data">
+<h2>Inspect the data<a class="headerlink" href="#inspect-the-data" title="Permalink to this headline">#</a></h2>
+<div class="section" id="challenge-inspect-the-data-by">
+<h3>Challenge: Inspect the data by<a class="headerlink" href="#challenge-inspect-the-data-by" title="Permalink to this headline">#</a></h3>
+</div>
+<ul class="simple">
+<li><p>printing the column names</p></li>
+<li><p>counting the number of unique entries in the <code class="docutils literal notranslate"><span class="pre">location_name</span></code> column</p></li>
+<li><p>printing some location names</p></li>
+<li><p>figuring out the unique categories for the <code class="docutils literal notranslate"><span class="pre">sex_name</span></code> and <code class="docutils literal notranslate"><span class="pre">age_group</span></code> columns</p></li>
+</ul>
+<div class="section" id="exploratory-data-analysis">
+<h3>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>printing the column names</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;location_id&#39;, &#39;location_name&#39;, &#39;sex_id&#39;, &#39;sex_name&#39;, &#39;age_group_id&#39;,
+       &#39;age_group_name&#39;, &#39;year_id&#39;, &#39;pop&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>counting the number of unique entries in the <code class="docutils literal notranslate"><span class="pre">location_name</span></code> column</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="n">pop</span><span class="p">[</span><span class="s2">&quot;location_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>231
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>printing some location names</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="n">pop</span><span class="p">[</span><span class="s2">&quot;location_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>267801                               The Bahamas
+461473                                Madagascar
+279546                                  Dominica
+382355                                      Oman
+4900      Southeast Asia, East Asia, and Oceania
+535522                                   Liberia
+215828                                     Italy
+285363                                    Guyana
+517477                                Cape Verde
+119337                                 Macedonia
+Name: location_name, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>figuring out the unique categories for the <code class="docutils literal notranslate"><span class="pre">sex_name</span></code> and <code class="docutils literal notranslate"><span class="pre">age_group</span></code> columns</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="n">pop</span><span class="p">[</span><span class="s2">&quot;sex_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Male&#39;, &#39;Female&#39;, &#39;Both&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="n">pop</span><span class="p">[</span><span class="s2">&quot;age_group_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Under 5&#39;, &#39;Early Neonatal&#39;, &#39;Late Neonatal&#39;, &#39;Post Neonatal&#39;,
+       &#39;1 to 4&#39;, &#39;5 to 9&#39;, &#39;10 to 14&#39;, &#39;15 to 19&#39;, &#39;20 to 24&#39;, &#39;25 to 29&#39;,
+       &#39;30 to 34&#39;, &#39;35 to 39&#39;, &#39;40 to 44&#39;, &#39;45 to 49&#39;, &#39;50 to 54&#39;,
+       &#39;55 to 59&#39;, &#39;60 to 64&#39;, &#39;65 to 69&#39;, &#39;70 to 74&#39;, &#39;75 to 79&#39;,
+       &#39;All Ages&#39;, &#39;5-14 years&#39;, &#39;15-49 years&#39;, &#39;50-69 years&#39;,
+       &#39;70+ years&#39;, &#39;&lt;1 year&#39;, &#39;80 to 84&#39;, &#39;85 to 89&#39;, &#39;90 to 94&#39;,
+       &#39;&lt;20 years&#39;, &#39;10-24 years&#39;, &#39;95 plus&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/tab_data02.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="analyzing-a-subset-of-the-dataset">
+<h2>Analyzing a subset of the dataset<a class="headerlink" href="#analyzing-a-subset-of-the-dataset" title="Permalink to this headline">#</a></h2>
+<div class="section" id="challenge-subset-the-data-set-based-on-age-groups-location-and-sex-as-given-below-and-save-the-resulting-data-frame-to-a-variable-called-pop-subset">
+<h3>Challenge: Subset the data set based on age groups, location and sex as given below and save the resulting  data frame to a variable called <code class="docutils literal notranslate"><span class="pre">pop_subset</span></code>.<a class="headerlink" href="#challenge-subset-the-data-set-based-on-age-groups-location-and-sex-as-given-below-and-save-the-resulting-data-frame-to-a-variable-called-pop-subset" title="Permalink to this headline">#</a></h3>
+</div>
+<p><strong>Subsetting</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;5-14 years&#39;</span><span class="p">,</span> <span class="s1">&#39;15-49 years&#39;</span><span class="p">,</span> <span class="s1">&#39;50-69 years&#39;</span><span class="p">,</span><span class="s1">&#39;70+ years&#39;</span><span class="p">]</span>
+<span class="n">location</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Germany&quot;</span><span class="p">,</span> <span class="s2">&quot;France&quot;</span><span class="p">,</span> <span class="s2">&quot;Italy&quot;</span><span class="p">]</span>
+<span class="n">sex</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="n">cond</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;age_group_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span> <span class="o">&amp;</span> 
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;location_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">location</span><span class="p">)</span> <span class="o">&amp;</span> 
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;sex_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">sex</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">pop_subset</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cond</span><span class="p">,:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pop_subset</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">pop_subset</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(648, 8)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location_id</th>
+      <th>location_name</th>
+      <th>sex_id</th>
+      <th>sex_name</th>
+      <th>age_group_id</th>
+      <th>age_group_name</th>
+      <th>year_id</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>204010</th>
+      <td>81</td>
+      <td>Germany</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>24</td>
+      <td>15-49 years</td>
+      <td>2007</td>
+      <td>18932511.72</td>
+    </tr>
+    <tr>
+      <th>203953</th>
+      <td>81</td>
+      <td>Germany</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>23</td>
+      <td>5-14 years</td>
+      <td>2015</td>
+      <td>3472927.37</td>
+    </tr>
+    <tr>
+      <th>216904</th>
+      <td>86</td>
+      <td>Italy</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>23</td>
+      <td>5-14 years</td>
+      <td>2012</td>
+      <td>2718458.12</td>
+    </tr>
+    <tr>
+      <th>201535</th>
+      <td>80</td>
+      <td>France</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>26</td>
+      <td>70+ years</td>
+      <td>1992</td>
+      <td>3534207.71</td>
+    </tr>
+    <tr>
+      <th>201502</th>
+      <td>80</td>
+      <td>France</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>25</td>
+      <td>50-69 years</td>
+      <td>2008</td>
+      <td>7352088.01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/tab_data03.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="split-apply-combine">
+<h3>Split-Apply-Combine<a class="headerlink" href="#split-apply-combine" title="Permalink to this headline">#</a></h3>
+<p><img alt="" src="_img/split-apply-combine.svg" />
+Image source: <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/">Jake VanderPlas 2016, Data Science Handbook</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="n">gb</span> <span class="o">=</span> <span class="n">pop_subset</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;year_id&quot;</span><span class="p">,</span> <span class="s2">&quot;location_name&quot;</span><span class="p">])[</span><span class="s2">&quot;pop&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">gb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year_id  location_name
+1990     France           52924678.45
+         Germany          74905392.07
+         Italy            53965720.67
+1991     France           53204997.81
+         Germany          75282202.61
+                             ...     
+2015     Germany          78112961.81
+         Italy            57659331.41
+2016     France           61020069.08
+         Germany          78619000.77
+         Italy            57960714.36
+Name: pop, Length: 81, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/tab_data04.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="challenge-compute-the-population-of-germany-italy-and-france-for-the-years-1990-to-2016-hint-use-the-groupby-function">
+<h3>Challenge: Compute the population of Germany, Italy and France for the years 1990 to 2016. <em>Hint: Use the</em> <code class="docutils literal notranslate"><span class="pre">groupby</span></code> <em>function.</em><a class="headerlink" href="#challenge-compute-the-population-of-germany-italy-and-france-for-the-years-1990-to-2016-hint-use-the-groupby-function" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="plotting">
+<h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">#</a></h2>
+<div class="section" id="challenge">
+<h3>Challenge:<a class="headerlink" href="#challenge" title="Permalink to this headline">#</a></h3>
+</div>
+<p>Plot how the the population of Germany, Italy and France changed over the years 1990 to 2016.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="n">gb</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/71c1c6718e122240a68590bc15841f509dae47d0a6633c5c7e97df7284c47ce8.png" src="_images/71c1c6718e122240a68590bc15841f509dae47d0a6633c5c7e97df7284c47ce8.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/tab_data05.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="challenge-redo-the-analysis-from-above-but-now-include-spain-in-addition-to-germany-italy-and-france-into-the-analysis">
+<h3>Challenge: Redo the analysis from above but now include Spain in addition to Germany, Italy and France into the analysis.<a class="headerlink" href="#challenge-redo-the-analysis-from-above-but-now-include-spain-in-addition-to-germany-italy-and-france-into-the-analysis" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="solution">
+<h2>Solution:<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Append <code class="docutils literal notranslate"><span class="pre">'Spain'</span></code> into the location list and rerun the code above</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">location</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Germany&#39;, &#39;France&#39;, &#39;Italy&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">location</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Spain&#39;</span><span class="p">)</span>
+<span class="n">location</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Germany&#39;, &#39;France&#39;, &#39;Italy&#39;, &#39;Spain&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="n">cond</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;age_group_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span> <span class="o">&amp;</span> 
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;location_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">location</span><span class="p">)</span> <span class="o">&amp;</span> 
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;sex_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">sex</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">pop_subset</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cond</span><span class="p">,:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pop_subset</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">pop_subset</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(864, 8)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location_id</th>
+      <th>location_name</th>
+      <th>sex_id</th>
+      <th>sex_name</th>
+      <th>age_group_id</th>
+      <th>age_group_name</th>
+      <th>year_id</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>201310</th>
+      <td>80</td>
+      <td>France</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>23</td>
+      <td>5-14 years</td>
+      <td>1998</td>
+      <td>3682781.74</td>
+    </tr>
+    <tr>
+      <th>217018</th>
+      <td>86</td>
+      <td>Italy</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>25</td>
+      <td>50-69 years</td>
+      <td>1996</td>
+      <td>6959415.53</td>
+    </tr>
+    <tr>
+      <th>201358</th>
+      <td>80</td>
+      <td>France</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>23</td>
+      <td>5-14 years</td>
+      <td>2014</td>
+      <td>3874590.71</td>
+    </tr>
+    <tr>
+      <th>216969</th>
+      <td>86</td>
+      <td>Italy</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>24</td>
+      <td>15-49 years</td>
+      <td>2007</td>
+      <td>13828699.00</td>
+    </tr>
+    <tr>
+      <th>216930</th>
+      <td>86</td>
+      <td>Italy</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>24</td>
+      <td>15-49 years</td>
+      <td>1994</td>
+      <td>14475224.99</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="n">gb</span> <span class="o">=</span> <span class="n">pop_subset</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;year_id&quot;</span><span class="p">,</span> <span class="s2">&quot;location_name&quot;</span><span class="p">])[</span><span class="s2">&quot;pop&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">gb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year_id  location_name
+1990     France           52924678.45
+         Germany          74905392.07
+         Italy            53965720.67
+         Spain            36832506.47
+1991     France           53204997.81
+                             ...     
+2015     Spain            44243841.58
+2016     France           61020069.08
+         Germany          78619000.77
+         Italy            57960714.36
+         Spain            44315872.48
+Name: pop, Length: 108, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="n">gb</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9aec072d7f89de20be7284890c2a3d0940f8c85e6abea65099a7605d2d967045.png" src="_images/9aec072d7f89de20be7284890c2a3d0940f8c85e6abea65099a7605d2d967045.png" />
+</div>
+</div>
+<hr class="docutils" />
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05-01_Temperature_anomalies.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Temperature anomalies - A prelimnary analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-data">Read the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-read-the-ihme-gbd-2016-population-estimates-1990-2016-y2017m09d14-csv-file-stored-in-the-data-folder-and-store-it-to-a-variable-namend-pop-hint-use-the-pd-read-csv-function">Challenge: Read the <code class="docutils literal notranslate"><span class="pre">IHME_GBD_2016_POPULATION_ESTIMATES_1990_2016_Y2017M09D14.CSV</span></code> file stored in the <code class="docutils literal notranslate"><span class="pre">../data/</span></code> folder and store it to a variable namend <code class="docutils literal notranslate"><span class="pre">pop</span></code>. <em>Hint: Use the</em> <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> <em>function.</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-inspect-the-data-by">Challenge: Inspect the data by</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-a-subset-of-the-dataset">Analyzing a subset of the dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-subset-the-data-set-based-on-age-groups-location-and-sex-as-given-below-and-save-the-resulting-data-frame-to-a-variable-called-pop-subset">Challenge: Subset the data set based on age groups, location and sex as given below and save the resulting  data frame to a variable called <code class="docutils literal notranslate"><span class="pre">pop_subset</span></code>.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#split-apply-combine">Split-Apply-Combine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-compute-the-population-of-germany-italy-and-france-for-the-years-1990-to-2016-hint-use-the-groupby-function">Challenge: Compute the population of Germany, Italy and France for the years 1990 to 2016. <em>Hint: Use the</em> <code class="docutils literal notranslate"><span class="pre">groupby</span></code> <em>function.</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge">Challenge:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-redo-the-analysis-from-above-but-now-include-spain-in-addition-to-germany-italy-and-france-into-the-analysis">Challenge: Redo the analysis from above but now include Spain in addition to Germany, Italy and France into the analysis.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
