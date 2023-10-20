@@ -1,10 +1,10 @@
 <!-- omit in toc -->
 # Assignment 1
 
-_Deadline: 2023/05/05_
+_Deadline: 2023/11/03_
 1. Please follow the instructions below to install Conda.
 2. Get familiar with the Shell-Commands `cd`, `ls`, `pwd` and `mkdir`.
-3. Create a Conda environment called `fupy` with the packages `python=3.8` and `jupyterlab` installed.
+3. Create a Conda environment called `fupy` with the packages `python=3.10` and `jupyterlab` installed.
 4. Launch the `chatbot.py` application.
 
 All information needed should be available below.
