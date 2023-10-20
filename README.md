@@ -42,7 +42,7 @@ Starts at 14:00 and ends at 18:00 CET
 
 - 08 - 2023/12/15 
   - Object Oriented Programming (OOP)
-  - (**Submission deadline: 2023/03/19**)
+  - (**Submission deadline: 2023/XX/XX**) #TODO
   
 - 09 - 2024/01/12 
   - Presentations study projects 
