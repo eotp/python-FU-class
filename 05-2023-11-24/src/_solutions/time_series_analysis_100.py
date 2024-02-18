@@ -3,6 +3,6 @@ def data_url(country):
     '''
     Function to build url for data retrieval
     '''
-    BASE_URL = "http://berkeleyearth.lbl.gov/auto/Regional/TAVG/Text/"
+    BASE_URL = "https://berkeley-earth-temperature.s3.us-west-1.amazonaws.com/Regional/TAVG/"
     SUFFIX_URL = "-TAVG-Trend.txt"
     return(BASE_URL + country + SUFFIX_URL)

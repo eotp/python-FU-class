@@ -1,4 +1,4 @@
-name: class07
+name: class06
 channels:
 - conda-forge
 - defaults
@@ -13,4 +13,3 @@ dependencies:
 - matplotlib
 - seaborn
 - jupyter-book
-

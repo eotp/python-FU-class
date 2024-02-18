@@ -8,4 +8,4 @@ def filter_dataframe(df, threshold):
     # print dropped columns just to give info
     print(f"Dropped columns: {list(columns_to_drop)}")
     # return DataFrame only containing desired columns
-    return df[columns_to_keep]
+    return df[columns_to_keep].copy()

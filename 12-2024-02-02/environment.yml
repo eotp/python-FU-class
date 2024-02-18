@@ -1,0 +1,19 @@
+name: class12
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip
+  - python
+  - jupyterlab
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - spyder
+  - wordcloud
+  - requests
+  - beautifulsoup4
+
+  - pip:
+      - stop-words
