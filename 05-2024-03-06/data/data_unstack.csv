@@ -1,0 +1,13 @@
+Names,Age,Country,Money,Year
+Alice,25,Germany,5500,1990
+Bob,21,France,2000,1990
+Charlie,28,Spain,3000,1990
+David,46,UK,4000,1990
+Alice,25,Germany,5500,1995
+Bob,21,France,2000,1995
+Charlie,28,Spain,3000,1995
+David,46,UK,4000,1995
+Alice,25,Germany,5500,2000
+Bob,21,France,2000,2000
+Charlie,28,Spain,3000,2000
+David,46,UK,4000,2000

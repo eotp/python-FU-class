@@ -8,7 +8,7 @@ for i in range(len(df_data)):
 print('----'*30)
     
 # Mit iloc durchlaufen
-for i in range(len(df)):
+for i in range(len(df_data)):
     name = df_data.iloc[i, 0]
     alter = df_data.iloc[i, 1]
     geschlecht = df_data.iloc[i, 2]

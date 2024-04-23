@@ -1,53 +1,53 @@
 # Main repository for the Python class at FU Berlin, winter semester break 2024
 
-Dates, location and outline of the class are presented [here](https://www.fu-berlin.de/vv/de/lv/835185).
+Dates, location and outline of the class are presented [here](https://www.fu-berlin.de/vv/de/lv/887571).
 Starts at 14:00 and ends at 18:00 CET
 
 ## Content
 
-- 01 - 2024/02/21
+- 01 - 2024/04/26
 
   - Introduction into computational thinking
   - Programming languages and IDEs
   - Why Python?
 
-- 02 - 2024/02/22
+- 02 - 2024/05/03
 
   - Python 101
 
-- 03 - 2024/02/28
+- 03 - 2024/05/10
 
   - Python 101 continued
   - Plotting with Python
 
-- 04 - 2024/02/29 
+- 04 - 2024/05/17 
 
   - Introduction to `pandas`
   - Simple data analysis using `pandas`
 
-- 05 - 2024/03/06
+- 05 - 2024/05/24
 
   - Pandas recap
   - Simple data analysis using `pandas`
   - Reporting using `jupyterbook`
 
-- 06 - 2024/03/07
+- 06 - 2024/05/31
 
   - Exploratory data analysis (EDA)
   - Study project - Powerplants
 
-- 07 - 2024/03/13
+- 07 - 2024/06/07
 
   - Study project - Powerplants (Group Session)
 
-- 08 - 2024/03/14 
+- 08 - 2024/06/14 
   - Object Oriented Programming (OOP)
-  - (**Submission deadline: 2024/03/16**)
+  - (**Submission deadline: 2024/06/17**)
   
-- 09 - 2024/03/20 
+- 09 - 2024/06/21 
   - Presentations study projects 
 
-- 10 - 2024/03/21
+- 10 - 2024/06/28
   
   - Interpolation and curve fitting
   - Inferential statistics
@@ -59,22 +59,22 @@ Starts at 14:00 and ends at 18:00 CET
   - Introduction to Machine Learning
   - Skipped:
     - Regression analysis
-    - Logisitic regression
-    - Hyperparamter tuning
+    - Logistic regression
+    - Hyperparameter tuning
     - Polynomial Regression
 
-* 11 - 2024/03/27
+* 11 - 2024/07/05
 
   - `Spyder IDE`
   - Dashboarding with `streamlit`
   - Creating dynamic Maps with `folium` 
 
-* 12 - 2024/03/28
+* 12 - 2024/07/12
   
   - Web scraping
   - Wordclouds
 
-* 13 - -- 
+* 13 - 2024/07/19 
 
   - Feedback round
   - APIs (FastAPI)
