@@ -1,4 +1,4 @@
-# Main repository for the Python class at FU Berlin, winter semester break 2024
+# Main repository for the Python class at FU Berlin, sommer semester 2024
 
 Dates, location and outline of the class are presented [here](https://www.fu-berlin.de/vv/de/lv/887571).
 Starts at 14:00 and ends at 18:00 CET
