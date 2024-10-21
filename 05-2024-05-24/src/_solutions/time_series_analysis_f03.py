@@ -35,7 +35,7 @@ def plot_anomalies(df, title):
     ## set figure title
     ax.set_title(title, size=18)
     ## set label for y axis
-    ax.set_ylabel("$^\circ$C")
+    ax.set_ylabel(r"$^\circ$C")
     
     ## add legend
     plt.legend()
