@@ -1,7 +1,7 @@
 <!-- omit in toc -->
 # Assignment 1
 
-_Deadline: 03/05/2024_
+_Deadline: 01/11/2024_
 1. Please follow the instructions below to install Conda.
 2. Get familiar with the Shell-Commands `cd`, `ls`, `pwd` and `mkdir`.
 3. Create a Conda environment called `fupy` with the packages `python=3.10` and `jupyterlab` installed.
@@ -8104,7 +8104,7 @@ _Note: If you accidentally didn't initialize Conda you can do that by executing 
 - With the right environment activated you can use `conda install package_1 package_2 [..]` to install packages:
 
     ```
-    (fupy) aleks@pc$ conda install python=3.8 jupyterlab
+    (fupy) aleks@pc$ conda install python=3.10 jupyterlab
     ```
 
 - Conda will automatically install all packages on which the chosen ones depend.

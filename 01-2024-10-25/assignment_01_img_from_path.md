@@ -2,7 +2,7 @@
 
 # Assignment 1
 
-*Deadline: 03/05/2024*
+*Deadline: 01/11/2024*
 
 1. Please follow the instructions below to install Conda.
 2. Get familiar with the Shell-Commands `cd`, `ls`, `pwd` and `mkdir`.
@@ -275,7 +275,7 @@ We use Python throughout the class. We further use some additional packages, ins
 * With the right environment activated you can use `conda install package_1 package_2 [..]` to install packages:
 
   ```
-  (fupy) aleks@pc$ conda install python=3.8 jupyterlab
+  (fupy) aleks@pc$ conda install python=3.10 jupyterlab
   
   ```
 * Conda will automatically install all packages on which the chosen ones depend.
