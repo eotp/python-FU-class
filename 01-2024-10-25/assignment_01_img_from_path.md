@@ -2,7 +2,7 @@
 
 # Assignment 1
 
-*Deadline: 01/11/2024*
+*Deadline: 02/20/2025*
 
 1. Please follow the instructions below to install Conda.
 2. Get familiar with the Shell-Commands `cd`, `ls`, `pwd` and `mkdir`.
