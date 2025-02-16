@@ -1,53 +1,51 @@
-# Main repository for the Python class at FU Berlin, winter semester 2024-2025
-
-Dates, location and outline of the class are presented [here](https://www.fu-berlin.de/vv/de/lv/926006).
+# Main repository for the Python class at FU Berlin, winter semester 2024-2025 (winter break)
+ 
+Dates, location and outline of the class are presented [here](https://www.fu-berlin.de/vv/de/lv/927201).
 Starts at 14:00 and ends at 18:00 CET
 
 ## Content
 
-- 01 - 2024/10/25
+- 01 - 2025/02/19
 
   - Introduction into computational thinking
   - Programming languages and IDEs
   - Why Python?
 
-- 02 - 2024/11/01
+- 02 - 2025/02/20
 
   - Python 101
 
-- 03 - 2024/11/08
+- 03 - 2025/02/26
 
   - Python 101 continued
   - Plotting with Python
 
-- 04 - 2024/11/15
+- 04 - 2025/02/27
 
   - Introduction to `pandas`
   - Simple data analysis using `pandas`
 
-- 05 - 2024/11/22
+- 05 - 2025/03/05
 
   - Pandas recap
-  - Simple data analysis using `pandas`
   - Reporting using `jupyterbook`
 
-- 06 - 2024/11/29
+- 06 - 2025/03/06
 
   - Exploratory data analysis (EDA)
   - Study project - Powerplants
 
-- 07 - 2024/12/06
+- 07 - 2025/03/12
 
   - Study project - Powerplants (Group Session)
 
-- 08 - 2024/12/13 
+- 08 - 2025/03/13 
   - Object Oriented Programming (OOP)
-  - (**Submission deadline: 2024/06/17**)
   
-- 09 - 2025/01/10 
+- 09 - 2025/03/19 
   - Presentations study projects 
 
-- 10 - 2025/01/17
+- 10 - 2025/03/20
   
   - Interpolation and curve fitting
   - Inferential statistics
@@ -63,18 +61,19 @@ Starts at 14:00 and ends at 18:00 CET
     - Hyperparameter tuning
     - Polynomial Regression
 
-* 11 - 2025/01/24
+* 11 - 2025/03/26
 
   - `Spyder IDE`
   - Dashboarding with `streamlit`
   - Creating dynamic Maps with `folium` 
 
-* 12 - 2025/01/31
+* 12 - 2025/03/27
   
   - Web scraping
   - Wordclouds
 
-* 13 - 2025/02/07 
+
+* _skipped_ 13 - 2025/xx/xx 
 
   - Feedback round
   - APIs (FastAPI)
