@@ -5,47 +5,47 @@ Starts at 14:00 and ends at 18:00 CET
 
 ## Content
 
-- 01 - 2025/02/19
+- 01 - 2025/04/25
 
   - Introduction into computational thinking
   - Programming languages and IDEs
   - Why Python?
 
-- 02 - 2025/02/20
+- 02 - 2025/05/02
 
   - Python 101
 
-- 03 - 2025/02/26
+- 03 - 2025/05/09
 
   - Python 101 continued
   - Plotting with Python
 
-- 04 - 2025/02/27
+- 04 - 2025/05/16
 
   - Introduction to `pandas`
   - Simple data analysis using `pandas`
 
-- 05 - 2025/03/05
+- 05 - 2025/05/23
 
   - Pandas recap
   - Reporting using `jupyterbook`
 
-- 06 - 2025/03/06
+- 06 - 2025/05/30
 
   - Exploratory data analysis (EDA)
   - Study project - Powerplants
 
-- 07 - 2025/03/12
+- 07 - 2025/06/06
 
   - Study project - Powerplants (Group Session)
 
-- 08 - 2025/03/13 
+- 08 - 2025/06/13 
   - Object Oriented Programming (OOP)
   
-- 09 - 2025/03/19 
+- 09 - 2025/06/20 
   - Presentations study projects 
 
-- 10 - 2025/03/20
+- 10 - 2025/06/27
   
   - Interpolation and curve fitting
   - Inferential statistics
@@ -61,19 +61,19 @@ Starts at 14:00 and ends at 18:00 CET
     - Hyperparameter tuning
     - Polynomial Regression
 
-* 11 - 2025/03/26
+* 11 - 2025/07/04
 
   - `Spyder IDE`
   - Dashboarding with `streamlit`
   - Creating dynamic Maps with `folium` 
 
-* 12 - 2025/03/27
+* 12 - 2025/07/11
   
   - Web scraping
   - Wordclouds
 
 
-* _skipped_ 13 - 2025/xx/xx 
+* _skipped_ 13 - 2025/07/18 
 
   - Feedback round
   - APIs (FastAPI)
