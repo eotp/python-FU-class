@@ -1,0 +1,8 @@
+name: class_02
+channels:
+  - conda-forge
+  - default
+
+dependencies:
+  - python = >3.8
+  - jupyterlab

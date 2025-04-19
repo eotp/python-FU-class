@@ -1,0 +1,2232 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Challenge: Processing of Tabular Data &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '06-02_Processing_of_Tabular_Data';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Temperature anomalies - A prelimnary analysis" href="06-03_Temperature_anomalies.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06-03_Temperature_anomalies.html">Temperature anomalies - A prelimnary analysis</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Challenge: Processing of Tabular Data</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/06-02_Processing_of_Tabular_Data.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Challenge: Processing of Tabular Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-data">Read the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-a-subset-of-the-dataset">Analyzing a subset of the dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#split-apply-combine">Split-Apply-Combine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-index-dataframes">Multi-Index Dataframes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Plotting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-plot-the-the-population-for-all-age-groups-between-1990-2016">Challenge: Plot the the population for all age groups between 1990-2016.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-plot-the-the-population-for-5-14-years-and-70-years-for-germany-between-1990-2016">Challenge: Plot the the population for <code class="docutils literal notranslate"><span class="pre">'5-14</span> <span class="pre">years'</span></code> and <code class="docutils literal notranslate"><span class="pre">'70+</span> <span class="pre">years'</span></code> for germany between 1990-2016.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-plot-the-the-population-for-95-plus-for-germany-grouped-by-sex-name-and-year-id-between-1990-2016">Challenge: Plot the the population for ‘95 plus’ for germany grouped by <code class="docutils literal notranslate"><span class="pre">sex_name</span></code> and <code class="docutils literal notranslate"><span class="pre">year_id</span></code> between 1990-2016.</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="challenge-processing-of-tabular-data">
+<h1>Challenge: Processing of Tabular Data<a class="headerlink" href="#challenge-processing-of-tabular-data" title="Link to this heading">#</a></h1>
+<p><strong>Import Statements</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="read-the-data">
+<h2>Read the data<a class="headerlink" href="#read-the-data" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>Challenge:</strong> Read the <code class="docutils literal notranslate"><span class="pre">IHME_GBD_2016_POPULATION_ESTIMATES_1990_2016_Y2017M09D14.CSV</span></code> file stored in the <code class="docutils literal notranslate"><span class="pre">../data/</span></code> folder and store it to a variable namend <code class="docutils literal notranslate"><span class="pre">pop</span></code>. <em>Hint: Use the</em> <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> <em>function.</em></p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/tab_data01.py</span>
+<span class="n">pop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/IHME_GBD_2016_POPULATION_ESTIMATES_1990_2016_Y2017M09D14.CSV&quot;</span><span class="p">)</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location_id</th>
+      <th>location_name</th>
+      <th>sex_id</th>
+      <th>sex_name</th>
+      <th>age_group_id</th>
+      <th>age_group_name</th>
+      <th>year_id</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Global</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>1</td>
+      <td>Under 5</td>
+      <td>1990</td>
+      <td>307337836.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Global</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>1</td>
+      <td>Under 5</td>
+      <td>1990</td>
+      <td>291129853.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Global</td>
+      <td>3</td>
+      <td>Both</td>
+      <td>1</td>
+      <td>Under 5</td>
+      <td>1990</td>
+      <td>598467690.1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Global</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>1</td>
+      <td>Under 5</td>
+      <td>1991</td>
+      <td>308965555.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>Global</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>1</td>
+      <td>Under 5</td>
+      <td>1991</td>
+      <td>292182185.9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="inspect-the-data">
+<h2>Inspect the data<a class="headerlink" href="#inspect-the-data" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>Challenge:</strong> Inspect the data by</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>printing the column names</p></li>
+<li><p>counting the number of unique entries in the <code class="docutils literal notranslate"><span class="pre">location_name</span></code> column</p></li>
+<li><p>printing some location names</p></li>
+<li><p>figuring out the unique categories for the <code class="docutils literal notranslate"><span class="pre">sex_name</span></code> and <code class="docutils literal notranslate"><span class="pre">age_group</span></code> columns</p></li>
+</ul>
+<blockquote>
+<div><p><em>Hint</em>: the <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> attributes and methods: <code class="docutils literal notranslate"><span class="pre">.columns</span></code>, <code class="docutils literal notranslate"><span class="pre">.nunique()</span></code>, <code class="docutils literal notranslate"><span class="pre">.unique()</span></code>, <code class="docutils literal notranslate"><span class="pre">.sample()</span></code> may come handy</p>
+</div></blockquote>
+<section id="exploratory-data-analysis">
+<h3>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/tab_data02.py</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">pop</span><span class="p">[</span><span class="s2">&quot;location_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+<span class="n">pop</span><span class="p">[</span><span class="s2">&quot;location_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">pop</span><span class="p">[</span><span class="s2">&quot;sex_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">pop</span><span class="p">[</span><span class="s2">&quot;age_group_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>print the column names</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="n">pop</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;location_id&#39;, &#39;location_name&#39;, &#39;sex_id&#39;, &#39;sex_name&#39;, &#39;age_group_id&#39;,
+       &#39;age_group_name&#39;, &#39;year_id&#39;, &#39;pop&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>count the number of unique entries in the <code class="docutils literal notranslate"><span class="pre">location_name</span></code> column</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">pop</span><span class="p">[</span><span class="s1">&#39;location_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>231
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>print some location names</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="n">pop</span><span class="p">[</span><span class="s1">&#39;location_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>96778                  Turkmenistan
+300691          Trinidad and Tobago
+253660    High-income North America
+407647                  Afghanistan
+496375                      Namibia
+529400                       Guinea
+517229                   Cape Verde
+8827                          China
+440567            Equatorial Guinea
+84569                       Georgia
+Name: location_name, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>figure out the unique categories for the <code class="docutils literal notranslate"><span class="pre">sex_name</span></code> and <code class="docutils literal notranslate"><span class="pre">age_group</span></code> columns</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="n">pop</span><span class="p">[</span><span class="s1">&#39;sex_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Male&#39;, &#39;Female&#39;, &#39;Both&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+<span class="n">pop</span><span class="p">[</span><span class="s1">&#39;age_group_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Under 5&#39;, &#39;Early Neonatal&#39;, &#39;Late Neonatal&#39;, &#39;Post Neonatal&#39;,
+       &#39;1 to 4&#39;, &#39;5 to 9&#39;, &#39;10 to 14&#39;, &#39;15 to 19&#39;, &#39;20 to 24&#39;, &#39;25 to 29&#39;,
+       &#39;30 to 34&#39;, &#39;35 to 39&#39;, &#39;40 to 44&#39;, &#39;45 to 49&#39;, &#39;50 to 54&#39;,
+       &#39;55 to 59&#39;, &#39;60 to 64&#39;, &#39;65 to 69&#39;, &#39;70 to 74&#39;, &#39;75 to 79&#39;,
+       &#39;All Ages&#39;, &#39;5-14 years&#39;, &#39;15-49 years&#39;, &#39;50-69 years&#39;,
+       &#39;70+ years&#39;, &#39;&lt;1 year&#39;, &#39;80 to 84&#39;, &#39;85 to 89&#39;, &#39;90 to 94&#39;,
+       &#39;&lt;20 years&#39;, &#39;10-24 years&#39;, &#39;95 plus&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="analyzing-a-subset-of-the-dataset">
+<h2>Analyzing a subset of the dataset<a class="headerlink" href="#analyzing-a-subset-of-the-dataset" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>Challenge:</strong> Subset the data set based on age groups, location and sex as given below and save the resulting  data frame to a variable called <code class="docutils literal notranslate"><span class="pre">pop_subset</span></code>.</p>
+</div></blockquote>
+<blockquote>
+<div><p><em>Hint</em>: You can check for values being included in a list of elements using <code class="docutils literal notranslate"><span class="pre">df[column].isin(my_list)</span></code></p>
+</div></blockquote>
+<blockquote>
+<div><p><em>Hint</em>: You can select the elements in a dataframe for which this condition applies using the <code class="docutils literal notranslate"><span class="pre">loc</span></code>-method: <code class="docutils literal notranslate"><span class="pre">df.loc[df[column].isin(my_list),</span> <span class="pre">:]</span></code></p>
+</div></blockquote>
+<blockquote>
+<div><p><em>Hint</em>: You can combine <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> (columns) with a <code class="docutils literal notranslate"><span class="pre">dtype</span></code> of <code class="docutils literal notranslate"><span class="pre">bool</span></code> using:</p>
+</div></blockquote>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (and)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">&amp;</span> <span class="pre">True</span> <span class="pre">==</span> <span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">&amp;</span> <span class="pre">False</span> <span class="pre">==</span> <span class="pre">False</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span> <span class="pre">&amp;</span> <span class="pre">False</span> <span class="pre">==</span> <span class="pre">False</span></code></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">|</span></code> (or)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">|</span> <span class="pre">True</span> <span class="pre">==</span> <span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">|</span> <span class="pre">False</span> <span class="pre">==</span> <span class="pre">True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">False</span> <span class="pre">|</span> <span class="pre">False</span> <span class="pre">==</span> <span class="pre">False</span></code>
+E.g. <code class="docutils literal notranslate"><span class="pre">df[column].isin(my_list)</span> <span class="pre">&amp;</span> <span class="pre">df[column].isin(my_other_list)</span></code> will only be <code class="docutils literal notranslate"><span class="pre">True</span></code> for rows where the <code class="docutils literal notranslate"><span class="pre">column</span></code> value is in both lists</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Male&#39;</span><span class="p">]</span>
+
+<span class="n">pop</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">pop</span><span class="p">[</span><span class="s1">&#39;sex_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">test_list</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location_id</th>
+      <th>location_name</th>
+      <th>sex_id</th>
+      <th>sex_name</th>
+      <th>age_group_id</th>
+      <th>age_group_name</th>
+      <th>year_id</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Global</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>1</td>
+      <td>Under 5</td>
+      <td>1990</td>
+      <td>3.073378e+08</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Global</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>1</td>
+      <td>Under 5</td>
+      <td>1991</td>
+      <td>3.089656e+08</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+      <td>Global</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>1</td>
+      <td>Under 5</td>
+      <td>1992</td>
+      <td>3.096011e+08</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1</td>
+      <td>Global</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>1</td>
+      <td>Under 5</td>
+      <td>1993</td>
+      <td>3.094043e+08</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>1</td>
+      <td>Global</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>1</td>
+      <td>Under 5</td>
+      <td>1994</td>
+      <td>3.086484e+08</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>603921</th>
+      <td>44639</td>
+      <td>Middle SDI</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>235</td>
+      <td>95 plus</td>
+      <td>2012</td>
+      <td>1.465375e+05</td>
+    </tr>
+    <tr>
+      <th>603924</th>
+      <td>44639</td>
+      <td>Middle SDI</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>235</td>
+      <td>95 plus</td>
+      <td>2013</td>
+      <td>1.522679e+05</td>
+    </tr>
+    <tr>
+      <th>603927</th>
+      <td>44639</td>
+      <td>Middle SDI</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>235</td>
+      <td>95 plus</td>
+      <td>2014</td>
+      <td>1.576811e+05</td>
+    </tr>
+    <tr>
+      <th>603930</th>
+      <td>44639</td>
+      <td>Middle SDI</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>235</td>
+      <td>95 plus</td>
+      <td>2015</td>
+      <td>1.640926e+05</td>
+    </tr>
+    <tr>
+      <th>603933</th>
+      <td>44639</td>
+      <td>Middle SDI</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>235</td>
+      <td>95 plus</td>
+      <td>2016</td>
+      <td>1.766505e+05</td>
+    </tr>
+  </tbody>
+</table>
+<p>201312 rows × 8 columns</p>
+</div></div></div>
+</div>
+<p><strong>Subsetting</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;5-14 years&#39;</span><span class="p">,</span> <span class="s1">&#39;15-49 years&#39;</span><span class="p">,</span> <span class="s1">&#39;50-69 years&#39;</span><span class="p">,</span><span class="s1">&#39;70+ years&#39;</span><span class="p">]</span>
+<span class="n">location</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Germany&quot;</span><span class="p">,</span> <span class="s2">&quot;France&quot;</span><span class="p">,</span> <span class="s2">&quot;Italy&quot;</span><span class="p">]</span>
+<span class="n">sex</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/tab_data03.py</span>
+<span class="n">cond</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;age_group_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span> <span class="o">&amp;</span> 
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;location_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">location</span><span class="p">)</span> <span class="o">&amp;</span> 
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;sex_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">sex</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">pop_subset</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cond</span><span class="p">,:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pop_subset</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">pop_subset</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(648, 8)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location_id</th>
+      <th>location_name</th>
+      <th>sex_id</th>
+      <th>sex_name</th>
+      <th>age_group_id</th>
+      <th>age_group_name</th>
+      <th>year_id</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>201600</th>
+      <td>80</td>
+      <td>France</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>26</td>
+      <td>70+ years</td>
+      <td>2014</td>
+      <td>3330456.47</td>
+    </tr>
+    <tr>
+      <th>203961</th>
+      <td>81</td>
+      <td>Germany</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>24</td>
+      <td>15-49 years</td>
+      <td>1991</td>
+      <td>20272948.21</td>
+    </tr>
+    <tr>
+      <th>201331</th>
+      <td>80</td>
+      <td>France</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>23</td>
+      <td>5-14 years</td>
+      <td>2005</td>
+      <td>3646844.97</td>
+    </tr>
+    <tr>
+      <th>203991</th>
+      <td>81</td>
+      <td>Germany</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>24</td>
+      <td>15-49 years</td>
+      <td>2001</td>
+      <td>20152048.10</td>
+    </tr>
+    <tr>
+      <th>217027</th>
+      <td>86</td>
+      <td>Italy</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>25</td>
+      <td>50-69 years</td>
+      <td>1999</td>
+      <td>7091643.92</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_subset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location_id</th>
+      <th>location_name</th>
+      <th>sex_id</th>
+      <th>sex_name</th>
+      <th>age_group_id</th>
+      <th>age_group_name</th>
+      <th>year_id</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>201285</th>
+      <td>80</td>
+      <td>France</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>23</td>
+      <td>5-14 years</td>
+      <td>1990</td>
+      <td>3896596.90</td>
+    </tr>
+    <tr>
+      <th>201286</th>
+      <td>80</td>
+      <td>France</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>23</td>
+      <td>5-14 years</td>
+      <td>1990</td>
+      <td>3716975.82</td>
+    </tr>
+    <tr>
+      <th>201288</th>
+      <td>80</td>
+      <td>France</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>23</td>
+      <td>5-14 years</td>
+      <td>1991</td>
+      <td>3915343.49</td>
+    </tr>
+    <tr>
+      <th>201289</th>
+      <td>80</td>
+      <td>France</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>23</td>
+      <td>5-14 years</td>
+      <td>1991</td>
+      <td>3733379.25</td>
+    </tr>
+    <tr>
+      <th>201291</th>
+      <td>80</td>
+      <td>France</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>23</td>
+      <td>5-14 years</td>
+      <td>1992</td>
+      <td>3933758.16</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>217153</th>
+      <td>86</td>
+      <td>Italy</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>26</td>
+      <td>70+ years</td>
+      <td>2014</td>
+      <td>5669195.28</td>
+    </tr>
+    <tr>
+      <th>217155</th>
+      <td>86</td>
+      <td>Italy</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>26</td>
+      <td>70+ years</td>
+      <td>2015</td>
+      <td>4020123.15</td>
+    </tr>
+    <tr>
+      <th>217156</th>
+      <td>86</td>
+      <td>Italy</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>26</td>
+      <td>70+ years</td>
+      <td>2015</td>
+      <td>5747247.96</td>
+    </tr>
+    <tr>
+      <th>217158</th>
+      <td>86</td>
+      <td>Italy</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>26</td>
+      <td>70+ years</td>
+      <td>2016</td>
+      <td>4096158.53</td>
+    </tr>
+    <tr>
+      <th>217159</th>
+      <td>86</td>
+      <td>Italy</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>26</td>
+      <td>70+ years</td>
+      <td>2016</td>
+      <td>5826996.75</td>
+    </tr>
+  </tbody>
+</table>
+<p>648 rows × 8 columns</p>
+</div></div></div>
+</div>
+<section id="split-apply-combine">
+<h3>Split-Apply-Combine<a class="headerlink" href="#split-apply-combine" title="Link to this heading">#</a></h3>
+<p><img alt="" src="_img/split-apply-combine.svg" />
+Image source: <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/">Jake VanderPlas 2016, Data Science Handbook</a></p>
+<blockquote>
+<div><p><strong>Challenge:</strong> Compute the population of Germany, Italy and France for the years 1990 to 2016.</p>
+</div></blockquote>
+<blockquote>
+<div><p><em>Hint</em>: Use the <code class="docutils literal notranslate"><span class="pre">groupby</span></code> function. You can also pass multiple columns to it by passing a <code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+</div></blockquote>
+<blockquote>
+<div><p><em>Hint</em>: When passing multiple columns you will end up with an ugly <code class="docutils literal notranslate"><span class="pre">MultiIndex</span></code>. You can transform an <code class="docutils literal notranslate"><span class="pre">index</span></code> level to columns using the <code class="docutils literal notranslate"><span class="pre">.unstack(level)</span></code> method. With <code class="docutils literal notranslate"><span class="pre">level</span> <span class="pre">=</span> <span class="pre">0</span></code> being the leftmost index, <code class="docutils literal notranslate"><span class="pre">level</span> <span class="pre">=</span> <span class="pre">1</span></code> the second from left, etc.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/tab_data04.py</span>
+<span class="n">gb</span> <span class="o">=</span> <span class="n">pop_subset</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;year_id&quot;</span><span class="p">,</span> <span class="s2">&quot;location_name&quot;</span><span class="p">])[</span><span class="s2">&quot;pop&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">gb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year_id  location_name
+1990     France           52924678.45
+         Germany          74905392.07
+         Italy            53965720.67
+1991     France           53204997.81
+         Germany          75282202.61
+                             ...     
+2015     Germany          78112961.81
+         Italy            57659331.41
+2016     France           61020069.08
+         Germany          78619000.77
+         Italy            57960714.36
+Name: pop, Length: 81, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>location_name</th>
+      <th>France</th>
+      <th>Germany</th>
+      <th>Italy</th>
+    </tr>
+    <tr>
+      <th>year_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1990</th>
+      <td>52924678.45</td>
+      <td>74905392.07</td>
+      <td>53965720.67</td>
+    </tr>
+    <tr>
+      <th>1991</th>
+      <td>53204997.81</td>
+      <td>75282202.61</td>
+      <td>54096588.22</td>
+    </tr>
+    <tr>
+      <th>1992</th>
+      <td>53491245.78</td>
+      <td>75846260.69</td>
+      <td>54185851.15</td>
+    </tr>
+    <tr>
+      <th>1993</th>
+      <td>53764681.77</td>
+      <td>76382332.04</td>
+      <td>54181997.23</td>
+    </tr>
+    <tr>
+      <th>1994</th>
+      <td>54014103.00</td>
+      <td>76711513.38</td>
+      <td>54185577.66</td>
+    </tr>
+    <tr>
+      <th>1995</th>
+      <td>54244201.26</td>
+      <td>77017974.10</td>
+      <td>54196349.68</td>
+    </tr>
+    <tr>
+      <th>1996</th>
+      <td>54453151.38</td>
+      <td>77271569.64</td>
+      <td>54215293.54</td>
+    </tr>
+    <tr>
+      <th>1997</th>
+      <td>54652082.22</td>
+      <td>77347967.36</td>
+      <td>54261314.98</td>
+    </tr>
+    <tr>
+      <th>1998</th>
+      <td>54837898.37</td>
+      <td>77306087.32</td>
+      <td>54309603.01</td>
+    </tr>
+    <tr>
+      <th>1999</th>
+      <td>55080702.99</td>
+      <td>77293813.76</td>
+      <td>54329309.93</td>
+    </tr>
+    <tr>
+      <th>2000</th>
+      <td>55411738.40</td>
+      <td>77331577.64</td>
+      <td>54353264.02</td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <td>55777710.44</td>
+      <td>77429977.84</td>
+      <td>54388801.14</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>56148772.92</td>
+      <td>77572863.01</td>
+      <td>54460704.27</td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <td>56524552.70</td>
+      <td>77629811.40</td>
+      <td>54690631.60</td>
+    </tr>
+    <tr>
+      <th>2004</th>
+      <td>56925329.38</td>
+      <td>77640713.22</td>
+      <td>55033516.62</td>
+    </tr>
+    <tr>
+      <th>2005</th>
+      <td>57362117.47</td>
+      <td>77625678.15</td>
+      <td>55290296.71</td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <td>57780785.66</td>
+      <td>77540495.53</td>
+      <td>55447150.87</td>
+    </tr>
+    <tr>
+      <th>2007</th>
+      <td>58140459.87</td>
+      <td>77410998.63</td>
+      <td>55715794.01</td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <td>58458362.46</td>
+      <td>77257023.21</td>
+      <td>56075640.98</td>
+    </tr>
+    <tr>
+      <th>2009</th>
+      <td>58750572.26</td>
+      <td>77093829.71</td>
+      <td>56330724.78</td>
+    </tr>
+    <tr>
+      <th>2010</th>
+      <td>59034248.17</td>
+      <td>76974942.55</td>
+      <td>56517916.98</td>
+    </tr>
+    <tr>
+      <th>2011</th>
+      <td>59333389.35</td>
+      <td>76936624.35</td>
+      <td>56633630.78</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>59628203.78</td>
+      <td>77038235.71</td>
+      <td>56805924.59</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>59907632.52</td>
+      <td>77242754.95</td>
+      <td>57081736.70</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>60200287.87</td>
+      <td>77653446.03</td>
+      <td>57366276.76</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>60607027.88</td>
+      <td>78112961.81</td>
+      <td>57659331.41</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>61020069.08</td>
+      <td>78619000.77</td>
+      <td>57960714.36</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="multi-index-dataframes">
+<h3>Multi-Index Dataframes<a class="headerlink" href="#multi-index-dataframes" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_subset</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;location_name&quot;</span><span class="p">,</span> <span class="s2">&quot;age_group_name&quot;</span><span class="p">])[</span><span class="s2">&quot;pop&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>location_name  age_group_name
+France         15-49 years       1.437323e+07
+               5-14 years        3.827837e+06
+               50-69 years       6.626705e+06
+               70+ years         3.536658e+06
+Germany        15-49 years       1.925660e+07
+               5-14 years        4.095171e+06
+               50-69 years       1.006431e+07
+               70+ years         5.148287e+06
+Italy          15-49 years       1.390473e+07
+               5-14 years        2.825256e+06
+               50-69 years       7.023152e+06
+               70+ years         3.908706e+06
+Name: pop, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_multi_index</span> <span class="o">=</span> <span class="n">pop_subset</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;location_name&quot;</span><span class="p">,</span> <span class="s2">&quot;age_group_name&quot;</span><span class="p">])[</span><span class="s2">&quot;pop&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">pop_multi_index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_multi_index</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_multi_index</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><h3 class="rubric" id="challenge-load-the-dataset-in-data-data-unstack-csv-groupby-the-columns-year-and-names-and-aggregate-with-sum-over-the-column-money-use-unstack-method-to-reform-the-dataframe-so-the-year-column-is-set-as-index">Challenge: Load the dataset in <code class="docutils literal notranslate"><span class="pre">'../data/data_unstack.csv'</span></code> groupby the columns <code class="docutils literal notranslate"><span class="pre">'Year'</span></code> and <code class="docutils literal notranslate"><span class="pre">'Names'</span></code> and aggregate with <code class="docutils literal notranslate"><span class="pre">sum()</span></code> over the column <code class="docutils literal notranslate"><span class="pre">'Money'</span></code>. Use <code class="docutils literal notranslate"><span class="pre">unstack()</span></code>-method to reform the dataframe so the <code class="docutils literal notranslate"><span class="pre">'Year'</span></code>-Column is set as Index.</h3>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/unstack_example.py</span>
+<span class="n">df_unstack</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/data_unstack.csv&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_unstack</span><span class="p">)</span>
+
+<span class="n">df_unstack</span> <span class="o">=</span> <span class="n">df_unstack</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Money&#39;</span><span class="p">,</span> <span class="s1">&#39;Names&#39;</span><span class="p">])[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_unstack</span><span class="p">)</span>
+
+<span class="n">df_unstack2</span> <span class="o">=</span> <span class="n">df_unstack</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+
+<span class="n">df_unstack2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Names  Age  Country  Money  Year
+0     Alice   25  Germany   5500  1990
+1       Bob   21   France   2000  1990
+2   Charlie   28    Spain   3000  1990
+3     David   46       UK   4000  1990
+4     Alice   25  Germany   5500  1995
+5       Bob   21   France   2000  1995
+6   Charlie   28    Spain   3000  1995
+7     David   46       UK   4000  1995
+8     Alice   25  Germany   5500  2000
+9       Bob   21   France   2000  2000
+10  Charlie   28    Spain   3000  2000
+11    David   46       UK   4000  2000
+12    Alice   25  Germany   -500  1990
+13      Bob   21   France  -2000  1990
+14  Charlie   28    Spain    700  1990
+15    David   46       UK    100  1990
+16    Alice   25  Germany    550  1995
+17      Bob   21   France    200  1995
+18  Charlie   28    Spain     30  1995
+19    David   46       UK   -800  1995
+20    Alice   25  Germany    900  2000
+21      Bob   21   France     10  2000
+22  Charlie   28    Spain    300  2000
+23    David   46       UK   -400  2000
+Money  Names  
+-2000  Bob        1990
+-800   David      1995
+-500   Alice      1990
+-400   David      2000
+ 10    Bob        2000
+ 30    Charlie    1995
+ 100   David      1990
+ 200   Bob        1995
+ 300   Charlie    2000
+ 550   Alice      1995
+ 700   Charlie    1990
+ 900   Alice      2000
+ 2000  Bob        5985
+ 3000  Charlie    5985
+ 4000  David      5985
+ 5500  Alice      5985
+Name: Year, dtype: int64
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Names</th>
+      <th>Alice</th>
+      <th>Bob</th>
+      <th>Charlie</th>
+      <th>David</th>
+    </tr>
+    <tr>
+      <th>Money</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>-2000</th>
+      <td>NaN</td>
+      <td>1990.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-800</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1995.0</td>
+    </tr>
+    <tr>
+      <th>-500</th>
+      <td>1990.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>-400</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2000.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>NaN</td>
+      <td>2000.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1995.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1990.0</td>
+    </tr>
+    <tr>
+      <th>200</th>
+      <td>NaN</td>
+      <td>1995.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>300</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2000.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>550</th>
+      <td>1995.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>700</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1990.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>900</th>
+      <td>2000.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2000</th>
+      <td>NaN</td>
+      <td>5985.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3000</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5985.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4000</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5985.0</td>
+    </tr>
+    <tr>
+      <th>5500</th>
+      <td>5985.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_unstack2</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Names  Money
+Alice  -2000       NaN
+       -800        NaN
+       -500     1990.0
+       -400        NaN
+        10         NaN
+                 ...  
+David   900        NaN
+        2000       NaN
+        3000       NaN
+        4000    5985.0
+        5500       NaN
+Length: 64, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_unstack</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Names</th>
+      <th>Alice</th>
+      <th>Bob</th>
+      <th>Charlie</th>
+      <th>David</th>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1990</th>
+      <td>5000</td>
+      <td>0</td>
+      <td>3700</td>
+      <td>4100</td>
+    </tr>
+    <tr>
+      <th>1995</th>
+      <td>6050</td>
+      <td>2200</td>
+      <td>3030</td>
+      <td>3200</td>
+    </tr>
+    <tr>
+      <th>2000</th>
+      <td>6400</td>
+      <td>2010</td>
+      <td>3300</td>
+      <td>3600</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="plotting">
+<h2>Plotting<a class="headerlink" href="#plotting" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p><strong>Challenge:</strong><br />
+Plot how the the population of Germany, Italy and France changed over the years 1990 to 2016.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/tab_data05.py</span>
+<span class="n">gb</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cb5b49c8309ffcbb2158b468c324386ec9824055f9190481cd332635b231e1f8.png" src="_images/cb5b49c8309ffcbb2158b468c324386ec9824055f9190481cd332635b231e1f8.png" />
+</div>
+</div>
+<blockquote>
+<div><p><strong>Challenge:</strong><br />
+Redo the analysis from above but now include Spain in addition to Germany, Italy and France into the analysis.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;5-14 years&#39;</span><span class="p">,</span> <span class="s1">&#39;15-49 years&#39;</span><span class="p">,</span> <span class="s1">&#39;50-69 years&#39;</span><span class="p">,</span><span class="s1">&#39;70+ years&#39;</span><span class="p">]</span>
+<span class="n">location</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Spain&quot;</span><span class="p">,</span> <span class="s2">&quot;Germany&quot;</span><span class="p">,</span> <span class="s2">&quot;France&quot;</span><span class="p">,</span> <span class="s2">&quot;Italy&quot;</span><span class="p">]</span>
+<span class="n">sex</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/tab_data03.py</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;5-14 years&#39;</span><span class="p">,</span> <span class="s1">&#39;15-49 years&#39;</span><span class="p">,</span> <span class="s1">&#39;50-69 years&#39;</span><span class="p">,</span><span class="s1">&#39;70+ years&#39;</span><span class="p">]</span>
+<span class="n">location</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Spain&quot;</span><span class="p">,</span> <span class="s2">&quot;Germany&quot;</span><span class="p">,</span> <span class="s2">&quot;France&quot;</span><span class="p">,</span> <span class="s2">&quot;Italy&quot;</span><span class="p">]</span>
+<span class="n">sex</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">]</span>
+
+<span class="n">cond</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;age_group_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span> <span class="o">&amp;</span> 
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;location_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">location</span><span class="p">)</span> <span class="o">&amp;</span> 
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;sex_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">sex</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">pop_subset</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cond</span><span class="p">,:]</span>
+
+<span class="n">gb</span> <span class="o">=</span> <span class="n">pop_subset</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;year_id&quot;</span><span class="p">,</span> <span class="s2">&quot;location_name&quot;</span><span class="p">])[</span><span class="s2">&quot;pop&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(864, 8)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>location_id</th>
+      <th>location_name</th>
+      <th>sex_id</th>
+      <th>sex_name</th>
+      <th>age_group_id</th>
+      <th>age_group_name</th>
+      <th>year_id</th>
+      <th>pop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>232426</th>
+      <td>92</td>
+      <td>Spain</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>23</td>
+      <td>5-14 years</td>
+      <td>2002</td>
+      <td>1957173.82</td>
+    </tr>
+    <tr>
+      <th>232407</th>
+      <td>92</td>
+      <td>Spain</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>23</td>
+      <td>5-14 years</td>
+      <td>1996</td>
+      <td>2321940.07</td>
+    </tr>
+    <tr>
+      <th>217008</th>
+      <td>86</td>
+      <td>Italy</td>
+      <td>1</td>
+      <td>Male</td>
+      <td>25</td>
+      <td>50-69 years</td>
+      <td>1993</td>
+      <td>6365455.69</td>
+    </tr>
+    <tr>
+      <th>232705</th>
+      <td>92</td>
+      <td>Spain</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>26</td>
+      <td>70+ years</td>
+      <td>2014</td>
+      <td>3624896.32</td>
+    </tr>
+    <tr>
+      <th>232513</th>
+      <td>92</td>
+      <td>Spain</td>
+      <td>2</td>
+      <td>Female</td>
+      <td>24</td>
+      <td>15-49 years</td>
+      <td>2004</td>
+      <td>11059651.65</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/tab_data04.py</span>
+<span class="n">gb</span> <span class="o">=</span> <span class="n">pop_subset</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;year_id&quot;</span><span class="p">,</span> <span class="s2">&quot;location_name&quot;</span><span class="p">])[</span><span class="s2">&quot;pop&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">gb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>year_id  location_name
+1990     France           52924678.45
+         Germany          74905392.07
+         Italy            53965720.67
+         Spain            36832506.47
+1991     France           53204997.81
+                             ...     
+2015     Spain            44243841.58
+2016     France           61020069.08
+         Germany          78619000.77
+         Italy            57960714.36
+         Spain            44315872.48
+Name: pop, Length: 108, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;year_id&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/78e19583c0de871b81bd2af728e3544ac40b9046e9dce55468accac758ff9e7f.png" src="_images/78e19583c0de871b81bd2af728e3544ac40b9046e9dce55468accac758ff9e7f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><h3 class="rubric" id="challenge-compute-the-population-of-germany-italy-and-france-for-the-years-1990-to-2016-hint-use-the-groupby-method-for-the-columns-year-id-and-location-name">Challenge: Compute the population of Germany, Italy and France for the years 1990 to 2016. <em>Hint: Use the</em> <code class="docutils literal notranslate"><span class="pre">groupby</span></code> <em>method</em> for the columns <code class="docutils literal notranslate"><span class="pre">year_id</span></code> and <code class="docutils literal notranslate"><span class="pre">location_name</span></code></h3>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/tab_data04.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h2>Plotting<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><h3 class="rubric" id="challenge">Challenge:</h3>
+</div></blockquote>
+<p>Plot how the the population of Germany, Italy and France changed over the years 1990 to 2016.</p>
+<p><em>Hint</em>: Use <code class="docutils literal notranslate"><span class="pre">unstack()</span></code> to deal with multi-Index dataframes : <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.unstack.html">Documentation unstack()</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/tab_data05.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><h3 class="rubric" id="challenge-redo-the-analysis-from-above-but-now-include-spain-in-addition-to-germany-italy-and-france-into-the-analysis">Challenge: Redo the analysis from above but now include Spain in addition to Germany, Italy and France into the analysis.</h3>
+</div></blockquote>
+</section>
+<section id="solution">
+<h2>Solution:<a class="headerlink" href="#solution" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Append <code class="docutils literal notranslate"><span class="pre">'Spain'</span></code> into the location list and rerun the code above</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">location</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Germany&quot;</span><span class="p">,</span> <span class="s2">&quot;France&quot;</span><span class="p">,</span> <span class="s2">&quot;Italy&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">location</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Spain&#39;</span><span class="p">)</span>
+<span class="n">location</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/challenge0.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="challenge-plot-the-the-population-for-all-age-groups-between-1990-2016">
+<h3>Challenge: Plot the the population for all age groups between 1990-2016.<a class="headerlink" href="#challenge-plot-the-the-population-for-all-age-groups-between-1990-2016" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#your code here...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/challenge1.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="challenge-plot-the-the-population-for-5-14-years-and-70-years-for-germany-between-1990-2016">
+<h3>Challenge: Plot the the population for <code class="docutils literal notranslate"><span class="pre">'5-14</span> <span class="pre">years'</span></code> and <code class="docutils literal notranslate"><span class="pre">'70+</span> <span class="pre">years'</span></code> for germany between 1990-2016.<a class="headerlink" href="#challenge-plot-the-the-population-for-5-14-years-and-70-years-for-germany-between-1990-2016" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here...</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;5-14 years&#39;</span><span class="p">,</span> <span class="s1">&#39;15-49 years&#39;</span><span class="p">,</span> <span class="s1">&#39;50-69 years&#39;</span><span class="p">,</span><span class="s1">&#39;70+ years&#39;</span><span class="p">]</span>
+<span class="n">location</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Spain&quot;</span><span class="p">,</span> <span class="s2">&quot;Germany&quot;</span><span class="p">,</span> <span class="s2">&quot;France&quot;</span><span class="p">,</span> <span class="s2">&quot;Italy&quot;</span><span class="p">]</span>
+<span class="n">sex</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">]</span>
+
+<span class="n">cond</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;age_group_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span> <span class="o">&amp;</span> 
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;location_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">location</span><span class="p">)</span> <span class="o">&amp;</span> 
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;sex_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">sex</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">pop_subset</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cond</span><span class="p">,:]</span>
+
+<span class="n">gb</span> <span class="o">=</span> <span class="n">pop_subset</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;year_id&quot;</span><span class="p">,</span> <span class="s2">&quot;age_group_name&quot;</span><span class="p">])[</span><span class="s2">&quot;pop&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/challenge2.py</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;5-14 years&#39;</span><span class="p">,</span><span class="s1">&#39;70+ years&#39;</span><span class="p">]</span>
+<span class="n">location</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Germany&#39;</span><span class="p">]</span>
+<span class="n">sex</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">]</span>
+
+<span class="n">cond</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;age_group_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span> <span class="o">&amp;</span> 
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;location_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">location</span><span class="p">)</span> <span class="o">&amp;</span> 
+    <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;sex_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">sex</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">pop_subset2</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cond</span><span class="p">,:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pop_subset2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pop_subset2</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">gb2</span> <span class="o">=</span> <span class="n">pop_subset2</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;year_id&quot;</span><span class="p">,</span> <span class="s2">&quot;age_group_name&quot;</span><span class="p">])[</span><span class="s2">&quot;pop&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gb2</span><span class="p">)</span>
+
+<span class="n">gb2</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="challenge-plot-the-the-population-for-95-plus-for-germany-grouped-by-sex-name-and-year-id-between-1990-2016">
+<h3>Challenge: Plot the the population for ‘95 plus’ for germany grouped by <code class="docutils literal notranslate"><span class="pre">sex_name</span></code> and <code class="docutils literal notranslate"><span class="pre">year_id</span></code> between 1990-2016.<a class="headerlink" href="#challenge-plot-the-the-population-for-95-plus-for-germany-grouped-by-sex-name-and-year-id-between-1990-2016" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %load ../src/_solutions/challenge3.py</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;5-14 years&#39;</span><span class="p">,</span><span class="s1">&#39;70+ years&#39;</span><span class="p">]</span>
+<span class="n">location</span>  <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Germany&#39;</span><span class="p">,</span> <span class="s1">&#39;Spain&#39;</span><span class="p">]</span>
+<span class="n">sex</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">]</span>
+<span class="n">groupby</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;year_id&quot;</span><span class="p">,</span> <span class="s2">&quot;location_name&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">population_query</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">sex</span><span class="p">,</span> <span class="n">groupby</span><span class="p">):</span>
+    
+    <span class="n">cond</span> <span class="o">=</span> <span class="p">(</span><span class="n">pop</span><span class="p">[</span><span class="s2">&quot;age_group_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;location_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">location</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">pop</span><span class="p">[</span><span class="s2">&quot;sex_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">sex</span><span class="p">))</span>
+
+    <span class="n">pop_subset2</span> <span class="o">=</span> <span class="n">pop</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cond</span><span class="p">,:]</span>
+
+
+    <span class="n">gb2</span> <span class="o">=</span> <span class="n">pop_subset2</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groupby</span><span class="p">)[</span><span class="s2">&quot;pop&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+
+    <span class="k">return</span> <span class="n">gb2</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">population_query</span><span class="p">(</span><span class="n">ages</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">sex</span><span class="p">,</span> <span class="n">groupby</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;year_id&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/ea85ea64dac18bf7cf7a767fc88a59e780b49947b37e836aacc8f875beb2b770.png" src="_images/ea85ea64dac18bf7cf7a767fc88a59e780b49947b37e836aacc8f875beb2b770.png" />
+</div>
+</div>
+<hr class="docutils" />
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="06-03_Temperature_anomalies.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Temperature anomalies - A prelimnary analysis</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-data">Read the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-the-data">Inspect the data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-a-subset-of-the-dataset">Analyzing a subset of the dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#split-apply-combine">Split-Apply-Combine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-index-dataframes">Multi-Index Dataframes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Plotting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-plot-the-the-population-for-all-age-groups-between-1990-2016">Challenge: Plot the the population for all age groups between 1990-2016.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-plot-the-the-population-for-5-14-years-and-70-years-for-germany-between-1990-2016">Challenge: Plot the the population for <code class="docutils literal notranslate"><span class="pre">'5-14</span> <span class="pre">years'</span></code> and <code class="docutils literal notranslate"><span class="pre">'70+</span> <span class="pre">years'</span></code> for germany between 1990-2016.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenge-plot-the-the-population-for-95-plus-for-germany-grouped-by-sex-name-and-year-id-between-1990-2016">Challenge: Plot the the population for ‘95 plus’ for germany grouped by <code class="docutils literal notranslate"><span class="pre">sex_name</span></code> and <code class="docutils literal notranslate"><span class="pre">year_id</span></code> between 1990-2016.</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

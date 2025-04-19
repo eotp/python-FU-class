@@ -1,0 +1,11 @@
+name: class05
+channels:
+- conda-forge
+- defaults
+dependencies:
+- python
+- jupyterlab
+- pandas
+- matplotlib
+- seaborn
+- jupyter-book

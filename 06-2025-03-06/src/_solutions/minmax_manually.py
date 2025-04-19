@@ -1,1 +1,0 @@
-gdf_germany['estimated_generation_gwh_2020_scaled'] = 4 + (gdf_germany['estimated_generation_gwh_2020'] - gdf_germany['estimated_generation_gwh_2020'].min())*(400-4)/(gdf_germany['estimated_generation_gwh_2020'].max()-gdf_germany['estimated_generation_gwh_2020'].min())

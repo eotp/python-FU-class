@@ -1,1 +1,0 @@
-sns.pairplot(iris, hue="species");
