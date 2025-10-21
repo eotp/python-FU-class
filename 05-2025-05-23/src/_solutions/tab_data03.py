@@ -4,6 +4,6 @@ cond = (
     pop["sex_name"].isin(sex)
 )
 
-pop_subset = pop.loc[cond,:]
+pop_subset = pop.loc[cond]
 print(pop_subset.shape)
 pop_subset.sample(5)

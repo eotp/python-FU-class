@@ -2,7 +2,7 @@
 
 # Assignment 1
 
-*Deadline: 05/02/2025*
+*Deadline: 31/10/2025*
 
 1. Please follow the instructions below to install Conda.
 2. Get familiar with the Shell-Commands `cd`, `ls`, `pwd` and `mkdir`.
@@ -57,7 +57,7 @@ We use Python throughout the class. We further use some additional packages, ins
 
 ![](img/conda-win-prompt.png)
 
-* Weiter unten finden Sie eine kurze Übersicht der verfügbaren Kommandos.
+* You can find a short summary of common commands down below.
 
 ## macOS
 

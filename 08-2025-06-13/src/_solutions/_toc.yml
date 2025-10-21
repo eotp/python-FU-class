@@ -1,0 +1,4 @@
+format: jb-article
+root: 05-00_Processing_of_Tabular_Data.ipynb
+sections:
+- file: 05-01_Temperature_anomalies.ipynb

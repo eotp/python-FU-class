@@ -1,0 +1,6 @@
+fig, ax = plt.subplots(figsize=(12,12), nrows=4)
+hf.visualize_probabilities(p=0.05,loc=mu,scale=sigma, tails='lower', ax=ax[0])
+hf.visualize_probabilities(p=0.05,loc=mu,scale=sigma, tails='upper', ax=ax[1])
+hf.visualize_probabilities(p=0.1,loc=mu,scale=sigma, tails='both', ax=ax[2])
+hf.visualize_probabilities(p=0.50,loc=mu,scale=sigma, tails='inbetween', ax=ax[3])
+fig.tight_layout()

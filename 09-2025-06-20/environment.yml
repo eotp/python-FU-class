@@ -1,11 +1,13 @@
-name: class09
+name: class10
 channels:
-- conda-forge
-- defaults
+  - conda-forge
+  - defaults
 dependencies:
-- python
-- jupyterlab
-- pandas
-- matplotlib
-- numpy
-- spyder
+  - python=3.9
+  - jupyterlab
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scipy
+  - statsmodels
