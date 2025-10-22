@@ -42,10 +42,10 @@ Starts at 14:00 and ends at 18:00 CET
 - 08 - 2025/12/12 
   - Object Oriented Programming (OOP)
   
-- 09 - 2025/01/09 
+- 09 - 2026/01/09 
   - Presentations study projects 
 
-- 10 - 2025/01/16
+- 10 - 2026/01/16
   
   - Interpolation and curve fitting
   - Inferential statistics
@@ -61,19 +61,19 @@ Starts at 14:00 and ends at 18:00 CET
     - Hyperparameter tuning
     - Polynomial Regression
 
-* 11 - 2025/01/23
+* 11 - 2026/01/23
 
   - `Spyder IDE`
   - Dashboarding with `streamlit`
   - Creating dynamic Maps with `folium` 
 
-* 12 - 2025/01/30
+* 12 - 2026/01/30
   
   - Web scraping
   - Wordclouds
 
 
-* 13 - 2025/02/06 
+* 13 - 2026/02/06 
 
   - Feedback round
   - APIs (FastAPI)
