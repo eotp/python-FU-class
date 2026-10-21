@@ -1,0 +1,10 @@
+name: class04
+channels:
+   - conda-forge
+   - defaults
+dependencies:
+   - python
+   - jupyterlab
+   - pandas
+   - matplotlib
+   - seaborn

@@ -1,0 +1,15 @@
+name: class06
+channels:
+- conda-forge
+- defaults
+dependencies:
+- python
+- jupyterlab
+- pandas
+- geopandas
+- descartes
+- cartopy
+- folium
+- matplotlib
+- seaborn
+- jupyter-book

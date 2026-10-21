@@ -1,0 +1,6 @@
+g = sns.FacetGrid(data=iris, col="species", hue = "species")
+g.map(plt.scatter, "sepal_length", "sepal_width", alpha=.7)
+g.set_axis_labels("Sepal length (mm)", "Sepal width (mm)", fontsize=10)
+g.set_xticklabels(fontsize=10)
+g.set_yticklabels(fontsize=10)
+g.fig.set_dpi(300)
